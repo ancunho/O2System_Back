@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.management.dao.ProjectCustomerMapper">
+	<resultMap id="BaseResultMap" type="com.business.management.pojo.ProjectCustomer">
+		<id column="ID" jdbcType="INTEGER" property="id"/>
+		<result column="PROJECT_ID" jdbcType="INTEGER" property="projectId"/>
+		<result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName"/>
+		<result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd"/>
+		<result column="DIRECTOR" jdbcType="VARCHAR" property="director"/>
+		<result column="STATUS" jdbcType="VARCHAR" property="status"/>
+		<result column="MOBILE" jdbcType="VARCHAR" property="mobile"/>
+		<result column="WECHAT" jdbcType="VARCHAR" property="wechat"/>
+		<result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+		<result column="SALES_VOLUMN" jdbcType="VARCHAR" property="salesVolumn"/>
+		<result column="DEVELOPMENT_SKILL" jdbcType="VARCHAR" property="developmentSkill"/>
+		<result column="TARGET" jdbcType="VARCHAR" property="target"/>
+		<result column="PRODUCT_LIST" jdbcType="VARCHAR" property="productList"/>
+		<result column="DISTRIBUTION" jdbcType="VARCHAR" property="distribution"/>
+		<result column="CITY" jdbcType="VARCHAR" property="city"/>
+		<result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
+		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
+		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
+		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
+		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
+		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+    ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_CD, DIRECTOR, STATUS, MOBILE, WECHAT, DESCRIPTION, 
+    SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, DISTRIBUTION, CITY, ADDRESS, 
+    PARAM1, PARAM2, PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+  </sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_project_customer
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_project_customer
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+	<insert id="insert" parameterType="com.business.management.pojo.ProjectCustomer">
+    insert into tb_project_customer (ID, PROJECT_ID, CUSTOMER_NAME, 
+      CUSTOMER_CD, DIRECTOR, STATUS, 
+      MOBILE, WECHAT, DESCRIPTION, 
+      SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, 
+      PRODUCT_LIST, DISTRIBUTION, CITY, 
+      ADDRESS, PARAM1, PARAM2, 
+      PARAM3, PARAM4, PARAM5, 
+      CREATETIME, UPDATETIME)
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, 
+      #{customerCd,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{salesVolumn,jdbcType=VARCHAR}, #{developmentSkill,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, 
+      #{productList,jdbcType=VARCHAR}, #{distribution,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, 
+      #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+	<insert id="insertSelective" parameterType="com.business.management.pojo.ProjectCustomer">
+		insert into tb_project_customer
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="projectId != null">
+				PROJECT_ID,
+			</if>
+			<if test="customerName != null">
+				CUSTOMER_NAME,
+			</if>
+			<if test="customerCd != null">
+				CUSTOMER_CD,
+			</if>
+			<if test="director != null">
+				DIRECTOR,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="mobile != null">
+				MOBILE,
+			</if>
+			<if test="wechat != null">
+				WECHAT,
+			</if>
+			<if test="description != null">
+				DESCRIPTION,
+			</if>
+			<if test="salesVolumn != null">
+				SALES_VOLUMN,
+			</if>
+			<if test="developmentSkill != null">
+				DEVELOPMENT_SKILL,
+			</if>
+			<if test="target != null">
+				TARGET,
+			</if>
+			<if test="productList != null">
+				PRODUCT_LIST,
+			</if>
+			<if test="distribution != null">
+				DISTRIBUTION,
+			</if>
+			<if test="city != null">
+				CITY,
+			</if>
+			<if test="address != null">
+				ADDRESS,
+			</if>
+			<if test="param1 != null">
+				PARAM1,
+			</if>
+			<if test="param2 != null">
+				PARAM2,
+			</if>
+			<if test="param3 != null">
+				PARAM3,
+			</if>
+			<if test="param4 != null">
+				PARAM4,
+			</if>
+			<if test="param5 != null">
+				PARAM5,
+			</if>
+			<if test="createtime != null">
+				CREATETIME,
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="projectId != null">
+				#{projectId,jdbcType=INTEGER},
+			</if>
+			<if test="customerName != null">
+				#{customerName,jdbcType=VARCHAR},
+			</if>
+			<if test="customerCd != null">
+				#{customerCd,jdbcType=VARCHAR},
+			</if>
+			<if test="director != null">
+				#{director,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="mobile != null">
+				#{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="wechat != null">
+				#{wechat,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="salesVolumn != null">
+				#{salesVolumn,jdbcType=VARCHAR},
+			</if>
+			<if test="developmentSkill != null">
+				#{developmentSkill,jdbcType=VARCHAR},
+			</if>
+			<if test="target != null">
+				#{target,jdbcType=VARCHAR},
+			</if>
+			<if test="productList != null">
+				#{productList,jdbcType=VARCHAR},
+			</if>
+			<if test="distribution != null">
+				#{distribution,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				#{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				#{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				#{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				#{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				#{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.ProjectCustomer">
+		update tb_project_customer
+		<set>
+			<if test="projectId != null">
+				PROJECT_ID = #{projectId,jdbcType=INTEGER},
+			</if>
+			<if test="customerName != null">
+				CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
+			</if>
+			<if test="customerCd != null">
+				CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
+			</if>
+			<if test="director != null">
+				DIRECTOR = #{director,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="mobile != null">
+				MOBILE = #{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="wechat != null">
+				WECHAT = #{wechat,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				DESCRIPTION = #{description,jdbcType=VARCHAR},
+			</if>
+			<if test="salesVolumn != null">
+				SALES_VOLUMN = #{salesVolumn,jdbcType=VARCHAR},
+			</if>
+			<if test="developmentSkill != null">
+				DEVELOPMENT_SKILL = #{developmentSkill,jdbcType=VARCHAR},
+			</if>
+			<if test="target != null">
+				TARGET = #{target,jdbcType=VARCHAR},
+			</if>
+			<if test="productList != null">
+				PRODUCT_LIST = #{productList,jdbcType=VARCHAR},
+			</if>
+			<if test="distribution != null">
+				DISTRIBUTION = #{distribution,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				CITY = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				PARAM1 = #{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				PARAM2 = #{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				PARAM3 = #{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				PARAM4 = #{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				PARAM5 = #{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.ProjectCustomer">
+    update tb_project_customer
+    set PROJECT_ID = #{projectId,jdbcType=INTEGER},
+      CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
+      CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
+      DIRECTOR = #{director,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      WECHAT = #{wechat,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      SALES_VOLUMN = #{salesVolumn,jdbcType=VARCHAR},
+      DEVELOPMENT_SKILL = #{developmentSkill,jdbcType=VARCHAR},
+      TARGET = #{target,jdbcType=VARCHAR},
+      PRODUCT_LIST = #{productList,jdbcType=VARCHAR},
+      DISTRIBUTION = #{distribution,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PARAM1 = #{param1,jdbcType=VARCHAR},
+      PARAM2 = #{param2,jdbcType=VARCHAR},
+      PARAM3 = #{param3,jdbcType=VARCHAR},
+      PARAM4 = #{param4,jdbcType=VARCHAR},
+      PARAM5 = #{param5,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

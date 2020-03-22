@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.management.dao.ProjectBaseinfoMapper">
+	<resultMap id="BaseResultMap" type="com.business.management.pojo.ProjectBaseinfo">
+		<id column="PROJECT_ID" jdbcType="INTEGER" property="projectId"/>
+		<result column="PROJECT_CD" jdbcType="VARCHAR" property="projectCd"/>
+		<result column="PROJECT_NAME" jdbcType="VARCHAR" property="projectName"/>
+		<result column="PROJECT_CUSTOMER" jdbcType="VARCHAR" property="projectCustomer"/>
+		<result column="PROJECT_PRICE_TOTAL" jdbcType="VARCHAR" property="projectPriceTotal"/>
+		<result column="PROJECT_STATUS" jdbcType="VARCHAR" property="projectStatus"/>
+		<result column="PROJECT_STARTTIME" jdbcType="VARCHAR" property="projectStarttime"/>
+		<result column="PROJECT_ENDTIME" jdbcType="VARCHAR" property="projectEndtime"/>
+		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
+		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
+		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
+		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
+		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
+		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+    PROJECT_ID, PROJECT_CD, PROJECT_NAME, PROJECT_CUSTOMER, PROJECT_PRICE_TOTAL, PROJECT_STATUS, 
+    PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, PARAM2, PARAM3, PARAM4, PARAM5, CREATETIME, 
+    UPDATETIME
+  </sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_project_baseinfo
+		where PROJECT_ID = #{projectId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_project_baseinfo
+    where PROJECT_ID = #{projectId,jdbcType=INTEGER}
+  </delete>
+	<insert id="insert" parameterType="com.business.management.pojo.ProjectBaseinfo">
+    insert into tb_project_baseinfo (PROJECT_ID, PROJECT_CD, PROJECT_NAME, 
+      PROJECT_CUSTOMER, PROJECT_PRICE_TOTAL, PROJECT_STATUS, 
+      PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, 
+      PARAM2, PARAM3, PARAM4, 
+      PARAM5, CREATETIME, UPDATETIME
+      )
+    values (#{projectId,jdbcType=INTEGER}, #{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, 
+      #{projectCustomer,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR}, #{projectStatus,jdbcType=VARCHAR}, 
+      #{projectStarttime,jdbcType=VARCHAR}, #{projectEndtime,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, 
+      #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, 
+      #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+	<insert id="insertSelective" parameterType="com.business.management.pojo.ProjectBaseinfo">
+		insert into tb_project_baseinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="projectId != null">
+				PROJECT_ID,
+			</if>
+			<if test="projectCd != null">
+				PROJECT_CD,
+			</if>
+			<if test="projectName != null">
+				PROJECT_NAME,
+			</if>
+			<if test="projectCustomer != null">
+				PROJECT_CUSTOMER,
+			</if>
+			<if test="projectPriceTotal != null">
+				PROJECT_PRICE_TOTAL,
+			</if>
+			<if test="projectStatus != null">
+				PROJECT_STATUS,
+			</if>
+			<if test="projectStarttime != null">
+				PROJECT_STARTTIME,
+			</if>
+			<if test="projectEndtime != null">
+				PROJECT_ENDTIME,
+			</if>
+			<if test="param1 != null">
+				PARAM1,
+			</if>
+			<if test="param2 != null">
+				PARAM2,
+			</if>
+			<if test="param3 != null">
+				PARAM3,
+			</if>
+			<if test="param4 != null">
+				PARAM4,
+			</if>
+			<if test="param5 != null">
+				PARAM5,
+			</if>
+			<if test="createtime != null">
+				CREATETIME,
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="projectId != null">
+				#{projectId,jdbcType=INTEGER},
+			</if>
+			<if test="projectCd != null">
+				#{projectCd,jdbcType=VARCHAR},
+			</if>
+			<if test="projectName != null">
+				#{projectName,jdbcType=VARCHAR},
+			</if>
+			<if test="projectCustomer != null">
+				#{projectCustomer,jdbcType=VARCHAR},
+			</if>
+			<if test="projectPriceTotal != null">
+				#{projectPriceTotal,jdbcType=VARCHAR},
+			</if>
+			<if test="projectStatus != null">
+				#{projectStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="projectStarttime != null">
+				#{projectStarttime,jdbcType=VARCHAR},
+			</if>
+			<if test="projectEndtime != null">
+				#{projectEndtime,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				#{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				#{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				#{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				#{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				#{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.ProjectBaseinfo">
+		update tb_project_baseinfo
+		<set>
+			<if test="projectCd != null">
+				PROJECT_CD = #{projectCd,jdbcType=VARCHAR},
+			</if>
+			<if test="projectName != null">
+				PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+			</if>
+			<if test="projectCustomer != null">
+				PROJECT_CUSTOMER = #{projectCustomer,jdbcType=VARCHAR},
+			</if>
+			<if test="projectPriceTotal != null">
+				PROJECT_PRICE_TOTAL = #{projectPriceTotal,jdbcType=VARCHAR},
+			</if>
+			<if test="projectStatus != null">
+				PROJECT_STATUS = #{projectStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="projectStarttime != null">
+				PROJECT_STARTTIME = #{projectStarttime,jdbcType=VARCHAR},
+			</if>
+			<if test="projectEndtime != null">
+				PROJECT_ENDTIME = #{projectEndtime,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				PARAM1 = #{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				PARAM2 = #{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				PARAM3 = #{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				PARAM4 = #{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				PARAM5 = #{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where PROJECT_ID = #{projectId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.ProjectBaseinfo">
+    update tb_project_baseinfo
+    set PROJECT_CD = #{projectCd,jdbcType=VARCHAR},
+      PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
+      PROJECT_CUSTOMER = #{projectCustomer,jdbcType=VARCHAR},
+      PROJECT_PRICE_TOTAL = #{projectPriceTotal,jdbcType=VARCHAR},
+      PROJECT_STATUS = #{projectStatus,jdbcType=VARCHAR},
+      PROJECT_STARTTIME = #{projectStarttime,jdbcType=VARCHAR},
+      PROJECT_ENDTIME = #{projectEndtime,jdbcType=VARCHAR},
+      PARAM1 = #{param1,jdbcType=VARCHAR},
+      PARAM2 = #{param2,jdbcType=VARCHAR},
+      PARAM3 = #{param3,jdbcType=VARCHAR},
+      PARAM4 = #{param4,jdbcType=VARCHAR},
+      PARAM5 = #{param5,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+    where PROJECT_ID = #{projectId,jdbcType=INTEGER}
+  </update>
+</mapper>

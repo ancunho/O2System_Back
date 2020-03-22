@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.management.dao.ProjectPriceMapper">
+	<resultMap id="BaseResultMap" type="com.business.management.pojo.ProjectPrice">
+		<id column="ID" jdbcType="INTEGER" property="id"/>
+		<result column="PROJECT_ID" jdbcType="INTEGER" property="projectId"/>
+		<result column="PROJECT_PRODUCT_ID" jdbcType="INTEGER" property="projectProductId"/>
+		<result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName"/>
+		<result column="ORDER_QUANTITY" jdbcType="VARCHAR" property="orderQuantity"/>
+		<result column="ACTUAL_INPUT" jdbcType="VARCHAR" property="actualInput"/>
+		<result column="UNIT_WEIGHT" jdbcType="VARCHAR" property="unitWeight"/>
+		<result column="WEIGHT" jdbcType="VARCHAR" property="weight"/>
+		<result column="PACKAGE_SPEC" jdbcType="VARCHAR" property="packageSpec"/>
+		<result column="THEORY_QUANTITY" jdbcType="VARCHAR" property="theoryQuantity"/>
+		<result column="YIELD_PERCENT" jdbcType="VARCHAR" property="yieldPercent"/>
+		<result column="ACTUAL_PRODUCTION" jdbcType="VARCHAR" property="actualProduction"/>
+		<result column="PRICE_LIST" jdbcType="VARCHAR" property="priceList"/>
+		<result column="DESCRIPTION_LIST" jdbcType="VARCHAR" property="descriptionList"/>
+		<result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+		<result column="VALUE_NO_VAT" jdbcType="VARCHAR" property="valueNoVat"/>
+		<result column="SPECIAL_COMMENT" jdbcType="VARCHAR" property="specialComment"/>
+		<result column="PERSON_IN_CHARGE" jdbcType="VARCHAR" property="personInCharge"/>
+		<result column="RELEASE_DATE" jdbcType="VARCHAR" property="releaseDate"/>
+		<result column="DEAL_PLACE" jdbcType="VARCHAR" property="dealPlace"/>
+		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
+		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
+		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
+		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
+		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
+		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+    ID, PROJECT_ID, PROJECT_PRODUCT_ID, PRODUCT_NAME, ORDER_QUANTITY, ACTUAL_INPUT, UNIT_WEIGHT, 
+    WEIGHT, PACKAGE_SPEC, THEORY_QUANTITY, YIELD_PERCENT, ACTUAL_PRODUCTION, PRICE_LIST, 
+    DESCRIPTION_LIST, REMARK, VALUE_NO_VAT, SPECIAL_COMMENT, PERSON_IN_CHARGE, RELEASE_DATE, 
+    DEAL_PLACE, PARAM1, PARAM2, PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+  </sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_project_price
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_project_price
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+	<insert id="insert" parameterType="com.business.management.pojo.ProjectPrice">
+    insert into tb_project_price (ID, PROJECT_ID, PROJECT_PRODUCT_ID, 
+      PRODUCT_NAME, ORDER_QUANTITY, ACTUAL_INPUT, 
+      UNIT_WEIGHT, WEIGHT, PACKAGE_SPEC, 
+      THEORY_QUANTITY, YIELD_PERCENT, ACTUAL_PRODUCTION, 
+      PRICE_LIST, DESCRIPTION_LIST, REMARK, 
+      VALUE_NO_VAT, SPECIAL_COMMENT, PERSON_IN_CHARGE, 
+      RELEASE_DATE, DEAL_PLACE, PARAM1, 
+      PARAM2, PARAM3, PARAM4, 
+      PARAM5, CREATETIME, UPDATETIME
+      )
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{projectProductId,jdbcType=INTEGER}, 
+      #{productName,jdbcType=VARCHAR}, #{orderQuantity,jdbcType=VARCHAR}, #{actualInput,jdbcType=VARCHAR}, 
+      #{unitWeight,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{packageSpec,jdbcType=VARCHAR}, 
+      #{theoryQuantity,jdbcType=VARCHAR}, #{yieldPercent,jdbcType=VARCHAR}, #{actualProduction,jdbcType=VARCHAR}, 
+      #{priceList,jdbcType=VARCHAR}, #{descriptionList,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{valueNoVat,jdbcType=VARCHAR}, #{specialComment,jdbcType=VARCHAR}, #{personInCharge,jdbcType=VARCHAR}, 
+      #{releaseDate,jdbcType=VARCHAR}, #{dealPlace,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, 
+      #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, 
+      #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+	<insert id="insertSelective" parameterType="com.business.management.pojo.ProjectPrice">
+		insert into tb_project_price
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="projectId != null">
+				PROJECT_ID,
+			</if>
+			<if test="projectProductId != null">
+				PROJECT_PRODUCT_ID,
+			</if>
+			<if test="productName != null">
+				PRODUCT_NAME,
+			</if>
+			<if test="orderQuantity != null">
+				ORDER_QUANTITY,
+			</if>
+			<if test="actualInput != null">
+				ACTUAL_INPUT,
+			</if>
+			<if test="unitWeight != null">
+				UNIT_WEIGHT,
+			</if>
+			<if test="weight != null">
+				WEIGHT,
+			</if>
+			<if test="packageSpec != null">
+				PACKAGE_SPEC,
+			</if>
+			<if test="theoryQuantity != null">
+				THEORY_QUANTITY,
+			</if>
+			<if test="yieldPercent != null">
+				YIELD_PERCENT,
+			</if>
+			<if test="actualProduction != null">
+				ACTUAL_PRODUCTION,
+			</if>
+			<if test="priceList != null">
+				PRICE_LIST,
+			</if>
+			<if test="descriptionList != null">
+				DESCRIPTION_LIST,
+			</if>
+			<if test="remark != null">
+				REMARK,
+			</if>
+			<if test="valueNoVat != null">
+				VALUE_NO_VAT,
+			</if>
+			<if test="specialComment != null">
+				SPECIAL_COMMENT,
+			</if>
+			<if test="personInCharge != null">
+				PERSON_IN_CHARGE,
+			</if>
+			<if test="releaseDate != null">
+				RELEASE_DATE,
+			</if>
+			<if test="dealPlace != null">
+				DEAL_PLACE,
+			</if>
+			<if test="param1 != null">
+				PARAM1,
+			</if>
+			<if test="param2 != null">
+				PARAM2,
+			</if>
+			<if test="param3 != null">
+				PARAM3,
+			</if>
+			<if test="param4 != null">
+				PARAM4,
+			</if>
+			<if test="param5 != null">
+				PARAM5,
+			</if>
+			<if test="createtime != null">
+				CREATETIME,
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="projectId != null">
+				#{projectId,jdbcType=INTEGER},
+			</if>
+			<if test="projectProductId != null">
+				#{projectProductId,jdbcType=INTEGER},
+			</if>
+			<if test="productName != null">
+				#{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="orderQuantity != null">
+				#{orderQuantity,jdbcType=VARCHAR},
+			</if>
+			<if test="actualInput != null">
+				#{actualInput,jdbcType=VARCHAR},
+			</if>
+			<if test="unitWeight != null">
+				#{unitWeight,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				#{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="packageSpec != null">
+				#{packageSpec,jdbcType=VARCHAR},
+			</if>
+			<if test="theoryQuantity != null">
+				#{theoryQuantity,jdbcType=VARCHAR},
+			</if>
+			<if test="yieldPercent != null">
+				#{yieldPercent,jdbcType=VARCHAR},
+			</if>
+			<if test="actualProduction != null">
+				#{actualProduction,jdbcType=VARCHAR},
+			</if>
+			<if test="priceList != null">
+				#{priceList,jdbcType=VARCHAR},
+			</if>
+			<if test="descriptionList != null">
+				#{descriptionList,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="valueNoVat != null">
+				#{valueNoVat,jdbcType=VARCHAR},
+			</if>
+			<if test="specialComment != null">
+				#{specialComment,jdbcType=VARCHAR},
+			</if>
+			<if test="personInCharge != null">
+				#{personInCharge,jdbcType=VARCHAR},
+			</if>
+			<if test="releaseDate != null">
+				#{releaseDate,jdbcType=VARCHAR},
+			</if>
+			<if test="dealPlace != null">
+				#{dealPlace,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				#{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				#{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				#{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				#{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				#{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.ProjectPrice">
+		update tb_project_price
+		<set>
+			<if test="projectId != null">
+				PROJECT_ID = #{projectId,jdbcType=INTEGER},
+			</if>
+			<if test="projectProductId != null">
+				PROJECT_PRODUCT_ID = #{projectProductId,jdbcType=INTEGER},
+			</if>
+			<if test="productName != null">
+				PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="orderQuantity != null">
+				ORDER_QUANTITY = #{orderQuantity,jdbcType=VARCHAR},
+			</if>
+			<if test="actualInput != null">
+				ACTUAL_INPUT = #{actualInput,jdbcType=VARCHAR},
+			</if>
+			<if test="unitWeight != null">
+				UNIT_WEIGHT = #{unitWeight,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				WEIGHT = #{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="packageSpec != null">
+				PACKAGE_SPEC = #{packageSpec,jdbcType=VARCHAR},
+			</if>
+			<if test="theoryQuantity != null">
+				THEORY_QUANTITY = #{theoryQuantity,jdbcType=VARCHAR},
+			</if>
+			<if test="yieldPercent != null">
+				YIELD_PERCENT = #{yieldPercent,jdbcType=VARCHAR},
+			</if>
+			<if test="actualProduction != null">
+				ACTUAL_PRODUCTION = #{actualProduction,jdbcType=VARCHAR},
+			</if>
+			<if test="priceList != null">
+				PRICE_LIST = #{priceList,jdbcType=VARCHAR},
+			</if>
+			<if test="descriptionList != null">
+				DESCRIPTION_LIST = #{descriptionList,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				REMARK = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="valueNoVat != null">
+				VALUE_NO_VAT = #{valueNoVat,jdbcType=VARCHAR},
+			</if>
+			<if test="specialComment != null">
+				SPECIAL_COMMENT = #{specialComment,jdbcType=VARCHAR},
+			</if>
+			<if test="personInCharge != null">
+				PERSON_IN_CHARGE = #{personInCharge,jdbcType=VARCHAR},
+			</if>
+			<if test="releaseDate != null">
+				RELEASE_DATE = #{releaseDate,jdbcType=VARCHAR},
+			</if>
+			<if test="dealPlace != null">
+				DEAL_PLACE = #{dealPlace,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				PARAM1 = #{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				PARAM2 = #{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				PARAM3 = #{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				PARAM4 = #{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				PARAM5 = #{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.ProjectPrice">
+    update tb_project_price
+    set PROJECT_ID = #{projectId,jdbcType=INTEGER},
+      PROJECT_PRODUCT_ID = #{projectProductId,jdbcType=INTEGER},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      ORDER_QUANTITY = #{orderQuantity,jdbcType=VARCHAR},
+      ACTUAL_INPUT = #{actualInput,jdbcType=VARCHAR},
+      UNIT_WEIGHT = #{unitWeight,jdbcType=VARCHAR},
+      WEIGHT = #{weight,jdbcType=VARCHAR},
+      PACKAGE_SPEC = #{packageSpec,jdbcType=VARCHAR},
+      THEORY_QUANTITY = #{theoryQuantity,jdbcType=VARCHAR},
+      YIELD_PERCENT = #{yieldPercent,jdbcType=VARCHAR},
+      ACTUAL_PRODUCTION = #{actualProduction,jdbcType=VARCHAR},
+      PRICE_LIST = #{priceList,jdbcType=VARCHAR},
+      DESCRIPTION_LIST = #{descriptionList,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      VALUE_NO_VAT = #{valueNoVat,jdbcType=VARCHAR},
+      SPECIAL_COMMENT = #{specialComment,jdbcType=VARCHAR},
+      PERSON_IN_CHARGE = #{personInCharge,jdbcType=VARCHAR},
+      RELEASE_DATE = #{releaseDate,jdbcType=VARCHAR},
+      DEAL_PLACE = #{dealPlace,jdbcType=VARCHAR},
+      PARAM1 = #{param1,jdbcType=VARCHAR},
+      PARAM2 = #{param2,jdbcType=VARCHAR},
+      PARAM3 = #{param3,jdbcType=VARCHAR},
+      PARAM4 = #{param4,jdbcType=VARCHAR},
+      PARAM5 = #{param5,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

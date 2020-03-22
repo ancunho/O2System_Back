@@ -1,0 +1,56 @@
+#Server
+
+#Spring Database Info
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+
+  #thymelea?
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+
+#Mybatis Configuration
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+#PageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
+#  Logging Info
+logging:
+  pattern:
+    file: "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+  file:
+    max-size: 10MB
+  path: "logs"
+
+#server:
+#  port: 8082
+
+
+#PageHelper
+
+#Qiniu
+qiniu:
+  accessKey: J8vuunG0y2pxF33-Ec8-OJSoAVowGgU5rvAx8zjC
+  secretKey: xkKHRD7kmLY8K3Z7cWiw-rn2pKFQTUtReBNEF2PV
+  bucket: ancunhotest
+server:
+  port: 8000
+
+
+

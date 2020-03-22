@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.management.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.business.management.pojo.User">
+		<id column="ID" jdbcType="INTEGER" property="id"/>
+		<result column="USERNAME" jdbcType="VARCHAR" property="username"/>
+		<result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
+		<result column="ROLE" jdbcType="VARCHAR" property="role"/>
+		<result column="STATUS" jdbcType="VARCHAR" property="status"/>
+		<result column="EMPNO" jdbcType="VARCHAR" property="empno"/>
+		<result column="REALNAME" jdbcType="VARCHAR" property="realname"/>
+		<result column="PHONE" jdbcType="VARCHAR" property="phone"/>
+		<result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+		<result column="DEPARTMENT" jdbcType="VARCHAR" property="department"/>
+		<result column="SEX" jdbcType="VARCHAR" property="sex"/>
+		<result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday"/>
+		<result column="WECHAT_ID" jdbcType="VARCHAR" property="wechatId"/>
+		<result column="QQ" jdbcType="VARCHAR" property="qq"/>
+		<result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+		<result column="QUESTION" jdbcType="VARCHAR" property="question"/>
+		<result column="ANSWER" jdbcType="VARCHAR" property="answer"/>
+		<result column="IMAGE_PHOTO" jdbcType="VARCHAR" property="imagePhoto"/>
+		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
+		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
+		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
+		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
+		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
+		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+    ID, USERNAME, PASSWORD, ROLE, STATUS, EMPNO, REALNAME, PHONE, EMAIL, DEPARTMENT, 
+    SEX, BIRTHDAY, WECHAT_ID, QQ, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2, 
+    PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+  </sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_user
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+	<insert id="insert" parameterType="com.business.management.pojo.User">
+    insert into tb_user (ID, USERNAME, PASSWORD, 
+      ROLE, STATUS, EMPNO, 
+      REALNAME, PHONE, EMAIL, 
+      DEPARTMENT, SEX, BIRTHDAY, 
+      WECHAT_ID, QQ, ADDRESS, 
+      QUESTION, ANSWER, IMAGE_PHOTO, 
+      PARAM1, PARAM2, PARAM3, 
+      PARAM4, PARAM5, CREATETIME, 
+      UPDATETIME)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{empno,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{wechatId,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{imagePhoto,jdbcType=VARCHAR}, 
+      #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
+      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+	<insert id="insertSelective" parameterType="com.business.management.pojo.User">
+		insert into tb_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="username != null">
+				USERNAME,
+			</if>
+			<if test="password != null">
+				PASSWORD,
+			</if>
+			<if test="role != null">
+				ROLE,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="empno != null">
+				EMPNO,
+			</if>
+			<if test="realname != null">
+				REALNAME,
+			</if>
+			<if test="phone != null">
+				PHONE,
+			</if>
+			<if test="email != null">
+				EMAIL,
+			</if>
+			<if test="department != null">
+				DEPARTMENT,
+			</if>
+			<if test="sex != null">
+				SEX,
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY,
+			</if>
+			<if test="wechatId != null">
+				WECHAT_ID,
+			</if>
+			<if test="qq != null">
+				QQ,
+			</if>
+			<if test="address != null">
+				ADDRESS,
+			</if>
+			<if test="question != null">
+				QUESTION,
+			</if>
+			<if test="answer != null">
+				ANSWER,
+			</if>
+			<if test="imagePhoto != null">
+				IMAGE_PHOTO,
+			</if>
+			<if test="param1 != null">
+				PARAM1,
+			</if>
+			<if test="param2 != null">
+				PARAM2,
+			</if>
+			<if test="param3 != null">
+				PARAM3,
+			</if>
+			<if test="param4 != null">
+				PARAM4,
+			</if>
+			<if test="param5 != null">
+				PARAM5,
+			</if>
+			<if test="createtime != null">
+				CREATETIME,
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				#{role,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="empno != null">
+				#{empno,jdbcType=VARCHAR},
+			</if>
+			<if test="realname != null">
+				#{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				#{department,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				#{birthday,jdbcType=VARCHAR},
+			</if>
+			<if test="wechatId != null">
+				#{wechatId,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				#{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="question != null">
+				#{question,jdbcType=VARCHAR},
+			</if>
+			<if test="answer != null">
+				#{answer,jdbcType=VARCHAR},
+			</if>
+			<if test="imagePhoto != null">
+				#{imagePhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				#{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				#{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				#{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				#{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				#{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.User">
+		update tb_user
+		<set>
+			<if test="username != null">
+				USERNAME = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				PASSWORD = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				ROLE = #{role,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="empno != null">
+				EMPNO = #{empno,jdbcType=VARCHAR},
+			</if>
+			<if test="realname != null">
+				REALNAME = #{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				PHONE = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				EMAIL = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				DEPARTMENT = #{department,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				SEX = #{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+			</if>
+			<if test="wechatId != null">
+				WECHAT_ID = #{wechatId,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				QQ = #{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="question != null">
+				QUESTION = #{question,jdbcType=VARCHAR},
+			</if>
+			<if test="answer != null">
+				ANSWER = #{answer,jdbcType=VARCHAR},
+			</if>
+			<if test="imagePhoto != null">
+				IMAGE_PHOTO = #{imagePhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="param1 != null">
+				PARAM1 = #{param1,jdbcType=VARCHAR},
+			</if>
+			<if test="param2 != null">
+				PARAM2 = #{param2,jdbcType=VARCHAR},
+			</if>
+			<if test="param3 != null">
+				PARAM3 = #{param3,jdbcType=VARCHAR},
+			</if>
+			<if test="param4 != null">
+				PARAM4 = #{param4,jdbcType=VARCHAR},
+			</if>
+			<if test="param5 != null">
+				PARAM5 = #{param5,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.User">
+    update tb_user
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      ROLE = #{role,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      EMPNO = #{empno,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      DEPARTMENT = #{department,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      WECHAT_ID = #{wechatId,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      QUESTION = #{question,jdbcType=VARCHAR},
+      ANSWER = #{answer,jdbcType=VARCHAR},
+      IMAGE_PHOTO = #{imagePhoto,jdbcType=VARCHAR},
+      PARAM1 = #{param1,jdbcType=VARCHAR},
+      PARAM2 = #{param2,jdbcType=VARCHAR},
+      PARAM3 = #{param3,jdbcType=VARCHAR},
+      PARAM4 = #{param4,jdbcType=VARCHAR},
+      PARAM5 = #{param5,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+	<select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+		SELECT
+		<include refid="Base_Column_List"/>
+		from tb_user
+		where username = #{username}
+		and password = #{password}
+	</select>
+
+	<select id="checkUsername" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(1) from tb_user
+		where username = #{username}
+	</select>
+
+	<select id="checkAdminUsername" resultType="java.lang.Integer" parameterType="map">
+		select 	count(1)
+		from 	tb_user
+		where 	username = #{username}
+		and		role = #{role}
+	</select>
+
+	<select id="checkEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(1) from tb_user
+		where email = #{email}
+	</select>
+
+
+
+
+</mapper>
