@@ -52,17 +52,17 @@ public class UserController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ServerResponse create(HttpSession session, User user) {
         // 1. 로그인 체크
-        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-        if (currentUser == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
-        }
-        // 2. 관리자 체크
-        if (userService.checkAdminRole(currentUser).isSuccess()) {
-            return userService.addUser(user);
-        } else {
-            // 3. 관리자가 아니면 등록못함.
-            return ServerResponse.createByErrorMessage("无权限操作");
-        }
+//        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+//        if (currentUser == null) {
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
+//        }
+//        // 2. 관리자 체크
+//        if (userService.checkAdminRole(currentUser).isSuccess()) {
+        return userService.addUser(user);
+//        } else {
+//            // 3. 관리자가 아니면 등록못함.
+//            return ServerResponse.createByErrorMessage("无权限操作");
+//        }
     }
 
 }
