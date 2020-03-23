@@ -1,168 +1,70 @@
-2020/03/22-19:00 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 11740 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-19:00 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-19:00 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.business.management]' package. Please check your configuration.
-2020/03/22-19:00 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9dc3c24d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-19:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-19:00 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-19:00 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 3140 ms
-2020/03/22-19:00 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-19:00 [main] WARN  org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2020/03/22-19:00 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-19:00 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-19:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
-2020/03/22-19:00 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.714 seconds (JVM running for 10.447)
-2020/03/22-19:00 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-19:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-19:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-19:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 10 ms
-2020/03/22-19:00 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-19:02 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 964 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-19:02 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-19:02 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.business.management]' package. Please check your configuration.
-2020/03/22-19:02 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$eb2565c1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-19:02 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-19:02 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-19:02 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2410 ms
-2020/03/22-19:02 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-19:02 [main] WARN  org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2020/03/22-19:02 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-19:02 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-19:02 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-19:02 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 3.998 seconds (JVM running for 9.373)
-2020/03/22-19:02 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-19:02 [RMI TCP Connection(6)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-19:02 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-19:02 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 8 ms
-2020/03/22-19:02 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-19:03 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 2848 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-19:03 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-19:03 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.business.management]' package. Please check your configuration.
-2020/03/22-19:03 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1f42beb4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-19:03 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-19:03 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-19:03 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2410 ms
-2020/03/22-19:03 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-19:03 [main] WARN  org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration- Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2020/03/22-19:03 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-19:03 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-19:03 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-19:03 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 3.926 seconds (JVM running for 9.367)
-2020/03/22-19:03 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-19:03 [RMI TCP Connection(6)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-19:03 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-19:03 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 7 ms
-2020/03/22-19:03 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-22:00 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 24412 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-22:00 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-22:00 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.business.management]' package. Please check your configuration.
-2020/03/22-22:00 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$948e5831] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-22:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-22:00 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-22:00 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2500 ms
-2020/03/22-22:00 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-22:00 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-22:00 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-22:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-22:00 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.265 seconds (JVM running for 9.573)
-2020/03/22-22:01 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-22:01 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-22:01 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-22:01 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 7 ms
-2020/03/22-22:01 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-22:16 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 5404 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-22:16 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-22:16 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$75cf44ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-22:16 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-22:16 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-22:16 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2521 ms
-2020/03/22-22:16 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-22:16 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-22:16 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-22:16 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-22:16 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.364 seconds (JVM running for 9.873)
-2020/03/22-22:16 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-22:16 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-22:16 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-22:16 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 10 ms
-2020/03/22-22:16 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-22:30 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 20132 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-22:30 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-22:30 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$54648c5d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-22:30 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-22:30 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-22:30 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2582 ms
-2020/03/22-22:30 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-22:30 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-22:30 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-22:30 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-22:30 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.434 seconds (JVM running for 10.089)
-2020/03/22-22:30 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-22:30 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-22:30 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-22:30 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 9 ms
-2020/03/22-22:30 [RMI TCP Connection(8)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/03/22-22:31 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 18068 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/03/22-22:31 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/03/22-22:31 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7d8bc096] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/03/22-22:31 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/03/22-22:31 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/03/22-22:31 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2567 ms
-2020/03/22-22:31 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/03/22-22:31 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/03/22-22:31 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/03/22-22:31 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
-2020/03/22-22:31 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.404 seconds (JVM running for 9.778)
-2020/03/22-22:31 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/03/22-22:31 [RMI TCP Connection(8)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/03/22-22:31 [RMI TCP Connection(8)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/03/22-22:31 [RMI TCP Connection(8)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 9 ms
-2020/03/22-22:31 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/03/23-22:25 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 3212 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
+2020/03/23-22:25 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/03/23-22:25 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$60b8e840] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/03/23-22:25 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2020/03/23-22:25 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/03/23-22:25 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 3135 ms
+2020/03/23-22:25 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/03/23-22:25 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/03/23-22:25 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/03/23-22:25 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
+2020/03/23-22:25 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 5.619 seconds (JVM running for 12.451)
+2020/03/23-22:25 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/03/23-22:25 [RMI TCP Connection(6)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/03/23-22:25 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/03/23-22:25 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 13 ms
+2020/03/23-22:25 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/03/23-22:28 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 18700 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
+2020/03/23-22:28 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/03/23-22:28 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c604f9e0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/03/23-22:28 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2020/03/23-22:28 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/03/23-22:28 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2502 ms
+2020/03/23-22:28 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/03/23-22:28 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/03/23-22:28 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/03/23-22:28 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
+2020/03/23-22:28 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.368 seconds (JVM running for 10.076)
+2020/03/23-22:28 [RMI TCP Connection(6)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/03/23-22:28 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/03/23-22:28 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/03/23-22:28 [RMI TCP Connection(6)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 9 ms
+2020/03/23-22:28 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/03/23-22:30 [http-nio-8000-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver- Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020/03/23-22:31 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 18568 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
+2020/03/23-22:31 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/03/23-22:31 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5d52d17c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/03/23-22:31 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8000 (http)
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2020/03/23-22:31 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/03/23-22:31 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2496 ms
+2020/03/23-22:31 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/03/23-22:31 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/03/23-22:31 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/03/23-22:31 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8000 (http) with context path ''
+2020/03/23-22:31 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.302 seconds (JVM running for 9.606)
+2020/03/23-22:31 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/03/23-22:31 [RMI TCP Connection(7)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/03/23-22:31 [RMI TCP Connection(7)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/03/23-22:31 [RMI TCP Connection(7)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 7 ms
+2020/03/23-22:31 [RMI TCP Connection(6)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.

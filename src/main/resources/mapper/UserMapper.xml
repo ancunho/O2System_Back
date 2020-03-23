@@ -292,9 +292,7 @@
 			<if test="createtime != null">
 				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="updatetime != null">
-				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-			</if>
+				UPDATETIME = now()
 		</set>
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
@@ -350,6 +348,41 @@
 	<select id="checkEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
 		select count(1) from tb_user
 		where email = #{email}
+	</select>
+
+	<select id="checkEmailByUserId" resultType="java.lang.Integer" parameterType="map">
+		select count(1) from tb_user
+		where email = #{email}
+		and id != #{userId}
+	</select>
+
+	<select id="selectQuestionByUsername" resultType="java.lang.String" parameterType="java.lang.String">
+		select 	QUESTION
+		FROM 	TB_USER
+		WHERE 	USERNAME = #{username}
+	</select>
+
+	<select id="checkAnswer" resultType="java.lang.Integer" parameterType="map">
+		SELECT
+		count(1)
+		from tb_user
+		where username=#{username}
+		and question = #{question}
+		and answer = #{answer}
+	</select>
+
+	<update id="updatePasswordByUsername" parameterType="map">
+		update tb_user
+		SET password = #{passwordNew},update_time = now()
+		where username = #{username}
+	</update>
+
+	<select id="checkPassword" resultType="java.lang.Integer" parameterType="map">
+		SELECT
+		count(1)
+		from tb_user
+		where password = #{password}
+		and id = #{userId}
 	</select>
 
 
