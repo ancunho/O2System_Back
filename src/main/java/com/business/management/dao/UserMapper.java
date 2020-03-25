@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 @Mapper
 @Component("userMapper")
@@ -92,6 +94,9 @@ public interface UserMapper {
      * @return
      */
     int checkPassword(@Param(value="password")String password,@Param("userId")Integer userId);
+
+
+    List<User> selectAllUser();
 
 
 

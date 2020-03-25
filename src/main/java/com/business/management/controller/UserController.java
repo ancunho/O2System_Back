@@ -7,16 +7,14 @@ import com.business.management.pojo.User;
 import com.business.management.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 /**
  * @author : Cunho
  * @date : 2020/3/22
+ *
  */
 @Slf4j
 @RestController
@@ -93,6 +91,19 @@ public class UserController {
         return response;
     }
 
+//    @RequestMapping(value = "/info/update/{userId}")
+//    public ServerResponse info_update_by_self_or_admin(HttpSession session, User user) {
+//        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+//        if (currentUser == null) {
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
+//        }
+//
+//        if ((currentUser.getRole() == Const.Role.ROLE_ADMIN) || currentUser.getId().equals(user.getId())) {
+//
+//        }
+//
+//    }
+
 
     /**
      * 找回密码 3 - 1
@@ -149,7 +160,7 @@ public class UserController {
     }
 
     /**
-     * 신규 회원 추가
+     * 회원가입
      * @param user
      * @return
      */
@@ -171,5 +182,35 @@ public class UserController {
         }
         ****************************************************************************************/
     }
+
+    /**
+     * username 중복체크
+     * 회원가입할때 혹은 관리자가 username수정할때 사용
+     * @param username
+     * @return
+     */
+    @RequestMapping(value = "/check_username", method = RequestMethod.POST)
+    public ServerResponse check_username(String username) {
+        return userService.checkValid(username, Const.USERNAME);
+    }
+
+    /**
+     * Email 중복체크
+     * 회원가입할때 혹은 관리자가 email 수정할때 사용
+     * @param email
+     * @return
+     */
+    @RequestMapping(value = "/check_email", method = RequestMethod.POST)
+    public ServerResponse check_email(String email) {
+        return userService.checkValid(email, Const.EMAIL);
+    }
+
+
+    /*********************************************************************************************************
+     * 												관리자 전용
+     *********************************************************************************************************/
+
+
+
 
 }
