@@ -1,15 +1,17 @@
 package com.business.management.common;
 
+
 /**
  * @author : Cunho
  * @date : 2020/3/22
  */
 public enum ResponseCode {
 
-    SUCCESS(0,"SUCCESS"),
-    ERROR(1,"ERROR"),
-    NEED_LOGIN(10,"NEED_LOGIN"),
-    ILLEGAL_ARGUMENT(2,"ILLEGAL_ARGUMENT");
+    SUCCESS(0,"SUCCESS"),                       // 성공
+    ERROR(1,"ERROR"),                           // 실패
+    NEED_LOGIN(10,"NEED_LOGIN"),                // 로그인필요
+    NO_PERMISSION(99,"NO PERMISSION"),          // 권한없음
+    ILLEGAL_ARGUMENT(2,"ILLEGAL_ARGUMENT");     // 파라미터 에러
 
     private final int code;
     private final String desc;

@@ -50,7 +50,7 @@ public class MemberController {
         if (userService.checkAdminRole(user).isSuccess()) {
             return memberService.getUserList(pageNum, pageSize);
         } else {
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
     }
 
@@ -72,7 +72,7 @@ public class MemberController {
         if (userService.checkAdminRole(user).isSuccess()) {
             return memberService.getUserById(userId);
         } else {
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
     }
 
@@ -93,7 +93,7 @@ public class MemberController {
         if (userService.checkAdminRole(currentAdmin).isSuccess()) {
             return memberService.updateUserById(updateUser);
         } else {
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
     }
 
@@ -114,7 +114,7 @@ public class MemberController {
             return userService.addUser(user);
         } else {
             // 3. 관리자가 아니면 등록못함.
-            return ServerResponse.createByErrorMessage("无权限操作");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
     }
 
