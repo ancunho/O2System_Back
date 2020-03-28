@@ -389,7 +389,7 @@
 
 	<update id="updatePasswordByUsername" parameterType="map">
 		update tb_user
-		SET password = #{passwordNew},update_time = now()
+		SET password = #{passwordNew},updatetime = now()
 		where username = #{username}
 	</update>
 

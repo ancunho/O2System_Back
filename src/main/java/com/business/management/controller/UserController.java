@@ -56,7 +56,7 @@ public class UserController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
     public ServerResponse info(HttpSession session) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {

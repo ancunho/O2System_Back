@@ -114,6 +114,7 @@ public class UserServiceImpl implements UserService {
             return validResponse;
         }
         // 3. 기본 권한을 일반사용자로 한다. 값 => 0
+        user.setRoleNo(Const.RoleNo.ROLE_USER);
         user.setRole(Const.Role.ROLE_USER);
         // 4. 비밀번호를 MD5로 바꾼다.
         user.setPassword(MD5Util.MD5EncodeUtf8(user.getPassword()));
