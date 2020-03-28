@@ -1,5 +1,6 @@
 package com.business.management.service.impl;
 
+import com.auth0.jwt.JWT;
 import com.business.management.common.Const;
 import com.business.management.common.ServerResponse;
 import com.business.management.common.TokenCache;
@@ -7,6 +8,7 @@ import com.business.management.dao.UserMapper;
 import com.business.management.pojo.User;
 import com.business.management.service.UserService;
 import com.business.management.util.MD5Util;
+import com.business.management.util.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,20 +27,18 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public ServerResponse<User> login(String username, String password) {
-        int resultCount = userMapper.checkUsername(username);
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage("用户名不存在");
-        }
-
+    public User login(String username, String password) {
         String md5Password = MD5Util.MD5EncodeUtf8(password);
-        User user = userMapper.selectLogin(username, md5Password);
-        if (user == null) {
-            return ServerResponse.createByErrorMessage("密码错误");
-        }
+        return userMapper.selectLogin(username, md5Password);
 
-        user.setPassword(org.apache.commons.lang3.StringUtils.EMPTY);
-        return ServerResponse.createBySuccess("登录成功", user);
+    }
+
+    @Override
+    public ServerResponse<User> info(String token) {
+        String userId = JWT.decode(token).getAudience().get(0);
+        Integer id = Integer.valueOf(userId);
+        User user = userMapper.selectByPrimaryKey(id);
+        return ServerResponse.createBySuccess(user);
     }
 
     @Override
@@ -60,6 +60,12 @@ public class UserServiceImpl implements UserService {
         // 3. 비밀번호 공백처리후 데이타 반환
         user.setPassword(org.apache.commons.lang3.StringUtils.EMPTY);
         return ServerResponse.createBySuccess(user);
+    }
+
+    @Override
+    public User findUserById(Integer userId) {
+        // 1. ID로 해당유저 정보 가져옴
+        return userMapper.selectByPrimaryKey(userId);
     }
 
     @Override

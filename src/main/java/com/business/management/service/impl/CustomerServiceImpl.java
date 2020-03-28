@@ -25,13 +25,13 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerMapper customerMapper;
 
     @Override
-    public ServerResponse<PageInfo> customerList(int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+    public ServerResponse customerList() {
+//        PageHelper.startPage(pageNum, pageSize);
         List<Customer> customerList = customerMapper.selectCustomerList();
-        PageInfo pageResult = new PageInfo(customerList);
-        pageResult.setList(customerList);
+//        PageInfo pageResult = new PageInfo(customerList);
+//        pageResult.setList(customerList);
 
-        return ServerResponse.createBySuccess(pageResult);
+        return ServerResponse.createBySuccess(customerList);
     }
 
     @Override

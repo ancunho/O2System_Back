@@ -405,7 +405,7 @@
 		SELECT
 		<include refid="Base_Column_List_Without_Password" />
 		FROM  	TB_USER
-		ORDER BY CREATETIME DESC
+		ORDER BY ID DESC
 	</select>
 
 

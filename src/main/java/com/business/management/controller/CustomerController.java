@@ -1,5 +1,6 @@
 package com.business.management.controller;
 
+import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
@@ -33,35 +34,22 @@ public class CustomerController {
 
     /**
      * 고객리스트반환
-     * @param session
-     * @param pageNum
-     * @param pageSize
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/list")
-    public ServerResponse list(HttpSession session
-            , @RequestParam(value = "pageNum", defaultValue = "1") int pageNum
-            , @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录,请登录管理员");
-        }
-
-        return customerService.customerList(pageNum, pageSize);
+    public ServerResponse list() {
+        return customerService.customerList();
     }
 
     /**
      * 고객상세정보 보기
-     * @param session
      * @param customerId
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/detail", method = RequestMethod.POST)
-    public ServerResponse detail(HttpSession session, @RequestParam(value = "customerId") Integer customerId) {
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录,请登录管理员");
-        }
+    public ServerResponse detail(@RequestParam(value = "customerId") Integer customerId) {
 
         return customerService.detail(customerId);
     }
@@ -75,12 +63,7 @@ public class CustomerController {
      * @return
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ServerResponse create(HttpSession session, Customer customer) {
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录,请登录管理员");
-        }
-
+    public ServerResponse create(Customer customer) {
         return customerService.create(customer);
     }
 

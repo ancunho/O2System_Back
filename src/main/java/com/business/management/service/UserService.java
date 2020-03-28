@@ -15,7 +15,9 @@ public interface UserService {
      * @param password
      * @return
      */
-    ServerResponse<User> login(String username, String password);
+    User login(String username, String password);
+
+    ServerResponse<User> info(String token);
 
     /**
      * 관리자체크기능
@@ -31,6 +33,13 @@ public interface UserService {
      * @return
      */
     ServerResponse<User> getInformation(Integer userId);
+
+    /**
+     * userId로 User가져오기
+     * @param userId
+     * @return
+     */
+    User findUserById(Integer userId);
 
     /**
      * 개인정보 수정

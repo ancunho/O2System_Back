@@ -1,15 +1,25 @@
 package com.business.management.controller;
 
+import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.User;
+import com.business.management.service.TokenService;
 import com.business.management.service.UserService;
+import com.business.management.util.Box;
+import com.business.management.util.HttpUtility;
+import com.business.management.util.TokenUtil;
+import com.sun.xml.internal.fastinfoset.stax.factory.StAXOutputFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @author : Cunho
@@ -24,20 +34,26 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TokenService tokenService;
+
     /**
-     * 사용자 로그인
-     * @param session
+     * 로그인
      * @param username
      * @param password
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ServerResponse login(HttpSession session, String username, String password) {
-        ServerResponse<User> response = userService.login(username, password);
-        if (response.isSuccess()) {
-            session.setAttribute(Const.CURRENT_USER, response.getData());
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public ServerResponse login(String username, String password) {
+        User currentUser = userService.login(username, password);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorMessage("用户名或者密码错误");
         }
-        return response;
+        String token = tokenService.getToken(currentUser);
+        System.out.println(token);
+
+        return ServerResponse.createBySuccess(token);
     }
 
     /**
@@ -45,7 +61,7 @@ public class UserController {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logout", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse logout(HttpSession session) {
         session.removeAttribute(Const.CURRENT_USER);
         return ServerResponse.createBySuccessMessage("已成功退出");
@@ -53,16 +69,17 @@ public class UserController {
 
     /**
      * 개인정보 조회
-     * @param session
+     * @param token
      * @return
      */
-    @RequestMapping(value = "/info", method = RequestMethod.POST)
-    public ServerResponse info(HttpSession session) {
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
-        if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
-        }
-        return userService.getInformation(user.getId());
+    @UserLoginToken
+    @RequestMapping(value = "/info", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse info(@RequestHeader("Access-Token") String token) {
+//        User user = (User) session.getAttribute(Const.CURRENT_USER);
+//        if (user == null) {
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
+//        }
+        return userService.info(token);
     }
 
     /**
@@ -71,8 +88,9 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/info/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/info/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse info_update(HttpSession session, User user) {
+        System.out.println(">>>>>>>>>>info update:" + user.toString());
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");

@@ -25,16 +25,16 @@ public class MemberServiceImpl implements MemberService {
     private UserMapper userMapper;
 
     @Override
-    public ServerResponse getUserList(int pageNum, int pageSize) {
+    public ServerResponse getUserList() {
         // 1. startPage -- start
-        PageHelper.startPage(pageNum, pageSize);
+//        PageHelper.startPage(pageNum, pageSize);
         // 2. 填充自己的sql逻辑
         List<User> userList = userMapper.selectAllUser();
         // 3. PageHelper收尾
-        PageInfo pageResult = new PageInfo(userList);
-        pageResult.setList(userList);
+//        PageInfo pageResult = new PageInfo(userList);
+//        pageResult.setList(userList);
 
-        return ServerResponse.createBySuccess(pageResult);
+        return ServerResponse.createBySuccess(userList);
     }
 
     @Override

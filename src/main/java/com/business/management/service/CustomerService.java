@@ -17,7 +17,7 @@ public interface CustomerService {
      * @param pageSize
      * @return
      */
-    ServerResponse<PageInfo> customerList(int pageNum, int pageSize);
+    ServerResponse<PageInfo> customerList();
 
 
     /**

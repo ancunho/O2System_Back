@@ -16,7 +16,7 @@ public interface MemberService {
      * @param pageSize
      * @return
      */
-    ServerResponse getUserList(int pageNum, int pageSize);
+    ServerResponse getUserList();
 
     /**
      * userId로 회원 상세정보 가져온다.
