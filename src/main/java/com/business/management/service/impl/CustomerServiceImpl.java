@@ -35,12 +35,12 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public ServerResponse detail(Integer customerId) {
-        if (customerId == null) {
+    public ServerResponse detail(Integer id) {
+        if (id == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
 
-        Customer customer = customerMapper.selectByPrimaryKey(customerId);
+        Customer customer = customerMapper.selectByPrimaryKey(id);
 
         if (customer == null) {
             return ServerResponse.createByErrorMessage("未找到客户信息");
@@ -71,7 +71,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public ServerResponse update(Customer customer) {
         if (customer != null) {
-            if (customer.getCustomerId() != null) {
+            if (customer.getId() != null) {
                 // Modify
                 int resultCount = customerMapper.updateByPrimaryKeySelective(customer);
                 if (resultCount > 0) {

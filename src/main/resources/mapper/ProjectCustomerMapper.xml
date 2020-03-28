@@ -8,7 +8,7 @@
 		<result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd"/>
 		<result column="DIRECTOR" jdbcType="VARCHAR" property="director"/>
 		<result column="STATUS" jdbcType="VARCHAR" property="status"/>
-		<result column="MOBILE" jdbcType="VARCHAR" property="mobile"/>
+		<result column="PHONE" jdbcType="VARCHAR" property="phone"/>
 		<result column="WECHAT" jdbcType="VARCHAR" property="wechat"/>
 		<result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
 		<result column="SALES_VOLUMN" jdbcType="VARCHAR" property="salesVolumn"/>
@@ -27,7 +27,7 @@
 		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
 	</resultMap>
 	<sql id="Base_Column_List">
-    ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_CD, DIRECTOR, STATUS, MOBILE, WECHAT, DESCRIPTION, 
+    ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_CD, DIRECTOR, STATUS, PHONE, WECHAT, DESCRIPTION,
     SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, DISTRIBUTION, CITY, ADDRESS, 
     PARAM1, PARAM2, PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
   </sql>
@@ -44,7 +44,7 @@
 	<insert id="insert" parameterType="com.business.management.pojo.ProjectCustomer">
     insert into tb_project_customer (ID, PROJECT_ID, CUSTOMER_NAME, 
       CUSTOMER_CD, DIRECTOR, STATUS, 
-      MOBILE, WECHAT, DESCRIPTION, 
+      PHONE, WECHAT, DESCRIPTION,
       SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, 
       PRODUCT_LIST, DISTRIBUTION, CITY, 
       ADDRESS, PARAM1, PARAM2, 
@@ -52,7 +52,7 @@
       CREATETIME, UPDATETIME)
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, 
       #{customerCd,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{mobile,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
       #{salesVolumn,jdbcType=VARCHAR}, #{developmentSkill,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, 
       #{productList,jdbcType=VARCHAR}, #{distribution,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, 
@@ -80,8 +80,8 @@
 			<if test="status != null">
 				STATUS,
 			</if>
-			<if test="mobile != null">
-				MOBILE,
+			<if test="phone != null">
+				PHONE,
 			</if>
 			<if test="wechat != null">
 				WECHAT,
@@ -151,8 +151,8 @@
 			<if test="status != null">
 				#{status,jdbcType=VARCHAR},
 			</if>
-			<if test="mobile != null">
-				#{mobile,jdbcType=VARCHAR},
+			<if test="phone != null">
+				#{PHONE,jdbcType=VARCHAR},
 			</if>
 			<if test="wechat != null">
 				#{wechat,jdbcType=VARCHAR},
@@ -222,8 +222,8 @@
 			<if test="status != null">
 				STATUS = #{status,jdbcType=VARCHAR},
 			</if>
-			<if test="mobile != null">
-				MOBILE = #{mobile,jdbcType=VARCHAR},
+			<if test="phone != null">
+				PHONE = #{PHONE,jdbcType=VARCHAR},
 			</if>
 			<if test="wechat != null">
 				WECHAT = #{wechat,jdbcType=VARCHAR},
@@ -283,7 +283,7 @@
       CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
       DIRECTOR = #{director,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
-      MOBILE = #{mobile,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
       WECHAT = #{wechat,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       SALES_VOLUMN = #{salesVolumn,jdbcType=VARCHAR},

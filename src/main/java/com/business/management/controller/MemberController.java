@@ -36,7 +36,7 @@ public class MemberController {
      * @param pageSize
      * @return
      */
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list")
     public ServerResponse get_all_user_list(HttpSession session
                                         ,@RequestParam(value = "pageNum", defaultValue = "1") int pageNum
                                         ,@RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {

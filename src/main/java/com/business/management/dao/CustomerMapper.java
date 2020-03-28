@@ -9,13 +9,13 @@ import java.util.List;
 @Mapper
 @Component("customerMapper")
 public interface CustomerMapper {
-    int deleteByPrimaryKey(Integer customerId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Customer record);
 
     int insertSelective(Customer record);
 
-    Customer selectByPrimaryKey(Integer customerId);
+    Customer selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Customer record);
 

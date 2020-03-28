@@ -6,7 +6,8 @@ import java.util.Date;
 
 @Data
 public class Customer {
-    private Integer customerId;
+
+    private Integer id;
 
     private String customerName;
 
@@ -18,7 +19,7 @@ public class Customer {
 
     private String status;
 
-    private String mobile;
+    private String phone;
 
     private String wechat;
 
@@ -30,11 +31,15 @@ public class Customer {
 
     private String distribution;
 
+    private String province;
+
     private String city;
 
     private String address;
 
     private String author;
+
+    private String customerImage;
 
     private String param1;
 

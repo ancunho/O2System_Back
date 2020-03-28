@@ -20,9 +20,9 @@ public class Const {
     public static final Integer UPLOAD_IMAGE_MAX_SIZE = 500;
 
     public interface Role{
-        String ROLE_CUSTOMER    = "0";     //普通用户
+        String ROLE_USER    = "0";     //普通用户
         String ROLE_ADMIN       = "1";        //管理员
-        String ROLE_MANAGER     = "2";      //组长？
+        String ROLE_EDITOR     = "2";      //组长？
     }
 
     public interface Status {

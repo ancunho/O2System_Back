@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
         updateUser.setDepartment(user.getDepartment());
         updateUser.setSex(user.getSex());
         updateUser.setBirthday(user.getBirthday());
-        updateUser.setWechatId(user.getWechatId());
+        updateUser.setWechat(user.getWechat());
         updateUser.setQq(user.getQq());
         updateUser.setAddress(user.getAddress());
         updateUser.setQuestion(user.getQuestion());
@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
             return validResponse;
         }
         // 3. 기본 권한을 일반사용자로 한다. 값 => 0
-        user.setRole(Const.Role.ROLE_CUSTOMER);
+        user.setRole(Const.Role.ROLE_USER);
         // 4. 비밀번호를 MD5로 바꾼다.
         user.setPassword(MD5Util.MD5EncodeUtf8(user.getPassword()));
         // 5. user모델 저장 - 회원 신규등록

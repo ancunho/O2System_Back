@@ -1,6 +1,9 @@
 #Server
+server:
+  port: 9000
 
-#Spring Database Info
+##############################################Spring Database Info##########################################################
+#테스트환경 , 로컬환경
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,7 +11,18 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
-  #thymelea?
+
+#내 aliyun정보 114.55.169.130:9000
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: root00--
+#    url: jdbc:mysql://127.0.0.1:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+
+
+
+  #thymeleaf
   thymeleaf:
     suffix: .html
     mode: HTML5
@@ -38,9 +52,6 @@ logging:
     max-size: 10MB
   path: "logs"
 
-#server:
-#  port: 8082
-
 
 #PageHelper
 
@@ -49,8 +60,7 @@ qiniu:
   accessKey: J8vuunG0y2pxF33-Ec8-OJSoAVowGgU5rvAx8zjC
   secretKey: xkKHRD7kmLY8K3Z7cWiw-rn2pKFQTUtReBNEF2PV
   bucket: ancunhotest
-server:
-  port: 8000
+
 
 
 

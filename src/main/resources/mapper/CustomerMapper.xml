@@ -2,21 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.business.management.dao.CustomerMapper">
 	<resultMap id="BaseResultMap" type="com.business.management.pojo.Customer">
-		<id column="CUSTOMER_ID" jdbcType="INTEGER" property="customerId"/>
+		<id column="ID" jdbcType="INTEGER" property="id"/>
 		<result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName"/>
 		<result column="CUSTOMER_NAME_KR" jdbcType="VARCHAR" property="customerNameKr"/>
 		<result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd"/>
 		<result column="DIRECTOR" jdbcType="VARCHAR" property="director"/>
 		<result column="STATUS" jdbcType="VARCHAR" property="status"/>
-		<result column="MOBILE" jdbcType="VARCHAR" property="mobile"/>
+		<result column="PHONE" jdbcType="VARCHAR" property="phone"/>
 		<result column="WECHAT" jdbcType="VARCHAR" property="wechat"/>
 		<result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
 		<result column="TARGET" jdbcType="VARCHAR" property="target"/>
 		<result column="PRODUCT_LIST" jdbcType="VARCHAR" property="productList"/>
 		<result column="DISTRIBUTION" jdbcType="VARCHAR" property="distribution"/>
+		<result column="PROVINCE" jdbcType="VARCHAR" property="province"/>
 		<result column="CITY" jdbcType="VARCHAR" property="city"/>
 		<result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
 		<result column="AUTHOR" jdbcType="VARCHAR" property="author"/>
+		<result column="CUSTOMER_IMAGE" jdbcType="VARCHAR" property="customerImage"/>
 		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
 		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
 		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
@@ -26,34 +28,34 @@
 		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
 	</resultMap>
 	<sql id="Base_Column_List">
-    CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, DIRECTOR, STATUS, MOBILE, 
-    WECHAT, DESCRIPTION, TARGET, PRODUCT_LIST, DISTRIBUTION, CITY, ADDRESS, AUTHOR, PARAM1, PARAM2,
+    ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, DIRECTOR, STATUS, PHONE,
+    WECHAT, DESCRIPTION, TARGET, PRODUCT_LIST, DISTRIBUTION, PROVINCE, CITY, ADDRESS, AUTHOR, CUSTOMER_IMAGE, PARAM1, PARAM2,
     PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
   </sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List"/>
 		from tb_customer
-		where CUSTOMER_ID = #{customerId,jdbcType=INTEGER}
+		where ID = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_customer
-    where CUSTOMER_ID = #{customerId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </delete>
 	<insert id="insert" parameterType="com.business.management.pojo.Customer">
-    insert into tb_customer (CUSTOMER_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, 
+    insert into tb_customer (ID, CUSTOMER_NAME, CUSTOMER_NAME_KR,
       CUSTOMER_CD, DIRECTOR, STATUS, 
-      MOBILE, WECHAT, DESCRIPTION, 
-      TARGET, PRODUCT_LIST, DISTRIBUTION, 
-      CITY, ADDRESS, AUTHOR, PARAM1,
+      PHONE, WECHAT, DESCRIPTION,
+      TARGET, PRODUCT_LIST, DISTRIBUTION, PROVINCE,
+      CITY, ADDRESS, AUTHOR, CUSTOMER_IMAGE, PARAM1,
       PARAM2, PARAM3, PARAM4, 
       PARAM5, CREATETIME, UPDATETIME
       )
-    values (#{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerNameKr,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerNameKr,jdbcType=VARCHAR},
       #{customerCd,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{mobile,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR}, #{distribution,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+      #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR}, #{distribution,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{customerImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR},
       #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, 
       #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
       )
@@ -61,8 +63,8 @@
 	<insert id="insertSelective" parameterType="com.business.management.pojo.Customer">
 		insert into tb_customer
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="customerId != null">
-				CUSTOMER_ID,
+			<if test="id != null">
+				ID,
 			</if>
 			<if test="customerName != null">
 				CUSTOMER_NAME,
@@ -79,8 +81,8 @@
 			<if test="status != null">
 				STATUS,
 			</if>
-			<if test="mobile != null">
-				MOBILE,
+			<if test="phone != null">
+				PHONE,
 			</if>
 			<if test="wechat != null">
 				WECHAT,
@@ -97,6 +99,9 @@
 			<if test="distribution != null">
 				DISTRIBUTION,
 			</if>
+			<if test="province != null">
+				PROVINCE,
+			</if>
 			<if test="city != null">
 				CITY,
 			</if>
@@ -105,6 +110,9 @@
 			</if>
 			<if test="author != null">
 				AUTHOR,
+			</if>
+			<if test="customerImage != null">
+				CUSTOMER_IMAGE,
 			</if>
 			<if test="param1 != null">
 				PARAM1,
@@ -129,8 +137,8 @@
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="customerId != null">
-				#{customerId,jdbcType=INTEGER},
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
 			</if>
 			<if test="customerName != null">
 				#{customerName,jdbcType=VARCHAR},
@@ -147,8 +155,8 @@
 			<if test="status != null">
 				#{status,jdbcType=VARCHAR},
 			</if>
-			<if test="mobile != null">
-				#{mobile,jdbcType=VARCHAR},
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
 			</if>
 			<if test="wechat != null">
 				#{wechat,jdbcType=VARCHAR},
@@ -165,6 +173,9 @@
 			<if test="distribution != null">
 				#{distribution,jdbcType=VARCHAR},
 			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
 			<if test="city != null">
 				#{city,jdbcType=VARCHAR},
 			</if>
@@ -173,6 +184,9 @@
 			</if>
 			<if test="author != null">
 				#{author,jdbcType=VARCHAR},
+			</if>
+			<if test="customerImage != null">
+				#{customerImage,jdbcType=VARCHAR},
 			</if>
 			<if test="param1 != null">
 				#{param1,jdbcType=VARCHAR},
@@ -215,8 +229,8 @@
 			<if test="status != null">
 				STATUS = #{status,jdbcType=VARCHAR},
 			</if>
-			<if test="mobile != null">
-				MOBILE = #{mobile,jdbcType=VARCHAR},
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
 			</if>
 			<if test="wechat != null">
 				WECHAT = #{wechat,jdbcType=VARCHAR},
@@ -233,6 +247,9 @@
 			<if test="distribution != null">
 				DISTRIBUTION = #{distribution,jdbcType=VARCHAR},
 			</if>
+			<if test="province != null">
+				PROVINCE = #{province,jdbcType=VARCHAR},
+			</if>
 			<if test="city != null">
 				CITY = #{city,jdbcType=VARCHAR},
 			</if>
@@ -241,6 +258,9 @@
 			</if>
 			<if test="author != null">
 				AUTHOR = #{author,jdbcType=VARCHAR},
+			</if>
+			<if test="customerImage != null">
+				CUSTOMER_IMAGE = #{customerImage,jdbcType=VARCHAR},
 			</if>
 			<if test="param1 != null">
 				PARAM1 = #{param1,jdbcType=VARCHAR},
@@ -264,7 +284,7 @@
 				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
 			</if>
 		</set>
-		where CUSTOMER_ID = #{customerId,jdbcType=INTEGER}
+		where ID = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.Customer">
     update tb_customer
@@ -273,15 +293,17 @@
       CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
       DIRECTOR = #{director,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
-      MOBILE = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
       WECHAT = #{wechat,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       TARGET = #{target,jdbcType=VARCHAR},
       PRODUCT_LIST = #{productList,jdbcType=VARCHAR},
       DISTRIBUTION = #{distribution,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
       CITY = #{city,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
       AUTHOR = #{author,jdbcType=VARCHAR},
+      CUSTOMER_IMAGE = #{customerImage,jdbcType=VARCHAR},
       PARAM1 = #{param1,jdbcType=VARCHAR},
       PARAM2 = #{param2,jdbcType=VARCHAR},
       PARAM3 = #{param3,jdbcType=VARCHAR},
@@ -289,7 +311,7 @@
       PARAM5 = #{param5,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
-    where CUSTOMER_ID = #{customerId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
 
 
