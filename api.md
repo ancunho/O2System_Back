@@ -283,6 +283,47 @@ POST :: /api/user/update/password
 }
 ```
 
+## username 중복체크
+### 회원가입할때 혹은 관리자가 username수정할때 사용
+```
+【地址】
+POST :: /api/user/check_username
+
+【请求】
+{
+  username : 'xxxx'
+}
+
+【响应】
+{
+    "status": 0,
+    "msg": "校验成功",
+    "data": null,
+    "success": true
+}
+```
+
+
+## Email 중복체크
+### 회원가입할때 혹은 관리자가 email 수정할때 사용
+```
+【地址】
+POST :: /api/user/check_email
+
+【请求】
+{
+  email : 'xxxx'
+}
+
+【响应】
+{
+    "status": 0,
+    "msg": "校验成功",
+    "data": null,
+    "success": true
+}
+```
+
 ## 获取部门list
 ```
 【地址】
