@@ -1,4 +1,3 @@
-# 共同
 共同返回格式，`data`里放数据。
 ```nohighlight
 {
@@ -9,6 +8,25 @@
 ```
 
 # 全局
+## 获取config list
+```nohighlight
+【地址】
+POST(qs) :: /api/common/config
+
+【请求】
+{
+  cnf_code: 'department',    // String code【department，question】
+}
+
+【响应】
+{
+  cnfValue: key,      // String id
+  cnfNote: value,     // String 中文
+  cnfNoteKr: value    // String 韩文
+}
+```
+
+# 用户
 ## 登录
 ```nohighlight
 【地址】
@@ -159,36 +177,6 @@ POST(qs) :: /api/user/check_email
 【请求】
 {
   email : 'xxxx'   // String 邮箱地址
-}
-```
-
-## 获取部门list
-```nohighlight
-【地址】
-
-【请求】
-{
-  
-}
-
-【响应】
-{
-  
-}
-```
-
-## 获取问题list
-```nohighlight
-【地址】
-
-【请求】
-{
-  
-}
-
-【响应】
-{
-  
 }
 ```
 

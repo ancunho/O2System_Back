@@ -33,4 +33,31 @@ public class CommonServiceImpl implements CommonService {
 
         return ServerResponse.createBySuccess(resultList);
     }
+
+    @Override
+    public ServerResponse insert(Config config) {
+        if (config == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+
+        int resultCount = configMapper.insert(config);
+        if (resultCount > 0) {
+            return ServerResponse.createBySuccessMessage("创建成功");
+        }
+        return ServerResponse.createByErrorMessage("创建失败");
+    }
+
+    @Override
+    public ServerResponse update(Config config) {
+        if (config == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+
+        int resultCount = configMapper.updateByPrimaryKeySelective(config);
+        if (resultCount > 0) {
+            return ServerResponse.createBySuccessMessage("更新成功");
+        }
+
+        return ServerResponse.createByErrorMessage("更新失败");
+    }
 }

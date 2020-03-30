@@ -173,20 +173,6 @@ public class UserController {
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse create(@RequestBody  User user) {
         return userService.addUser(user);
-        /***************************************************************************************
-        // 1. 로그인 체크
-        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-        if (currentUser == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
-        }
-        // 2. 관리자 체크
-        if (userService.checkAdminRole(currentUser).isSuccess()) {
-
-        } else {
-            // 3. 관리자가 아니면 등록못함.
-            return ServerResponse.createByErrorMessage("无权限操作");
-        }
-        ****************************************************************************************/
     }
 
     /**

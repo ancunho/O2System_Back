@@ -12,8 +12,6 @@ public interface MemberService {
 
     /**
      * 모든 회원리스트 반환
-     * @param pageNum
-     * @param pageSize
      * @return
      */
     ServerResponse getUserList();
@@ -31,5 +29,7 @@ public interface MemberService {
      * @return
      */
     ServerResponse<User> updateUserById(User updateUser);
+
+
 
 }

@@ -7,14 +7,6 @@ import java.lang.annotation.Target;
 
 /**
  * 로그인이 필요없으면 이 어노테이션을 쓴다
- *
- *
- *
- *
- *
- *
- *
- * 
  * @author : Cunho
  * @date : 2020/3/28
  */

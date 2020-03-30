@@ -7,6 +7,7 @@ import com.business.management.common.ServerResponse;
 import com.business.management.pojo.User;
 import com.business.management.service.MemberService;
 import com.business.management.service.UserService;
+import com.business.management.util.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,19 +38,7 @@ public class MemberController {
     @UserLoginToken
     @RequestMapping(value = "/list")
     public ServerResponse get_all_user_list() {
-        // 1. 세션체크
-//        User user = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (user == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录,请登录管理员");
-//        }
-
-        // 2. 관리자체크
         return memberService.getUserList();
-//        if (userService.checkAdminRole(user).isSuccess()) {
-//            return memberService.getUserList(pageNum, pageSize);
-//        } else {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
-//        }
     }
 
     /**
@@ -59,20 +48,16 @@ public class MemberController {
      */
     @UserLoginToken
     @RequestMapping(value = "/detail/{userId}", method = RequestMethod.POST)
-    public ServerResponse<User> get_user_by_id(@PathVariable("userId") Integer userId) {
+    public ServerResponse<User> get_user_by_id(HttpSession session, @PathVariable("userId") Integer userId) {
         // 1. 로그인 세션 체크
-//        User user = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (user == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
-//        }
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
 
         // 2. 관리자 체크
-        return memberService.getUserById(userId);
-//        if (userService.checkAdminRole(user).isSuccess()) {
-//            return memberService.getUserById(userId);
-//        } else {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
-//        }
+        if (userService.checkAdminRole(user).isSuccess()) {
+            return memberService.getUserById(userId);
+        } else {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+        }
     }
 
     /**
@@ -82,18 +67,15 @@ public class MemberController {
      */
     @UserLoginToken
     @RequestMapping(value = "/update")
-    public ServerResponse<User> update_user_by_id(@RequestBody User updateUser) {
+    public ServerResponse<User> update_user_by_id(HttpSession session, @RequestBody User updateUser) {
         // 1. 로그인 체크
-//        User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (currentAdmin == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
-//        }
-        return memberService.updateUserById(updateUser);
-//        if (userService.checkAdminRole(currentAdmin).isSuccess()) {
-//            return memberService.updateUserById(updateUser);
-//        } else {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
-//        }
+        User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
+
+        if (userService.checkAdminRole(currentAdmin).isSuccess()) {
+            return memberService.updateUserById(updateUser);
+        } else {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+        }
     }
 
     /**
@@ -104,19 +86,7 @@ public class MemberController {
     @UserLoginToken
     @RequestMapping(value = "/create")
     public ServerResponse create( User user) {
-//        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (currentUser == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录， 请登陆管理员");
-//        }
-        // 2. 관리자 체크
         return userService.addUser(user);
-//        if (userService.checkAdminRole(currentUser).isSuccess()) {
-//            return userService.addUser(user);
-//        } else {
-//            // 3. 관리자가 아니면 등록못함.
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
-//        }
     }
-
 
 }

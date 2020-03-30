@@ -4,16 +4,13 @@ import com.business.management.annotation.PassToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
-import com.business.management.pojo.User;
+import com.business.management.pojo.Config;
 import com.business.management.service.CommonService;
 import com.business.management.service.FileService;
 import com.business.management.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,6 +54,11 @@ public class CommonController {
         }
     }
 
+    /**
+     * 코드 입력
+     * @param CNF_CODE
+     * @return
+     */
     @PassToken
     @RequestMapping(value = "/config", method = RequestMethod.POST)
     public ServerResponse config_list(String CNF_CODE) {
@@ -65,8 +67,30 @@ public class CommonController {
         }
 
         return commonService.configList(CNF_CODE);
-
     }
+
+    /**
+     * 신규코드 추가
+     * @param config
+     * @return
+     */
+    @PassToken
+    @RequestMapping(value = "/config/insert")
+    public ServerResponse config_insert(@RequestBody Config config) {
+        return commonService.insert(config);
+    }
+
+    /**
+     * update config
+     * @param config
+     * @return
+     */
+    @PassToken
+    @RequestMapping(value = "/config/update")
+    public ServerResponse config_update(@RequestBody Config config) {
+        return commonService.update(config);
+    }
+
 
 }
 
