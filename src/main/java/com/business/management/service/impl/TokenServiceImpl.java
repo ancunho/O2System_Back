@@ -23,10 +23,9 @@ public class TokenServiceImpl implements TokenService {
         long currentTime = System.currentTimeMillis() + 60 * 60 * 1000; //一小时有效时间
         Date endTime = new Date(currentTime);
         String token = "";
-        token = JWT.create().withAudience(user.getId().toString()).withIssuedAt(startTime).withExpiresAt(endTime).sign(Algorithm.HMAC256(user.getPassword()));
+
+        token = JWT.create().withClaim("ROLE", user.getRole()).withAudience(user.getId().toString()).withIssuedAt(startTime).withExpiresAt(endTime).sign(Algorithm.HMAC256(user.getPassword()));
         return token;
     }
-
-
 
 }

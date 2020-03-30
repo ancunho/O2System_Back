@@ -1,24 +1,20 @@
 package com.business.management.controller;
 
+import com.business.management.annotation.PassToken;
 import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.User;
-import com.business.management.service.TokenService;
 import com.business.management.service.UserService;
-import com.business.management.util.Box;
-import com.business.management.util.HttpUtility;
 import com.business.management.util.TokenUtil;
-import com.sun.xml.internal.fastinfoset.stax.factory.StAXOutputFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -34,26 +30,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private TokenService tokenService;
-
     /**
      * 로그인
      * @param username
      * @param password
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public ServerResponse login(String username, String password) {
+    public ServerResponse login(HttpSession session, String username, String password) {
         User currentUser = userService.login(username, password);
+
         if (currentUser == null) {
             return ServerResponse.createByErrorMessage("用户名或者密码错误");
         }
-        String token = tokenService.getToken(currentUser);
-        System.out.println(token);
 
-        return ServerResponse.createBySuccess(token);
+        String token = TokenUtil.createToken(currentUser);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("token", token);
+        session.setAttribute(Const.CURRENT_USER, currentUser);
+
+        return ServerResponse.createBySuccess(map);
     }
 
     /**
@@ -61,6 +60,7 @@ public class UserController {
      * @param session
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/logout", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse logout(HttpSession session) {
         session.removeAttribute(Const.CURRENT_USER);
@@ -74,11 +74,11 @@ public class UserController {
      */
     @UserLoginToken
     @RequestMapping(value = "/info", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse info(@RequestHeader("Access-Token") String token) {
-//        User user = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (user == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
-//        }
+    public ServerResponse info(HttpSession session, @RequestHeader("Access-Token") String token) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null){
+            return ServerResponse.createByErrorMessage(ResponseCode.NEED_LOGIN.getDesc());
+        }
         return userService.info(token);
     }
 
@@ -88,13 +88,10 @@ public class UserController {
      * @param user
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/info/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse info_update(HttpSession session, User user) {
-        System.out.println(">>>>>>>>>>info update:" + user.toString());
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-        if (currentUser == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
-        }
         // 1. 현재 로그인한 사용자 정보 세팅
         user.setId(currentUser.getId());
         user.setUsername(currentUser.getUsername());
@@ -109,26 +106,13 @@ public class UserController {
         return response;
     }
 
-//    @RequestMapping(value = "/info/update/{userId}")
-//    public ServerResponse info_update_by_self_or_admin(HttpSession session, User user) {
-//        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (currentUser == null) {
-//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
-//        }
-//
-//        if ((currentUser.getRole() == Const.Role.ROLE_ADMIN) || currentUser.getId().equals(user.getId())) {
-//
-//        }
-//
-//    }
-
-
     /**
      * 找回密码 3 - 1
      * username을 통해 물음 가져오기
      * @param username
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/forget_get_question", method = RequestMethod.POST)
     public ServerResponse<String> forgetGetQuestion(String username) {
         return userService.selectQuestion(username);
@@ -142,6 +126,7 @@ public class UserController {
      * @param answer
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/forget_check_answer", method = RequestMethod.POST)
     public ServerResponse<String> forgetCheckAnswer(String username, String question, String answer) {
         return userService.checkAnswer(username,question,answer);
@@ -155,6 +140,7 @@ public class UserController {
      * @param forgetToken
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/forget_reset_password", method = RequestMethod.POST)
     public ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken) {
         return userService.forgetResetPassword(username, passwordNew, forgetToken);
@@ -167,6 +153,7 @@ public class UserController {
      * @param passwordNew
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/update/password", method = RequestMethod.POST)
     public ServerResponse<String> reset_password(HttpSession session, String passwordOld, String passwordNew) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
@@ -182,8 +169,9 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ServerResponse create(User user) {
+    @PassToken
+    @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse create(@RequestBody  User user) {
         return userService.addUser(user);
         /***************************************************************************************
         // 1. 로그인 체크
@@ -207,6 +195,7 @@ public class UserController {
      * @param username
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/check_username", method = RequestMethod.POST)
     public ServerResponse check_username(String username) {
         return userService.checkValid(username, Const.USERNAME);
@@ -218,6 +207,7 @@ public class UserController {
      * @param email
      * @return
      */
+    @PassToken
     @RequestMapping(value = "/check_email", method = RequestMethod.POST)
     public ServerResponse check_email(String email) {
         return userService.checkValid(email, Const.EMAIL);

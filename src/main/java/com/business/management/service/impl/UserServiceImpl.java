@@ -2,6 +2,7 @@ package com.business.management.service.impl;
 
 import com.auth0.jwt.JWT;
 import com.business.management.common.Const;
+import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.common.TokenCache;
 import com.business.management.dao.UserMapper;
@@ -35,9 +36,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ServerResponse<User> info(String token) {
-        String userId = JWT.decode(token).getAudience().get(0);
-        Integer id = Integer.valueOf(userId);
-        User user = userMapper.selectByPrimaryKey(id);
+        Integer userId = TokenUtil.getUserIdByToken(token);
+
+        User user = userMapper.selectByPrimaryKey(userId);
+        if (user == null) {
+            return ServerResponse.createByErrorMessage("找不到用户");
+        }
+
         return ServerResponse.createBySuccess(user);
     }
 
@@ -142,19 +147,24 @@ public class UserServiceImpl implements UserService {
                 int resultCount = userMapper.checkUsername(str);
                 if (resultCount > 0) {
                     return ServerResponse.createByErrorMessage("用户名已存在，请使用其他用户名");
+                } else {
+                    return ServerResponse.createBySuccessMessage("用户名不存在，可以使用");
                 }
-            }
-            //邮箱校验
-            if (Const.EMAIL.equals(type)) {
+            } else if (Const.EMAIL.equals(type)) {
                 int resultCount = userMapper.checkEmail(str);
                 if (resultCount > 0) {
                     return ServerResponse.createByErrorMessage("Email已存在，请使用其他Email");
+                } else {
+                    return ServerResponse.createBySuccessMessage("可以使用");
                 }
+            } else {
+                return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getDesc());
             }
+
         } else {
             return ServerResponse.createByErrorMessage("参数错误");
         }
-        return ServerResponse.createBySuccessMessage("校验成功");
+//        return ServerResponse.createBySuccessMessage("校验成功");
     }
 
     @Override

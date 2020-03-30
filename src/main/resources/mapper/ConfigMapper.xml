@@ -5,11 +5,16 @@
 		<id column="ID" jdbcType="INTEGER" property="id"/>
 		<result column="CNF_CODE" jdbcType="VARCHAR" property="cnfCode"/>
 		<result column="CNF_VALUE" jdbcType="VARCHAR" property="cnfValue"/>
-		<result column="CNF_VALUE_CHANGE" jdbcType="VARCHAR" property="cnfValueChange"/>
 		<result column="CNF_NOTE" jdbcType="VARCHAR" property="cnfNote"/>
+		<result column="CNF_NOTE_KR" jdbcType="VARCHAR" property="cnfNoteKr"/>
+		<result column="CNF_PARAM_1" jdbcType="VARCHAR" property="cnfParam1"/>
+		<result column="CNF_PARAM_2" jdbcType="VARCHAR" property="cnfParam2"/>
+		<result column="CNF_PARAM_3" jdbcType="VARCHAR" property="cnfParam3"/>
+		<result column="CNF_PARAM_4" jdbcType="VARCHAR" property="cnfParam4"/>
+		<result column="CNF_PARAM_5" jdbcType="VARCHAR" property="cnfParam5"/>
 	</resultMap>
 	<sql id="Base_Column_List">
-    ID, CNF_CODE, CNF_VALUE, CNF_VALUE_CHANGE, CNF_NOTE
+    ID, CNF_CODE, CNF_VALUE, CNF_NOTE, CNF_NOTE_KR, CNF_PARAM_1, CNF_PARAM_2, CNF_PARAM_3, CNF_PARAM_4, CNF_PARAM_5
   </sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		select
@@ -23,9 +28,10 @@
   </delete>
 	<insert id="insert" parameterType="com.business.management.pojo.Config">
     insert into tb_config (ID, CNF_CODE, CNF_VALUE, 
-      CNF_VALUE_CHANGE, CNF_NOTE)
+      CNF_NOTE, CNF_NOTE_KR, CNF_PARAM_1, CNF_PARAM_2, CNF_PARAM_3, CNF_PARAM_4, CNF_PARAM_5)
     values (#{id,jdbcType=INTEGER}, #{cnfCode,jdbcType=VARCHAR}, #{cnfValue,jdbcType=VARCHAR}, 
-      #{cnfValueChange,jdbcType=VARCHAR}, #{cnfNote,jdbcType=VARCHAR})
+      #{cnfNote,jdbcType=VARCHAR}, #{cnfNoteKr,jdbcType=VARCHAR}, #{cnfParam1,jdbcType=VARCHAR}, #{cnfParam2,jdbcType=VARCHAR}, #{cnfParam3,jdbcType=VARCHAR}
+      , #{cnfParam4,jdbcType=VARCHAR}, #{cnfParam5,jdbcType=VARCHAR})
   </insert>
 	<insert id="insertSelective" parameterType="com.business.management.pojo.Config">
 		insert into tb_config
@@ -39,11 +45,26 @@
 			<if test="cnfValue != null">
 				CNF_VALUE,
 			</if>
-			<if test="cnfValueChange != null">
-				CNF_VALUE_CHANGE,
-			</if>
 			<if test="cnfNote != null">
 				CNF_NOTE,
+			</if>
+			<if test="cnfNoteKr != null">
+				CNF_NOTE_KR,
+			</if>
+			<if test="cnfParam1 != null">
+				CNF_PARAM_1,
+			</if>
+			<if test="cnfParam2 != null">
+				CNF_PARAM_2,
+			</if>
+			<if test="cnfParam3 != null">
+				CNF_PARAM_3,
+			</if>
+			<if test="cnfParam4 != null">
+				CNF_PARAM_4,
+			</if>
+			<if test="cnfParam5 != null">
+				CNF_PARAM_5,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -56,11 +77,26 @@
 			<if test="cnfValue != null">
 				#{cnfValue,jdbcType=VARCHAR},
 			</if>
-			<if test="cnfValueChange != null">
-				#{cnfValueChange,jdbcType=VARCHAR},
-			</if>
 			<if test="cnfNote != null">
 				#{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfNoteKr != null">
+				#{cnfNoteKr,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam1 != null">
+				#{cnfParam1,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam2 != null">
+				#{cnfParam2,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam3 != null">
+				#{cnfParam3,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam4 != null">
+				#{cnfParam4,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam5 != null">
+				#{cnfParam5,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -73,11 +109,26 @@
 			<if test="cnfValue != null">
 				CNF_VALUE = #{cnfValue,jdbcType=VARCHAR},
 			</if>
-			<if test="cnfValueChange != null">
-				CNF_VALUE_CHANGE = #{cnfValueChange,jdbcType=VARCHAR},
-			</if>
 			<if test="cnfNote != null">
-				CNF_NOTE = #{cnfNote,jdbcType=VARCHAR},
+				CNF_NOTE = #{cnfValueChange,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfNoteKr != null">
+				CNF_NOTE_KR = #{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam1 != null">
+				CNF_PARAM_1 = #{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam2 != null">
+				CNF_PARAM_2 = #{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam3 != null">
+				CNF_PARAM_3 = #{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam4 != null">
+				CNF_PARAM_4 = #{cnfNote,jdbcType=VARCHAR},
+			</if>
+			<if test="cnfParam5 != null">
+				CNF_PARAM_5 = #{cnfNote,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where ID = #{id,jdbcType=INTEGER}
@@ -86,8 +137,20 @@
     update tb_config
     set CNF_CODE = #{cnfCode,jdbcType=VARCHAR},
       CNF_VALUE = #{cnfValue,jdbcType=VARCHAR},
-      CNF_VALUE_CHANGE = #{cnfValueChange,jdbcType=VARCHAR},
-      CNF_NOTE = #{cnfNote,jdbcType=VARCHAR}
+      CNF_NOTE = #{cnfNote,jdbcType=VARCHAR},
+      CNF_NOTE_KR = #{cnfNoteKr,jdbcType=VARCHAR},
+      CNF_PARAM_1 = #{cnfParam1,jdbcType=VARCHAR},
+      CNF_PARAM_2 = #{cnfParam2,jdbcType=VARCHAR},
+      CNF_PARAM_3 = #{cnfParam3,jdbcType=VARCHAR},
+      CNF_PARAM_4 = #{cnfParam4,jdbcType=VARCHAR},
+      CNF_PARAM_5 = #{cnfParam5,jdbcType=VARCHAR},
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+
+	<select id="selectConfigListByCode" parameterType="java.lang.String" resultType="com.business.management.pojo.Config">
+		SELECT 	<include refid="Base_Column_List" />
+		FROM   	TB_CONFIG
+		WHERE  	CNF_CODE = #{CNF_CODE}
+	</select>
 </mapper>

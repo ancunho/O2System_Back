@@ -1,5 +1,6 @@
 package com.business.management.common;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.PropertySource;
  * @author : Cunho
  * @date : 2020/3/22
  */
+
 
 @Configuration
 @PropertySource("classpath:config.properties")
@@ -37,8 +39,8 @@ public class PropertiesConfig {
     @Value("${cunho.ftpPassword}")
     private String ftpPassword;
 
-    @Value("${cunho.ftpServerHttpPrefix}")
-    private String ftpServerHttpPrefix;
+    @Value("${cunho.fileServerHttpPrefix}")
+    private String fileServerHttpPrefix;
 
     public String getPasswordSalt() {
         return passwordSalt;
@@ -104,12 +106,12 @@ public class PropertiesConfig {
         this.ftpPassword = ftpPassword;
     }
 
-    public String getFtpServerHttpPrefix() {
-        return ftpServerHttpPrefix;
+    public String getFileServerHttpPrefix() {
+        return fileServerHttpPrefix;
     }
 
-    public void setFtpServerHttpPrefix(String ftpServerHttpPrefix) {
-        this.ftpServerHttpPrefix = ftpServerHttpPrefix;
+    public void setFileServerHttpPrefix(String fileServerHttpPrefix) {
+        this.fileServerHttpPrefix = fileServerHttpPrefix;
     }
 
     @Override
@@ -123,8 +125,7 @@ public class PropertiesConfig {
                 ", ftpServerIp='" + ftpServerIp + '\'' +
                 ", ftpUsername='" + ftpUsername + '\'' +
                 ", ftpPassword='" + ftpPassword + '\'' +
-                ", ftpServerHttpPrefix='" + ftpServerHttpPrefix + '\'' +
+                ", fileServerHttpPrefix='" + fileServerHttpPrefix + '\'' +
                 '}';
     }
-
 }
