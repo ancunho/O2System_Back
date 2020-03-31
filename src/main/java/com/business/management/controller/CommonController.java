@@ -5,6 +5,7 @@ import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.Config;
+import com.business.management.pojo.User;
 import com.business.management.service.CommonService;
 import com.business.management.service.FileService;
 import com.business.management.util.DateUtil;
@@ -42,7 +43,8 @@ public class CommonController {
 //        }
 
         // 1. 파일 경로 생성
-        String path = request.getServletContext().getRealPath(DateUtil.getDays());
+//        String path = request.getServletContext().getRealPath(DateUtil.getDays());
+        String path = java.net.URLDecoder.decode(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
         log.info("文件的上传路径是：{}", path);
 
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {

@@ -10,10 +10,7 @@ import com.business.management.service.CustomerService;
 import com.business.management.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -58,17 +55,18 @@ public class CustomerController {
      * 고객정보 Save
      * customerId가 없으면 새로 insert
      * customerId가 있으면 기존 아이디로 업데이트
-     * @param session
      * @param customer
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ServerResponse create(Customer customer) {
+    public ServerResponse create(@RequestBody Customer customer) {
         return customerService.create(customer);
     }
 
+    @UserLoginToken
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ServerResponse update(HttpSession session, Customer customer) {
+    public ServerResponse update(HttpSession session, @RequestBody Customer customer) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录,请登录管理员");

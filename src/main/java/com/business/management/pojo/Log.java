@@ -4,16 +4,24 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author : Cunho
+ * @date : 2020/3/31
+ */
 @Data
-public class ProjectRecord {
+public class Log {
 
     private Integer id;
 
+    private String author;
+
+    private String actionId;
+
+    private String actionName;
+
     private Integer projectId;
 
-    private String recordId;
-
-    private String recordContent;
+    private Integer productId;
 
     private String param1;
 
@@ -28,6 +36,9 @@ public class ProjectRecord {
     private Date createtime;
 
     private Date updatetime;
+
+
+
 
 
 }

@@ -7,7 +7,6 @@ import com.business.management.common.ServerResponse;
 import com.business.management.pojo.User;
 import com.business.management.service.MemberService;
 import com.business.management.service.UserService;
-import com.business.management.util.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,8 +46,8 @@ public class MemberController {
      * @return
      */
     @UserLoginToken
-    @RequestMapping(value = "/detail/{userId}", method = RequestMethod.POST)
-    public ServerResponse<User> get_user_by_id(HttpSession session, @PathVariable("userId") Integer userId) {
+    @RequestMapping(value = "/detail", method = RequestMethod.POST)
+    public ServerResponse<User> get_user_by_id(HttpSession session, @RequestParam("userId") Integer userId) {
         // 1. 로그인 세션 체크
         User user = (User) session.getAttribute(Const.CURRENT_USER);
 
@@ -85,7 +84,7 @@ public class MemberController {
      */
     @UserLoginToken
     @RequestMapping(value = "/create")
-    public ServerResponse create( User user) {
+    public ServerResponse create(@RequestBody User user) {
         return userService.addUser(user);
     }
 

@@ -21,4 +21,8 @@ public class HelloController {
         return "file_upload";
     }
 
+    public void main(String[] args) throws Exception {
+        System.out.println(this.getClass().getResource("upload").getPath());
+    }
+
 }
