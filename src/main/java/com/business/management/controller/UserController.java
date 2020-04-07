@@ -90,7 +90,7 @@ public class UserController {
      */
     @UserLoginToken
     @RequestMapping(value = "/info/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse info_update(HttpSession session, User user) {
+    public ServerResponse info_update(HttpSession session, @RequestBody User user) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         // 1. 현재 로그인한 사용자 정보 세팅
         user.setId(currentUser.getId());
@@ -171,7 +171,7 @@ public class UserController {
      */
     @PassToken
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse create(@RequestBody  User user) {
+    public ServerResponse create(@RequestBody User user) {
         return userService.addUser(user);
     }
 

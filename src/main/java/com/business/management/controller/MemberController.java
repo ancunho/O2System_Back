@@ -60,6 +60,25 @@ public class MemberController {
     }
 
     /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    @UserLoginToken
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ServerResponse<User> delete_member(HttpSession session, @RequestParam("userId") Integer userId) {
+        // 1. 로그인 세션 체크
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+
+        // 2. 관리자 체크
+        if (userService.checkAdminRole(user).isSuccess()) {
+            return memberService.getUserById(userId);
+        } else {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+        }
+    }
+
+    /**
      * 회원정보 수정하기
      * @param updateUser
      * @return
@@ -76,6 +95,44 @@ public class MemberController {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
     }
+
+    /**
+     * 启用/禁用
+     * @param updateUser
+     * @return
+     */
+    @UserLoginToken
+    @RequestMapping(value = "/update/status")
+    public ServerResponse<User> update_user_status(HttpSession session, @RequestBody User updateUser) {
+        // 1. 로그인 체크
+        User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
+
+        if (userService.checkAdminRole(currentAdmin).isSuccess()) {
+            return memberService.updateUserById(updateUser);
+        } else {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+        }
+    }
+
+    /**
+     * 初始化密码
+     * @param userId
+     * @return
+     */
+    @UserLoginToken
+    @RequestMapping(value = "/update/reset/password")
+    public ServerResponse<User> update_reset_password(HttpSession session, Integer userId) {
+        // 1. 로그인 체크
+        User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
+
+        if (userService.checkAdminRole(currentAdmin).isSuccess()) {
+            return null;
+        } else {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+        }
+    }
+
+
 
     /**
      * 신규회원 추가
