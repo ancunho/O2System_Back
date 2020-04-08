@@ -45,5 +45,9 @@ public class Const {
         String LIMIT_NUM_SUCCESS    = "LIMIT_NUM_SUCCESS";
     }
 
+    public interface Sex {
+        String male     = "1"; // 男
+        String female   = "2"; // 女
+    }
 
 }
