@@ -37,6 +37,12 @@ public class User {
 
     private String qq;
 
+    private String province;
+
+    private String city;
+
+    private String area;
+
     private String address;
 
     private String question;

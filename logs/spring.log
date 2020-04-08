@@ -1,25 +1,25 @@
-2020/04/01-11:20 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on LAPTOP-EFEAJVFK with PID 2984 (D:\Cunho\1.Kolmar\Project\Backend\target\classes started by Lenovo in D:\Cunho\1.Kolmar\Project\Backend)
-2020/04/01-11:20 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
-2020/04/01-11:20 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$580ed8a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020/04/01-11:20 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.AprLifecycleListener- An older version [1.2.16] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020/04/01-11:20 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
-2020/04/01-11:20 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 3108 ms
-2020/04/01-11:20 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
-2020/04/01-11:20 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-2020/04/01-11:20 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
-2020/04/01-11:20 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
-2020/04/01-11:20 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 5.395 seconds (JVM running for 11.314)
-2020/04/01-11:20 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
-2020/04/01-11:20 [RMI TCP Connection(5)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020/04/01-11:20 [RMI TCP Connection(5)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
-2020/04/01-11:20 [RMI TCP Connection(5)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 15 ms
-2020/04/01-11:20 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
-2020/04/01-11:24 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=null, empno=null, realname=null, phone=88888888, email=test@test.com, department=null, sex=1, birthday=null, wechat=cunho910, qq=null, address=null, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=Sun Mar 29 16:28:05 CST 2020)
-2020/04/01-11:24 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg1NzE1MDQ0fQ.ui5-w38VEqfoqyfTi8XrrMs8-TyZcUzOQYlR-Pq1vC0
+2020/04/08-21:24 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 1128 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/04/08-21:24 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/04/08-21:24 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a284dede] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/04/08-21:24 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/04/08-21:24 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/08-21:24 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/04/08-21:24 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/08-21:24 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1167 ms
+2020/04/08-21:24 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/08-21:24 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/04/08-21:24 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/04/08-21:24 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/04/08-21:24 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.677 seconds (JVM running for 3.425)
+2020/04/08-21:24 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/08-21:24 [RMI TCP Connection(1)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/08-21:24 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/08-21:24 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 6 ms
+2020/04/08-21:24 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/08-21:27 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=null, empno=null, realname=null, phone=88888888, email=test@test.com, department=null, sex=1, birthday=null, wechat=cunho910, qq=null, address=null, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=Sun Mar 29 16:28:05 CST 2020)
+2020/04/08-21:27 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg2MzU2MDM0fQ.BB_MJtCssw8QwNKRpN-cx4nGnmni95elv2UEobbzyHc
+2020/04/08-21:33 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=null, empno=null, realname=null, phone=88888888, email=test@test.com, department=null, sex=1, birthday=null, wechat=cunho910, qq=null, address=null, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=Sun Mar 29 16:28:05 CST 2020)
+2020/04/08-21:33 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg2MzU2MzgyfQ.RVvHGM1CaqSScmEihfH_t1OotI7bLJu-OAWlA_8Vkyg
+2020/04/08-21:53 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/08-21:53 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/04/08-21:53 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.

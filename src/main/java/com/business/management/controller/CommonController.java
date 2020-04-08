@@ -26,6 +26,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/api/common")
 public class CommonController {
 
+    private final String ImageFolder = "static/photo/";
+
     @Autowired
     private CommonService commonService;
 
@@ -44,7 +46,8 @@ public class CommonController {
 
         // 1. 파일 경로 생성
 //        String path = request.getServletContext().getRealPath(DateUtil.getDays());
-        String path = java.net.URLDecoder.decode(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+//        String path = java.net.URLDecoder.decode(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+        String path = ImageFolder + DateUtil.getDays();
         log.info("文件的上传路径是：{}", path);
 
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {

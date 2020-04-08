@@ -17,6 +17,9 @@
 		<result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday"/>
 		<result column="WECHAT" jdbcType="VARCHAR" property="wechat"/>
 		<result column="QQ" jdbcType="VARCHAR" property="qq"/>
+		<result column="PROVINCE" jdbcType="VARCHAR" property="province"/>
+		<result column="CITY" jdbcType="VARCHAR" property="city"/>
+		<result column="AREA" jdbcType="VARCHAR" property="area"/>
 		<result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
 		<result column="QUESTION" jdbcType="VARCHAR" property="question"/>
 		<result column="ANSWER" jdbcType="VARCHAR" property="answer"/>
@@ -31,12 +34,12 @@
 	</resultMap>
 	<sql id="Base_Column_List">
 		ID, USERNAME, PASSWORD, ROLE_NO, ROLE, STATUS, EMPNO, REALNAME, PHONE, EMAIL, DEPARTMENT,
-		SEX, BIRTHDAY, WECHAT, QQ, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
+		SEX, BIRTHDAY, WECHAT, QQ, PROVINCE, CITY, AREA, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
 		PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
 	</sql>
 	<sql id="Base_Column_List_Without_Password">
 		ID, USERNAME, ROLE_NO, ROLE, STATUS, EMPNO, REALNAME, PHONE, EMAIL, DEPARTMENT,
-		SEX, BIRTHDAY, WECHAT, QQ, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
+		SEX, BIRTHDAY, WECHAT, QQ, PROVINCE, CITY, AREA, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
 		PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -54,7 +57,7 @@
       ROLE_NO, ROLE, STATUS, EMPNO,
       REALNAME, PHONE, EMAIL, 
       DEPARTMENT, SEX, BIRTHDAY, 
-      WECHAT, QQ, ADDRESS,
+      WECHAT, QQ, PROVINCE, CITY, AREA, ADDRESS,
       QUESTION, ANSWER, IMAGE_PHOTO, 
       PARAM1, PARAM2, PARAM3, 
       PARAM4, PARAM5, CREATETIME, 
@@ -63,7 +66,7 @@
       #{roleNo,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{empno,jdbcType=VARCHAR},
       #{realname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{department,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
-      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},, #{city,jdbcType=VARCHAR},, #{area,jdbcType=VARCHAR},, #{address,jdbcType=VARCHAR},
       #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{imagePhoto,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
       #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
@@ -116,6 +119,15 @@
 			</if>
 			<if test="qq != null">
 				QQ,
+			</if>
+			<if test="province != null">
+				PROVINCE,
+			</if>
+			<if test="city != null">
+				CITY,
+			</if>
+			<if test="area != null">
+				AREA,
 			</if>
 			<if test="address != null">
 				ADDRESS,
@@ -197,6 +209,15 @@
 			<if test="qq != null">
 				#{qq,jdbcType=VARCHAR},
 			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				#{area,jdbcType=VARCHAR},
+			</if>
 			<if test="address != null">
 				#{address,jdbcType=VARCHAR},
 			</if>
@@ -277,6 +298,15 @@
 			<if test="qq != null">
 				QQ = #{qq,jdbcType=VARCHAR},
 			</if>
+			<if test="province != null">
+				PROVINCE = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				CITY = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				AREA = #{area,jdbcType=VARCHAR},
+			</if>
 			<if test="address != null">
 				ADDRESS = #{address,jdbcType=VARCHAR},
 			</if>
@@ -327,6 +357,9 @@
       BIRTHDAY = #{birthday,jdbcType=VARCHAR},
       WECHAT = #{wechat,jdbcType=VARCHAR},
       QQ = #{qq,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
       QUESTION = #{question,jdbcType=VARCHAR},
       ANSWER = #{answer,jdbcType=VARCHAR},

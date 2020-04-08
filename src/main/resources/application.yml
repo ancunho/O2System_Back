@@ -30,6 +30,8 @@ spring:
     servlet:
       content-type: text/html
     cache: false
+  resources:
+    static-locations: file:${web.upload-image}
 
 
 #Mybatis Configuration
@@ -52,7 +54,8 @@ logging:
     max-size: 10MB
   path: "logs"
 
-
+#文件上传
+web:upload-image: "/static2/photo2"
 #PageHelper
 
 #Qiniu
