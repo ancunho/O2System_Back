@@ -2,6 +2,7 @@ package com.business.management.controller;
 
 import com.business.management.annotation.PassToken;
 import com.business.management.common.Const;
+import com.business.management.common.PropertiesConfig;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.Config;
@@ -9,6 +10,7 @@ import com.business.management.pojo.User;
 import com.business.management.service.CommonService;
 import com.business.management.service.FileService;
 import com.business.management.util.DateUtil;
+import com.business.management.util.PropertiesUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +28,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/api/common")
 public class CommonController {
 
-    private final String ImageFolder = "static/photo/";
 
     @Autowired
     private CommonService commonService;
@@ -34,29 +35,34 @@ public class CommonController {
     @Autowired
     private FileService fileService;
 
+    @Autowired
+    private PropertiesConfig propertiesConfig;
+
     @PassToken
     @RequestMapping(value = "/file/single/upload", method = RequestMethod.POST)
-    public ServerResponse file_upload(HttpSession session
-            , @RequestParam(value = "singleImageUpload", required = false) MultipartFile file
-            , HttpServletRequest request) {
-//        User user = (User) session.getAttribute(Const.CURRENT_USER);
-//        if (user == null) {
-//            return ServerResponse.createByErrorMessage(ResponseCode.NEED_LOGIN.getDesc());
-//        }
-
+        public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
         // 1. 파일 경로 생성
-//        String path = request.getServletContext().getRealPath(DateUtil.getDays());
-//        String path = java.net.URLDecoder.decode(this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-        String path = ImageFolder + DateUtil.getDays();
-        log.info("文件的上传路径是：{}", path);
+//        System.out.println(">>>>>>>>propertiesConfig file path:" + propertiesConfig.getFilePath());
+//        System.out.println("文件原始名称：" + file.getOriginalFilename());
+//        System.out.println("文件Name：" + file.getName());
+//        System.out.println("文件ContenType：" + file.getContentType());
+//        System.out.println("文件大小：" + file.getSize());
+//        System.out.println("文件getResource：" + file.getResource());
 
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {
             // 2. upload후 완정한 파일경로및 이름 반환
-            String targetFileName = fileService.upload(file, path);
+            String targetFileName = fileService.upload(file);
             return ServerResponse.createBySuccess(targetFileName);
         } else {
             return ServerResponse.createByErrorMessage("文件大小不能超过500KB");
         }
+    }
+
+    @PassToken
+    @RequestMapping(value = "/path")
+    public ServerResponse testtest(HttpServletRequest request) {
+        System.out.println(">>>>>>>>>>>" + PropertiesUtil.getProperty("cunho.filePath"));
+        return ServerResponse.createBySuccess(propertiesConfig.getFilePath());
     }
 
     /**

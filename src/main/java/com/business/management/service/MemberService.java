@@ -30,6 +30,13 @@ public interface MemberService {
      */
     ServerResponse<User> updateUserById(User updateUser);
 
+    /**
+     *
+     * @param user
+     * @return
+     */
+    ServerResponse<String> delete_member(User user);
+
 
 
 }

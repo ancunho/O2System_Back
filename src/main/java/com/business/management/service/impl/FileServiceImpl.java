@@ -25,17 +25,20 @@ public class FileServiceImpl implements FileService {
     private PropertiesConfig propertiesConfig;
 
     @Override
-    public String upload(MultipartFile file, String path) {
+    public String upload(MultipartFile file) {
         //文件名
         String fileName = file.getOriginalFilename();
         //文件扩展名
         String fileExtensionName = fileName.substring(fileName.lastIndexOf(".") + 1);
         //文件新名字
         String uploadFileName = DateUtil.getTime() + "__" + UUID.randomUUID().toString() + "." + fileExtensionName;
+        //文件保存路径
+        String path = propertiesConfig.getFilePath();
         //文件路径 + "/"
         String remotePath = DateUtil.getDays() + File.separator;
 
         log.info("开始上传文件,上传文件的文件名:{},上传的路径:{},新文件名:{}",fileName,path,uploadFileName);
+        System.out.println();
 
         File fileDir = new File(path);
         if (!fileDir.exists()) {

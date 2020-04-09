@@ -57,5 +57,15 @@ public class MemberServiceImpl implements MemberService {
         return ServerResponse.createByErrorMessage("更新失败");
     }
 
+    @Override
+    public ServerResponse<String> delete_member(User user) {
+        int resultCount = userMapper.updateByPrimaryKeySelective(user);
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage("删除失败");
+        }
+
+        return ServerResponse.createBySuccessMessage("删除成功");
+    }
+
 
 }

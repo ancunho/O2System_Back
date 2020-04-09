@@ -90,5 +90,10 @@ public interface UserService {
 
     ServerResponse<String> resetPassword(String passwordOld,String passwordNew,User user);
 
+    /*********************************************************************************************************
+     * 												관리자 전용
+     *********************************************************************************************************/
+
+    ServerResponse<String> delete_user(User user);
 
 }

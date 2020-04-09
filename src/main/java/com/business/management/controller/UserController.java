@@ -204,6 +204,16 @@ public class UserController {
      * 												관리자 전용
      *********************************************************************************************************/
 
+    @UserLoginToken
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ServerResponse delete_user(HttpSession session, @RequestBody User user) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "请先登陆");
+        }
+
+        return userService.delete_user(user);
+    }
 
 
 

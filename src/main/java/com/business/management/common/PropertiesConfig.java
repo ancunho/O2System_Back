@@ -42,6 +42,9 @@ public class PropertiesConfig {
     @Value("${cunho.fileServerHttpPrefix}")
     private String fileServerHttpPrefix;
 
+    @Value("${cunho.filePath}")
+    private String filePath;
+
     public String getPasswordSalt() {
         return passwordSalt;
     }
@@ -114,6 +117,14 @@ public class PropertiesConfig {
         this.fileServerHttpPrefix = fileServerHttpPrefix;
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
     @Override
     public String toString() {
         return "PropertiesConfig{" +
@@ -126,6 +137,7 @@ public class PropertiesConfig {
                 ", ftpUsername='" + ftpUsername + '\'' +
                 ", ftpPassword='" + ftpPassword + '\'' +
                 ", fileServerHttpPrefix='" + fileServerHttpPrefix + '\'' +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 }

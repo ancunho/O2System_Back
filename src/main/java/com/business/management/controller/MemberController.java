@@ -61,18 +61,19 @@ public class MemberController {
 
     /**
      * 删除用户
-     * @param userId
+     * @param session
+     * @param updateUser
      * @return
      */
     @UserLoginToken
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public ServerResponse<User> delete_member(HttpSession session, @RequestParam("userId") Integer userId) {
+    public ServerResponse delete_member(HttpSession session, @RequestBody User updateUser) {
         // 1. 로그인 세션 체크
         User user = (User) session.getAttribute(Const.CURRENT_USER);
 
         // 2. 관리자 체크
         if (userService.checkAdminRole(user).isSuccess()) {
-            return memberService.getUserById(userId);
+            return memberService.delete_member(updateUser);
         } else {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }

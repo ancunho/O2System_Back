@@ -11,7 +11,6 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
-
 #내 aliyun정보 114.55.169.130:9000
 #spring:
 #  datasource:
@@ -32,6 +31,11 @@ spring:
     cache: false
   resources:
     static-locations: file:${web.upload-image}
+  servlet:
+    multipart:
+      location: /Users/cunho/Desktop/cunho/O2system_Infra/img
+      max-file-size: 50MB
+      max-request-size: 100MB
 
 
 #Mybatis Configuration
@@ -55,7 +59,7 @@ logging:
   path: "logs"
 
 #文件上传
-web:upload-image: "/static2/photo2"
+web:upload-image: "/Users/cunho/Desktop/cunho/O2system_Infra/img"
 #PageHelper
 
 #Qiniu

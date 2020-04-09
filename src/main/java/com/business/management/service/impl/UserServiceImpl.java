@@ -250,4 +250,16 @@ public class UserServiceImpl implements UserService {
      * 												관리자 전용
      *********************************************************************************************************/
 
+    @Override
+    public ServerResponse<String> delete_user(User user) {
+        int resultCount = userMapper.updateByPrimaryKeySelective(user);
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage("删除失败");
+        }
+
+        return ServerResponse.createBySuccessMessage("删除成功");
+    }
+
+
+
 }

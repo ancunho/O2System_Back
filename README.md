@@ -6,7 +6,7 @@
 2. 성별: 1-남자, 2-여자   ------ fixed
 3. /info/update --> @RequestBody추가   ------fixed
 4. 파일정보 저장 로직 추가
-5. 리스트에서 删除按钮 API로직 변경: 
+5. 리스트에서 删除按钮 API로직 변경: ----fixed   api地址是：/api/member/delete   参数是User对象
 6. 회원검색조건에 활성화/비활성화(启用/禁用) 조건추가
 7. 会员启用/禁用API地址：/member/update/status       parameter: id
 8. 初始化密码 : /member/update/reset/password       parameter: id
