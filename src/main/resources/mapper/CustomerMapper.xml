@@ -16,8 +16,10 @@
 		<result column="DISTRIBUTION" jdbcType="VARCHAR" property="distribution"/>
 		<result column="PROVINCE" jdbcType="VARCHAR" property="province"/>
 		<result column="CITY" jdbcType="VARCHAR" property="city"/>
+		<result column="AREA" jdbcType="VARCHAR" property="area"/>
 		<result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
 		<result column="AUTHOR" jdbcType="VARCHAR" property="author"/>
+		<result column="SALES_MAN" jdbcType="VARCHAR" property="salesMan"/>
 		<result column="CUSTOMER_IMAGE" jdbcType="VARCHAR" property="customerImage"/>
 		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
 		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
@@ -29,7 +31,7 @@
 	</resultMap>
 	<sql id="Base_Column_List">
     ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, DIRECTOR, STATUS, PHONE,
-    WECHAT, DESCRIPTION, TARGET, PRODUCT_LIST, DISTRIBUTION, PROVINCE, CITY, ADDRESS, AUTHOR, CUSTOMER_IMAGE, PARAM1, PARAM2,
+    WECHAT, DESCRIPTION, TARGET, PRODUCT_LIST, DISTRIBUTION, PROVINCE, CITY, AREA, ADDRESS, AUTHOR, SALES_MAN, CUSTOMER_IMAGE, PARAM1, PARAM2,
     PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
   </sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -47,7 +49,7 @@
       CUSTOMER_CD, DIRECTOR, STATUS, 
       PHONE, WECHAT, DESCRIPTION,
       TARGET, PRODUCT_LIST, DISTRIBUTION, PROVINCE,
-      CITY, ADDRESS, AUTHOR, CUSTOMER_IMAGE, PARAM1,
+      CITY, AREA, ADDRESS, AUTHOR, SALES_MAN, CUSTOMER_IMAGE, PARAM1,
       PARAM2, PARAM3, PARAM4, 
       PARAM5, CREATETIME, UPDATETIME
       )
@@ -55,8 +57,8 @@
       #{customerCd,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
       #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR}, #{distribution,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
-      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{customerImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR},
-      #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{salesMan,jdbcType=VARCHAR}, #{customerImage,jdbcType=VARCHAR}
+      , #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR},
       #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -105,11 +107,17 @@
 			<if test="city != null">
 				CITY,
 			</if>
+			<if test="area != null">
+				AREA,
+			</if>
 			<if test="address != null">
 				ADDRESS,
 			</if>
 			<if test="author != null">
 				AUTHOR,
+			</if>
+			<if test="salesMan != null">
+				SALES_MAN,
 			</if>
 			<if test="customerImage != null">
 				CUSTOMER_IMAGE,
@@ -179,11 +187,17 @@
 			<if test="city != null">
 				#{city,jdbcType=VARCHAR},
 			</if>
+			<if test="area != null">
+				#{area,jdbcType=VARCHAR},
+			</if>
 			<if test="address != null">
 				#{address,jdbcType=VARCHAR},
 			</if>
 			<if test="author != null">
 				#{author,jdbcType=VARCHAR},
+			</if>
+			<if test="salesMan != null">
+				#{salesMan,jdbcType=VARCHAR},
 			</if>
 			<if test="customerImage != null">
 				#{customerImage,jdbcType=VARCHAR},
@@ -253,11 +267,17 @@
 			<if test="city != null">
 				CITY = #{city,jdbcType=VARCHAR},
 			</if>
+			<if test="area != null">
+				AREA = #{city,jdbcType=VARCHAR},
+			</if>
 			<if test="address != null">
 				ADDRESS = #{address,jdbcType=VARCHAR},
 			</if>
 			<if test="author != null">
 				AUTHOR = #{author,jdbcType=VARCHAR},
+			</if>
+			<if test="salesMan != null">
+				SALES_MAN = #{salesMan,jdbcType=VARCHAR},
 			</if>
 			<if test="customerImage != null">
 				CUSTOMER_IMAGE = #{customerImage,jdbcType=VARCHAR},
@@ -301,8 +321,10 @@
       DISTRIBUTION = #{distribution,jdbcType=VARCHAR},
       PROVINCE = #{province,jdbcType=VARCHAR},
       CITY = #{city,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
       AUTHOR = #{author,jdbcType=VARCHAR},
+      SALES_MAN = #{salesMan,jdbcType=VARCHAR},
       CUSTOMER_IMAGE = #{customerImage,jdbcType=VARCHAR},
       PARAM1 = #{param1,jdbcType=VARCHAR},
       PARAM2 = #{param2,jdbcType=VARCHAR},

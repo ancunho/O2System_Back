@@ -35,9 +35,13 @@ public class Customer {
 
     private String city;
 
+    private String area;
+
     private String address;
 
     private String author;
+
+    private String salesMan;
 
     private String customerImage;
 
