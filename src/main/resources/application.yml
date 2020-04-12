@@ -4,20 +4,20 @@ server:
 
 ##############################################Spring Database Info##########################################################
 #테스트환경 , 로컬환경
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root
-    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-
-#내 aliyun정보 114.55.169.130:9000
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    username: root
-#    password: root00--
-#    url: jdbc:mysql://127.0.0.1:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+#    password: root
+#    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+
+#내 aliyun정보 114.55.169.130:9000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root00--
+    url: jdbc:mysql://127.0.0.1:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
 
 
@@ -31,9 +31,16 @@ spring:
     cache: false
   resources:
     static-locations: file:${web.upload-image}
+#  servlet:
+#    multipart:
+#      location: /Users/cunho/Desktop/cunho/O2system_Infra/img
+#      max-file-size: 50MB
+#      max-request-size: 100MB
+
+###production
   servlet:
     multipart:
-      location: /Users/cunho/Desktop/cunho/O2system_Infra/img
+      location: C:\\IMAGE
       max-file-size: 50MB
       max-request-size: 100MB
 
