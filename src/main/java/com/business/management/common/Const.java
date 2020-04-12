@@ -13,6 +13,8 @@ public class Const {
 
     public static final String RedirectLoginPage = "login";
 
+    public static final String DEFAULT_PASSWORD = "123456";
+
     /**
      * 上传图片的最大大小： 500K
      * 1KB = 1024Byte

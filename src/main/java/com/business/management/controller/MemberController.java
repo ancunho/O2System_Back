@@ -99,17 +99,17 @@ public class MemberController {
 
     /**
      * 启用/禁用
-     * @param updateUser
+     * @param userId
      * @return
      */
     @UserLoginToken
     @RequestMapping(value = "/update/status")
-    public ServerResponse<User> update_user_status(HttpSession session, @RequestBody User updateUser) {
+    public ServerResponse update_user_status(HttpSession session, @RequestParam("id") Integer userId) {
         // 1. 로그인 체크
         User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
 
         if (userService.checkAdminRole(currentAdmin).isSuccess()) {
-            return memberService.updateUserById(updateUser);
+            return memberService.updateUserStatus(userId);
         } else {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }
@@ -122,12 +122,12 @@ public class MemberController {
      */
     @UserLoginToken
     @RequestMapping(value = "/update/reset/password")
-    public ServerResponse<User> update_reset_password(HttpSession session, Integer userId) {
+    public ServerResponse<User> update_reset_password(HttpSession session, @RequestParam("id") Integer userId) {
         // 1. 로그인 체크
         User currentAdmin = (User) session.getAttribute(Const.CURRENT_USER);
 
         if (userService.checkAdminRole(currentAdmin).isSuccess()) {
-            return null;
+            return memberService.resetPassword(userId);
         } else {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
         }

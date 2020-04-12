@@ -31,11 +31,25 @@ public interface MemberService {
     ServerResponse<User> updateUserById(User updateUser);
 
     /**
+     * 회원활성화 / 비활성화 변경
+     * @param userId
+     * @return
+     */
+    ServerResponse updateUserStatus(Integer userId);
+
+    /**
      *
      * @param user
      * @return
      */
     ServerResponse<String> delete_member(User user);
+
+    /**
+     * 初始化密码
+     * @param userId
+     * @return
+     */
+    ServerResponse resetPassword(Integer userId);
 
 
 
