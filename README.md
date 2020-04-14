@@ -19,5 +19,53 @@
 2. 영업담당자추가--> key:id, value:realname    (多项)
 3. 영업담당자필드추가 : salesman
 
+#### 2020.04.14
+#####프로젝트 인터페이스
+1. 프로젝트 리스트 API
+    1). 프로젝트명
+    2). 고객명
+    3). 영업담당자
+    4). 제품
+    5). 도시
+    6). 이프로젝트의 Timeline
+2. 
+
+
+#####
+1. 프로젝트 기본정보 ProjectBaseinfo
+    1)프로젝트기본정보 + 2)고객정보 + 3)영업담당자정보(배열) 
+    {
+      projectCd: '123',
+      projectName: '项目名',
+      projectPriceTotal: '9999',
+      projectStatus: '0',
+      projectStarttime: '2020-05-01',
+      projectEndtime: '2020-06-01',
+      projectCustomerId: 1,
+      projectSalesmanId: "[1,2,3]"
+    }
+2. 제품정보 ProjectProduct
+    1). excel이랑 필드맞춰야됨---수량이 ProjectProduct에 없음
+    
+
+3. 이력정보 
+    1). 통으로 왓다갓다. json 
+    2). Tab정보 공통테이블에서 관리
+    
+4. 회원리스트 : 아이디 + 이름
+5. 고객리스트 : 아이디 + 이름
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

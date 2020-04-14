@@ -16,6 +16,9 @@ public class ProjectVO {
     // 프로젝트 기본정보
     private ProjectBaseinfo projectBaseinfo;
 
+    // PJ -> 영업담당자정보
+    private List<ProjectSalesman> projectSalesmanList;
+
     // PJ -> 고객정보
     private ProjectCustomer projectCustomer;
 
@@ -23,7 +26,7 @@ public class ProjectVO {
     private ProjectPrice projectPrice;
 
     // PJ -> 제품정보(다수가능)
-    private List<ProjectProduct> projectProductList;
+    private ProjectProduct projectProduct;
 
     // PJ -> 이력정보
     private ProjectRecord projectRecord;

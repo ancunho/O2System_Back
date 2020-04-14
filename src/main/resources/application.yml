@@ -19,8 +19,6 @@ spring:
     password: root00--
     url: jdbc:mysql://127.0.0.1:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
-
-
   #thymeleaf
   thymeleaf:
     suffix: .html

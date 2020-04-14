@@ -9,19 +9,19 @@ public class ProjectCustomer {
 
     private Integer id;
 
-    private Integer projectId;
+    private Integer projectId;  //from front
 
-    private String customerName;
+    private String customerName;  //from front
 
-    private String customerCd;
+    private String customerCd;  //from front
 
-    private String director;
+    private String director;  //from front
 
-    private String status;
+    private String status;  //from front
 
-    private String phone;
+    private String phone;  //from front
 
-    private String wechat;
+    private String wechat;  //from front
 
     private String description;
 
