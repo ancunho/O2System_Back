@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Mapper
 @Component("projectBaseinfoMapper")
 public interface ProjectBaseinfoMapper {
-    int deleteByPrimaryKey(Integer projectId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(ProjectBaseinfo record);
 
     int insertSelective(ProjectBaseinfo record);
 
-    ProjectBaseinfo selectByPrimaryKey(Integer projectId);
+    ProjectBaseinfo selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(ProjectBaseinfo record);
 

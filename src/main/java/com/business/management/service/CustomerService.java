@@ -13,8 +13,6 @@ public interface CustomerService {
 
     /**
      * 고객리스트 반환
-     * @param pageNum
-     * @param pageSize
      * @return
      */
     ServerResponse<PageInfo> customerList();

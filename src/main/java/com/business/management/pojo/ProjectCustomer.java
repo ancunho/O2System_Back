@@ -9,9 +9,11 @@ public class ProjectCustomer {
 
     private Integer id;
 
-    private Integer projectId;  //from front
+    private String projectId;  //from front
 
     private String customerName;  //from front
+
+    private String customerNameKr;
 
     private String customerCd;  //from front
 
@@ -35,9 +37,17 @@ public class ProjectCustomer {
 
     private String distribution;
 
+    private String province;
+
     private String city;
 
+    private String area;
+
     private String address;
+
+    private String salesMan;
+
+    private String customerImage;
 
     private String param1;
 

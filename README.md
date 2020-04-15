@@ -55,7 +55,103 @@
 4. 회원리스트 : 아이디 + 이름
 5. 고객리스트 : 아이디 + 이름
 
+step1 = {
+  projectCd: '123',
+  projectName: '项目名',
+  projectPriceTotal: '9999',
+  projectStatus: '0',
+  projectStarttime: '2020-05-01',
+  projectEndtime: '2020-06-01',
+  projectCustomer: {
+    // id null 추가 아님 갱신
+    id: 1,
+    // 필수
+    customerName: '123',
+    province: '123',
+    city: '123',
 
+    area: '123',
+    address: '123',
+    director: '123',
+    salesVolumn: '123',
+    developmentSkill: '123',
+    // 더보기
+    phone: '123',
+    wechat: '123',
+    description: '123',
+    target: '123',
+    productList: '123', 
+    distribution: '123',
+    salesMan: "[1,2,3]", // projectSalesMan 같음
+    customerImage: '123', // list쪽
+    status: '123', // 관리자쪽
+  },
+  projectSalesMan: "[1,2,3]"
+}
+
+
+step2 = {
+  projectProduct: {
+    projectId: 1, // id
+    productName: 'qwe', // 产品名
+    productMainMaterial: '["qwe","qwe"]', // 核心原料
+    productSubMaterial: '["qwe","qwe"]', // 副原料
+    productCategory: '11', // 分类
+    productPackage: '11', // 包装类型
+    productConcept: '11', // 产品概念
+    productType: '11', // 饰品类型
+    PRODUCT_QUANTITY: '11', // 数量
+    productTargetPrice: '11', // 目标价格
+    productDetail: 'qwe', // 详细说明
+    productTargetContent: 'qwe', // 内容
+    productImage: 'url', // 图片
+  },
+  projectPrice: {
+    projectId: 1, // id
+    projectProductId: null, // id
+    productName: '111', // 产品名
+    personInCharge: '111', // 负责人
+    releaseDate: '2020-05-01', // 发行日
+    dealPlace: '111', // 交易处
+    orderQuantity: '111', // 订货数量
+    actualInput: '111', // 实投入量
+    unitWeight: '111', // 单位重量
+    weight: '111', // 重量
+    packageSpec: '111', // 包装规格
+    theoryQuantity:'qwe', //理论数量
+    yieldPercent:'qwe', //收率
+    actualProduction:'qwe', //实际产生量
+    priceList:'[json]', //价格列表
+    descriptionList:'[json]', //说明列表
+    remark:'qwe', //备注
+    valueNoVat:'qwe', //估价 (VAT除外)
+    specialComment:'qwe', //特技事项
+  },
+  projectRecordList: [
+    {
+      projectId: 1, // id
+      recordId: 1, // id
+      recordContent: [json], // 内容list
+    },
+    {
+      projectId: 1, // id
+      recordId: 2, // id
+      recordContent: [json], // 内容list
+    }
+  ],
+  projectTimelineList: [
+    {
+      projectId: 1, // id
+      timelineContent: 'qwe', // 内容
+      timelineAuthor: 'qwe', // 创建人
+    },
+    {
+      projectId: 1, // id
+      timelineContent: 'qwe', // 内容
+      timelineAuthor: 'qwe', // 创建人
+    }
+  ]
+}
 
 
 
