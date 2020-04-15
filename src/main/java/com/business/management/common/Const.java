@@ -52,4 +52,14 @@ public class Const {
         String female   = "2"; // 女
     }
 
+    public interface ProjectStatus {
+        String KICKOFF              = "1";
+        String AGREEMENT            = "2";
+        String EXPORT_PREPARATION   = "3";
+        String CONTRACT_ORDER       = "4";
+        String PRODUCTION_EXPORT    = "5";
+        String EXPORT_AS            = "6";
+        String REJECT               = "99";
+    }
+
 }
