@@ -100,7 +100,7 @@ step2 = {
     productPackage: '11', // 包装类型
     productConcept: '11', // 产品概念
     productType: '11', // 饰品类型
-    PRODUCT_QUANTITY: '11', // 数量
+    productQuantity: '11', // 数量
     productTargetPrice: '11', // 目标价格
     productDetail: 'qwe', // 详细说明
     productTargetContent: 'qwe', // 内容

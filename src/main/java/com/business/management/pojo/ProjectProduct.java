@@ -6,28 +6,29 @@ import java.util.Date;
 
 @Data
 public class ProjectProduct {
-
     private Integer id;
 
     private Integer projectId;
 
     private String productName;
 
-    private String productMainMaterial; // 핵심원료
+    private String productMainMaterial;
 
-    private String productSubMaterial; //부원료
+    private String productSubMaterial;
 
-    private String productCategory; //카테고리
+    private String productCategory;
 
-    private String productPackage; //포장유형
+    private String productPackage;
 
-    private String productConcept; //제품컨셉
+    private String productConcept;
 
-    private String productType; //식품유형
+    private String productType;
 
-    private String productTargetPrice; //타겟가격
+    private String productQuantity;
 
-    private String productDetail; //상세비고
+    private String productTargetPrice;
+
+    private String productDetail;
 
     private String productTargetContent;
 

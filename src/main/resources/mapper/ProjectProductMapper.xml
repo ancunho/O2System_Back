@@ -1,253 +1,263 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.business.management.dao.ProjectProductMapper">
-	<resultMap id="BaseResultMap" type="com.business.management.pojo.ProjectProduct">
-		<id column="ID" jdbcType="INTEGER" property="id"/>
-		<result column="PROJECT_ID" jdbcType="INTEGER" property="projectId"/>
-		<result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName"/>
-		<result column="PRODUCT_MAIN_MATERIAL" jdbcType="VARCHAR" property="productMainMaterial"/>
-		<result column="PRODUCT_SUB_MATERIAL" jdbcType="VARCHAR" property="productSubMaterial"/>
-		<result column="PRODUCT_CATEGORY" jdbcType="VARCHAR" property="productCategory"/>
-		<result column="PRODUCT_PACKAGE" jdbcType="VARCHAR" property="productPackage"/>
-		<result column="PRODUCT_CONCEPT" jdbcType="VARCHAR" property="productConcept"/>
-		<result column="PRODUCT_TYPE" jdbcType="VARCHAR" property="productType"/>
-		<result column="PRODUCT_TARGET_PRICE" jdbcType="VARCHAR" property="productTargetPrice"/>
-		<result column="PRODUCT_DETAIL" jdbcType="VARCHAR" property="productDetail"/>
-		<result column="PRODUCT_TARGET_CONTENT" jdbcType="VARCHAR" property="productTargetContent"/>
-		<result column="PRODUCT_IMAGE" jdbcType="VARCHAR" property="productImage"/>
-		<result column="PARAM1" jdbcType="VARCHAR" property="param1"/>
-		<result column="PARAM2" jdbcType="VARCHAR" property="param2"/>
-		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
-		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
-		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
-		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
-		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
-	</resultMap>
-	<sql id="Base_Column_List">
+  <resultMap id="BaseResultMap" type="com.business.management.pojo.ProjectProduct">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PROJECT_ID" jdbcType="INTEGER" property="projectId" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="PRODUCT_MAIN_MATERIAL" jdbcType="VARCHAR" property="productMainMaterial" />
+    <result column="PRODUCT_SUB_MATERIAL" jdbcType="VARCHAR" property="productSubMaterial" />
+    <result column="PRODUCT_CATEGORY" jdbcType="VARCHAR" property="productCategory" />
+    <result column="PRODUCT_PACKAGE" jdbcType="VARCHAR" property="productPackage" />
+    <result column="PRODUCT_CONCEPT" jdbcType="VARCHAR" property="productConcept" />
+    <result column="PRODUCT_TYPE" jdbcType="VARCHAR" property="productType" />
+    <result column="PRODUCT_QUANTITY" jdbcType="VARCHAR" property="productQuantity" />
+    <result column="PRODUCT_TARGET_PRICE" jdbcType="VARCHAR" property="productTargetPrice" />
+    <result column="PRODUCT_DETAIL" jdbcType="VARCHAR" property="productDetail" />
+    <result column="PRODUCT_TARGET_CONTENT" jdbcType="VARCHAR" property="productTargetContent" />
+    <result column="PRODUCT_IMAGE" jdbcType="VARCHAR" property="productImage" />
+    <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
+    <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
+    <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
+    <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
+    <result column="PARAM5" jdbcType="VARCHAR" property="param5" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
     ID, PROJECT_ID, PRODUCT_NAME, PRODUCT_MAIN_MATERIAL, PRODUCT_SUB_MATERIAL, PRODUCT_CATEGORY, 
-    PRODUCT_PACKAGE, PRODUCT_CONCEPT, PRODUCT_TYPE, PRODUCT_TARGET_PRICE, PRODUCT_DETAIL, 
-    PRODUCT_TARGET_CONTENT, PRODUCT_IMAGE, PARAM1, PARAM2, PARAM3, PARAM4, PARAM5, CREATETIME, 
-    UPDATETIME
+    PRODUCT_PACKAGE, PRODUCT_CONCEPT, PRODUCT_TYPE, PRODUCT_QUANTITY, PRODUCT_TARGET_PRICE, 
+    PRODUCT_DETAIL, PRODUCT_TARGET_CONTENT, PRODUCT_IMAGE, PARAM1, PARAM2, PARAM3, PARAM4, 
+    PARAM5, CREATETIME, UPDATETIME
   </sql>
-	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List"/>
-		from tb_project_product
-		where ID = #{id,jdbcType=INTEGER}
-	</select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_project_product
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_project_product
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-	<insert id="insert" parameterType="com.business.management.pojo.ProjectProduct">
+  <insert id="insert" parameterType="com.business.management.pojo.ProjectProduct">
     insert into tb_project_product (ID, PROJECT_ID, PRODUCT_NAME, 
       PRODUCT_MAIN_MATERIAL, PRODUCT_SUB_MATERIAL, 
       PRODUCT_CATEGORY, PRODUCT_PACKAGE, PRODUCT_CONCEPT, 
-      PRODUCT_TYPE, PRODUCT_TARGET_PRICE, PRODUCT_DETAIL, 
-      PRODUCT_TARGET_CONTENT, PRODUCT_IMAGE, PARAM1, 
-      PARAM2, PARAM3, PARAM4, 
-      PARAM5, CREATETIME, UPDATETIME
-      )
+      PRODUCT_TYPE, PRODUCT_QUANTITY, PRODUCT_TARGET_PRICE, 
+      PRODUCT_DETAIL, PRODUCT_TARGET_CONTENT, PRODUCT_IMAGE, 
+      PARAM1, PARAM2, PARAM3, 
+      PARAM4, PARAM5, CREATETIME, 
+      UPDATETIME)
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, 
       #{productMainMaterial,jdbcType=VARCHAR}, #{productSubMaterial,jdbcType=VARCHAR}, 
       #{productCategory,jdbcType=VARCHAR}, #{productPackage,jdbcType=VARCHAR}, #{productConcept,jdbcType=VARCHAR}, 
-      #{productType,jdbcType=VARCHAR}, #{productTargetPrice,jdbcType=VARCHAR}, #{productDetail,jdbcType=VARCHAR}, 
-      #{productTargetContent,jdbcType=VARCHAR}, #{productImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, 
-      #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, 
-      #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
-      )
+      #{productType,jdbcType=VARCHAR}, #{productQuantity,jdbcType=VARCHAR}, #{productTargetPrice,jdbcType=VARCHAR}, 
+      #{productDetail,jdbcType=VARCHAR}, #{productTargetContent,jdbcType=VARCHAR}, #{productImage,jdbcType=VARCHAR}, 
+      #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
+      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
+      now())
   </insert>
-	<insert id="insertSelective" parameterType="com.business.management.pojo.ProjectProduct">
-		insert into tb_project_product
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				ID,
-			</if>
-			<if test="projectId != null">
-				PROJECT_ID,
-			</if>
-			<if test="productName != null">
-				PRODUCT_NAME,
-			</if>
-			<if test="productMainMaterial != null">
-				PRODUCT_MAIN_MATERIAL,
-			</if>
-			<if test="productSubMaterial != null">
-				PRODUCT_SUB_MATERIAL,
-			</if>
-			<if test="productCategory != null">
-				PRODUCT_CATEGORY,
-			</if>
-			<if test="productPackage != null">
-				PRODUCT_PACKAGE,
-			</if>
-			<if test="productConcept != null">
-				PRODUCT_CONCEPT,
-			</if>
-			<if test="productType != null">
-				PRODUCT_TYPE,
-			</if>
-			<if test="productTargetPrice != null">
-				PRODUCT_TARGET_PRICE,
-			</if>
-			<if test="productDetail != null">
-				PRODUCT_DETAIL,
-			</if>
-			<if test="productTargetContent != null">
-				PRODUCT_TARGET_CONTENT,
-			</if>
-			<if test="productImage != null">
-				PRODUCT_IMAGE,
-			</if>
-			<if test="param1 != null">
-				PARAM1,
-			</if>
-			<if test="param2 != null">
-				PARAM2,
-			</if>
-			<if test="param3 != null">
-				PARAM3,
-			</if>
-			<if test="param4 != null">
-				PARAM4,
-			</if>
-			<if test="param5 != null">
-				PARAM5,
-			</if>
-			<if test="createtime != null">
-				CREATETIME,
-			</if>
-			<if test="updatetime != null">
-				UPDATETIME,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				#{id,jdbcType=INTEGER},
-			</if>
-			<if test="projectId != null">
-				#{projectId,jdbcType=INTEGER},
-			</if>
-			<if test="productName != null">
-				#{productName,jdbcType=VARCHAR},
-			</if>
-			<if test="productMainMaterial != null">
-				#{productMainMaterial,jdbcType=VARCHAR},
-			</if>
-			<if test="productSubMaterial != null">
-				#{productSubMaterial,jdbcType=VARCHAR},
-			</if>
-			<if test="productCategory != null">
-				#{productCategory,jdbcType=VARCHAR},
-			</if>
-			<if test="productPackage != null">
-				#{productPackage,jdbcType=VARCHAR},
-			</if>
-			<if test="productConcept != null">
-				#{productConcept,jdbcType=VARCHAR},
-			</if>
-			<if test="productType != null">
-				#{productType,jdbcType=VARCHAR},
-			</if>
-			<if test="productTargetPrice != null">
-				#{productTargetPrice,jdbcType=VARCHAR},
-			</if>
-			<if test="productDetail != null">
-				#{productDetail,jdbcType=VARCHAR},
-			</if>
-			<if test="productTargetContent != null">
-				#{productTargetContent,jdbcType=VARCHAR},
-			</if>
-			<if test="productImage != null">
-				#{productImage,jdbcType=VARCHAR},
-			</if>
-			<if test="param1 != null">
-				#{param1,jdbcType=VARCHAR},
-			</if>
-			<if test="param2 != null">
-				#{param2,jdbcType=VARCHAR},
-			</if>
-			<if test="param3 != null">
-				#{param3,jdbcType=VARCHAR},
-			</if>
-			<if test="param4 != null">
-				#{param4,jdbcType=VARCHAR},
-			</if>
-			<if test="param5 != null">
-				#{param5,jdbcType=VARCHAR},
-			</if>
-			<if test="createtime != null">
-				#{createtime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="updatetime != null">
-				#{updatetime,jdbcType=TIMESTAMP},
-			</if>
-		</trim>
-	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.ProjectProduct">
-		update tb_project_product
-		<set>
-			<if test="projectId != null">
-				PROJECT_ID = #{projectId,jdbcType=INTEGER},
-			</if>
-			<if test="productName != null">
-				PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
-			</if>
-			<if test="productMainMaterial != null">
-				PRODUCT_MAIN_MATERIAL = #{productMainMaterial,jdbcType=VARCHAR},
-			</if>
-			<if test="productSubMaterial != null">
-				PRODUCT_SUB_MATERIAL = #{productSubMaterial,jdbcType=VARCHAR},
-			</if>
-			<if test="productCategory != null">
-				PRODUCT_CATEGORY = #{productCategory,jdbcType=VARCHAR},
-			</if>
-			<if test="productPackage != null">
-				PRODUCT_PACKAGE = #{productPackage,jdbcType=VARCHAR},
-			</if>
-			<if test="productConcept != null">
-				PRODUCT_CONCEPT = #{productConcept,jdbcType=VARCHAR},
-			</if>
-			<if test="productType != null">
-				PRODUCT_TYPE = #{productType,jdbcType=VARCHAR},
-			</if>
-			<if test="productTargetPrice != null">
-				PRODUCT_TARGET_PRICE = #{productTargetPrice,jdbcType=VARCHAR},
-			</if>
-			<if test="productDetail != null">
-				PRODUCT_DETAIL = #{productDetail,jdbcType=VARCHAR},
-			</if>
-			<if test="productTargetContent != null">
-				PRODUCT_TARGET_CONTENT = #{productTargetContent,jdbcType=VARCHAR},
-			</if>
-			<if test="productImage != null">
-				PRODUCT_IMAGE = #{productImage,jdbcType=VARCHAR},
-			</if>
-			<if test="param1 != null">
-				PARAM1 = #{param1,jdbcType=VARCHAR},
-			</if>
-			<if test="param2 != null">
-				PARAM2 = #{param2,jdbcType=VARCHAR},
-			</if>
-			<if test="param3 != null">
-				PARAM3 = #{param3,jdbcType=VARCHAR},
-			</if>
-			<if test="param4 != null">
-				PARAM4 = #{param4,jdbcType=VARCHAR},
-			</if>
-			<if test="param5 != null">
-				PARAM5 = #{param5,jdbcType=VARCHAR},
-			</if>
-			<if test="createtime != null">
-				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="updatetime != null">
-				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-			</if>
-		</set>
-		where ID = #{id,jdbcType=INTEGER}
-	</update>
-	<update id="updateByPrimaryKey" parameterType="com.business.management.pojo.ProjectProduct">
+  <insert id="insertSelective" parameterType="com.business.management.pojo.ProjectProduct">
+    insert into tb_project_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="projectId != null">
+        PROJECT_ID,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="productMainMaterial != null">
+        PRODUCT_MAIN_MATERIAL,
+      </if>
+      <if test="productSubMaterial != null">
+        PRODUCT_SUB_MATERIAL,
+      </if>
+      <if test="productCategory != null">
+        PRODUCT_CATEGORY,
+      </if>
+      <if test="productPackage != null">
+        PRODUCT_PACKAGE,
+      </if>
+      <if test="productConcept != null">
+        PRODUCT_CONCEPT,
+      </if>
+      <if test="productType != null">
+        PRODUCT_TYPE,
+      </if>
+      <if test="productQuantity != null">
+        PRODUCT_QUANTITY,
+      </if>
+      <if test="productTargetPrice != null">
+        PRODUCT_TARGET_PRICE,
+      </if>
+      <if test="productDetail != null">
+        PRODUCT_DETAIL,
+      </if>
+      <if test="productTargetContent != null">
+        PRODUCT_TARGET_CONTENT,
+      </if>
+      <if test="productImage != null">
+        PRODUCT_IMAGE,
+      </if>
+      <if test="param1 != null">
+        PARAM1,
+      </if>
+      <if test="param2 != null">
+        PARAM2,
+      </if>
+      <if test="param3 != null">
+        PARAM3,
+      </if>
+      <if test="param4 != null">
+        PARAM4,
+      </if>
+      <if test="param5 != null">
+        PARAM5,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMainMaterial != null">
+        #{productMainMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="productSubMaterial != null">
+        #{productSubMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="productCategory != null">
+        #{productCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="productPackage != null">
+        #{productPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="productConcept != null">
+        #{productConcept,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="productQuantity != null">
+        #{productQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="productTargetPrice != null">
+        #{productTargetPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="productDetail != null">
+        #{productDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="productTargetContent != null">
+        #{productTargetContent,jdbcType=VARCHAR},
+      </if>
+      <if test="productImage != null">
+        #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="param1 != null">
+        #{param1,jdbcType=VARCHAR},
+      </if>
+      <if test="param2 != null">
+        #{param2,jdbcType=VARCHAR},
+      </if>
+      <if test="param3 != null">
+        #{param3,jdbcType=VARCHAR},
+      </if>
+      <if test="param4 != null">
+        #{param4,jdbcType=VARCHAR},
+      </if>
+      <if test="param5 != null">
+        #{param5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.ProjectProduct">
+    update tb_project_product
+    <set>
+      <if test="projectId != null">
+        PROJECT_ID = #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMainMaterial != null">
+        PRODUCT_MAIN_MATERIAL = #{productMainMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="productSubMaterial != null">
+        PRODUCT_SUB_MATERIAL = #{productSubMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="productCategory != null">
+        PRODUCT_CATEGORY = #{productCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="productPackage != null">
+        PRODUCT_PACKAGE = #{productPackage,jdbcType=VARCHAR},
+      </if>
+      <if test="productConcept != null">
+        PRODUCT_CONCEPT = #{productConcept,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        PRODUCT_TYPE = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="productQuantity != null">
+        PRODUCT_QUANTITY = #{productQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="productTargetPrice != null">
+        PRODUCT_TARGET_PRICE = #{productTargetPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="productDetail != null">
+        PRODUCT_DETAIL = #{productDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="productTargetContent != null">
+        PRODUCT_TARGET_CONTENT = #{productTargetContent,jdbcType=VARCHAR},
+      </if>
+      <if test="productImage != null">
+        PRODUCT_IMAGE = #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="param1 != null">
+        PARAM1 = #{param1,jdbcType=VARCHAR},
+      </if>
+      <if test="param2 != null">
+        PARAM2 = #{param2,jdbcType=VARCHAR},
+      </if>
+      <if test="param3 != null">
+        PARAM3 = #{param3,jdbcType=VARCHAR},
+      </if>
+      <if test="param4 != null">
+        PARAM4 = #{param4,jdbcType=VARCHAR},
+      </if>
+      <if test="param5 != null">
+        PARAM5 = #{param5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.business.management.pojo.ProjectProduct">
     update tb_project_product
     set PROJECT_ID = #{projectId,jdbcType=INTEGER},
       PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
@@ -257,6 +267,7 @@
       PRODUCT_PACKAGE = #{productPackage,jdbcType=VARCHAR},
       PRODUCT_CONCEPT = #{productConcept,jdbcType=VARCHAR},
       PRODUCT_TYPE = #{productType,jdbcType=VARCHAR},
+      PRODUCT_QUANTITY = #{productQuantity,jdbcType=VARCHAR},
       PRODUCT_TARGET_PRICE = #{productTargetPrice,jdbcType=VARCHAR},
       PRODUCT_DETAIL = #{productDetail,jdbcType=VARCHAR},
       PRODUCT_TARGET_CONTENT = #{productTargetContent,jdbcType=VARCHAR},

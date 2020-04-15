@@ -62,4 +62,12 @@ public class Const {
         String REJECT               = "99";
     }
 
+    public interface Message {
+        String SAVE_OK          = "数据保存成功";
+        String SAVE_ERROR       = "数据保存失败";
+        String UPDATE_OK        = "更新成功";
+        String UPDATE_ERROR     = "更新失败";
+        String PARAMETER_ERROR  = "参数错误";
+    }
+
 }

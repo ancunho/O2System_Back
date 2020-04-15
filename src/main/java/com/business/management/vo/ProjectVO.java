@@ -13,6 +13,8 @@ import java.util.List;
 @Data
 public class ProjectVO {
 
+    private User currentUser;
+
     // 프로젝트 기본정보
     private ProjectBaseinfo projectBaseinfo;
 
@@ -20,13 +22,13 @@ public class ProjectVO {
     private List<ProjectSalesman> projectSalesmanList;
 
     // PJ -> 고객정보
-    private ProjectCustomer projectCustomer;
-
-    // PJ -> 가격정보
-    private ProjectPrice projectPrice;
+    private Customer customer;
 
     // PJ -> 제품정보(다수가능)
     private ProjectProduct projectProduct;
+
+    // PJ -> 가격정보
+    private ProjectPrice projectPrice;
 
     // PJ -> 이력정보
     private ProjectRecord projectRecord;

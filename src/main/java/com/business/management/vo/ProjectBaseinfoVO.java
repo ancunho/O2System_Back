@@ -1,6 +1,8 @@
 package com.business.management.vo;
 
+import com.business.management.pojo.Customer;
 import com.business.management.pojo.ProjectCustomer;
+import com.business.management.pojo.User;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -27,9 +29,11 @@ public class ProjectBaseinfoVO implements Serializable {
 
     private String projectEndtime;
 
-    private ProjectCustomer projectCustomer;
+    private Customer projectCustomer;
 
     private String projectSalesMan;
+
+    private User currentUser;
 
     private String param1;
 
