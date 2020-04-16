@@ -35,14 +35,17 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.business.management.pojo.ProjectBaseinfo">
-    insert into tb_project_baseinfo (ID, PROJECT_CD, PROJECT_NAME, 
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_project_baseinfo (PROJECT_CD, PROJECT_NAME,
       PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL, 
       PROJECT_STATUS, PROJECT_STARTTIME, PROJECT_ENDTIME, 
       PARAM1, PARAM2, PARAM3, 
       PARAM4, PARAM5, CREATETIME, 
       UPDATETIME)
-    values (#{id,jdbcType=INTEGER}, #{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, 
-      #{projectCustomer,jdbcType=VARCHAR}, #{projectSalesMan,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR}, 
+    values (#{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR},
+      #{projectCustomer,jdbcType=VARCHAR}, #{projectSalesMan,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR},
       #{projectStatus,jdbcType=VARCHAR}, #{projectStarttime,jdbcType=VARCHAR}, #{projectEndtime,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
       #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
@@ -219,4 +222,11 @@
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getList" resultType="com.business.management.vo.ProjectListVO">
+    SELECT * FROM TB_PROJECT_BASEINFO
+  </select>
+
+
+
 </mapper>

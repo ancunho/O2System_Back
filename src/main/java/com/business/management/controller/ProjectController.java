@@ -9,6 +9,7 @@ import com.business.management.pojo.User;
 import com.business.management.service.*;
 import com.business.management.util.ValueUtil;
 import com.business.management.vo.ProjectBaseinfoVO;
+import com.business.management.vo.ProjectListVO;
 import com.business.management.vo.ProjectVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,8 @@ public class ProjectController {
      * @param projectBaseinfoVO
      * @return
      */
-    @UserLoginToken
+//    @UserLoginToken
+    @PassToken
     @RequestMapping(value = "/baseinfo/save", method = RequestMethod.POST)
     public ServerResponse baseinfo_save(HttpSession session, @RequestBody ProjectBaseinfoVO projectBaseinfoVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -75,13 +77,15 @@ public class ProjectController {
      * @param projectVO
      * @return
      */
-    @UserLoginToken
+//    @UserLoginToken
+    @PassToken
     @RequestMapping(value = "/detail/save", method = RequestMethod.POST)
     public ServerResponse detail_save(HttpSession session, @RequestBody ProjectVO projectVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
+
         if (projectVO == null) {
             return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
         }
@@ -92,6 +96,27 @@ public class ProjectController {
         }
 
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    public ServerResponse project_list(HttpSession session) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+//        ServerResponse response = project
+
+        return null;
+    }
+
+    private ServerResponse session_judge(HttpSession session) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return  ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        } else {
+            return ServerResponse.createBySuccess();
+        }
     }
 
 

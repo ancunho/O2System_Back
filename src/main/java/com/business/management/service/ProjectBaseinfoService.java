@@ -2,6 +2,7 @@ package com.business.management.service;
 
 import com.business.management.common.ServerResponse;
 import com.business.management.vo.ProjectBaseinfoVO;
+import com.business.management.vo.ProjectListVO;
 
 /**
  * @author : Cunho
@@ -15,6 +16,8 @@ public interface ProjectBaseinfoService {
      * @return
      */
     ServerResponse save(ProjectBaseinfoVO projectBaseinfoVO);
+
+    ServerResponse list();
 
 
 

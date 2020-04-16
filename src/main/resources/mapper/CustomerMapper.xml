@@ -3,7 +3,7 @@
 <mapper namespace="com.business.management.dao.CustomerMapper">
   <resultMap id="BaseResultMap" type="com.business.management.pojo.Customer">
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="PROJECT_ID" jdbcType="VARCHAR" property="projectId" />
+    <result column="PROJECT_ID" jdbcType="VARCHAR" property="projectId"  />
     <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
     <result column="CUSTOMER_NAME_KR" jdbcType="VARCHAR" property="customerNameKr" />
     <result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd" />
@@ -59,7 +59,7 @@
       CUSTOMER_IMAGE, PARAM1, PARAM2, 
       PARAM3, PARAM4, PARAM5, 
       CREATETIME, UPDATETIME)
-    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR},
       #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
       #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{salesVolumn,jdbcType=VARCHAR}, 
@@ -166,7 +166,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="projectId != null">
-        #{projectId,jdbcType=VARCHAR},
+        #{projectId,jdbcType=ARRAY},
       </if>
       <if test="customerName != null">
         #{customerName,jdbcType=VARCHAR},

@@ -1,6 +1,8 @@
 package com.business.management.controller;
 
 import com.business.management.annotation.PassToken;
+import com.business.management.vo.ProjectVO;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,12 @@ public class HelloController {
         return "file_upload";
     }
 
-    public void main(String[] args) throws Exception {
-        System.out.println(this.getClass().getResource("upload").getPath());
+    public static void main(String[] args) throws Exception {
+//        System.out.println(new ProjectVO().toString());
+//        ProjectVO projectVO = new ProjectVO();
+//        System.out.println(new Gson().toJson(new ProjectVO()));
     }
+
+
 
 }
