@@ -47,8 +47,7 @@ public class ProjectController {
      * @param projectBaseinfoVO
      * @return
      */
-    @PassToken
-//    @UserLoginToken
+    @UserLoginToken
     @RequestMapping(value = "/baseinfo/save", method = RequestMethod.POST)
     public ServerResponse baseinfo_save(HttpSession session, @RequestBody ProjectBaseinfoVO projectBaseinfoVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -76,8 +75,7 @@ public class ProjectController {
      * @param projectVO
      * @return
      */
-    @PassToken
-//    @UserLoginToken
+    @UserLoginToken
     @RequestMapping(value = "/detail/save", method = RequestMethod.POST)
     public ServerResponse detail_save(HttpSession session, @RequestBody ProjectVO projectVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);

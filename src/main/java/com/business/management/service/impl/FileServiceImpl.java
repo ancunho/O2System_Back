@@ -4,6 +4,7 @@ import com.business.management.common.PropertiesConfig;
 import com.business.management.service.FileService;
 import com.business.management.util.DateUtil;
 import com.business.management.util.FTPUtil;
+import com.business.management.util.ValueUtil;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,12 @@ public class FileServiceImpl implements FileService {
         String fileName = file.getOriginalFilename();
         //文件扩展名
         String fileExtensionName = fileName.substring(fileName.lastIndexOf(".") + 1);
-        //文件新名字
-        String uploadFileName = DateUtil.getTime() + "__" + UUID.randomUUID().toString() + "." + fileExtensionName;
-        //文件保存路径
-        String path = propertiesConfig.getFilePath();
+        //文件新名字  UUID.randomUUID().toString()
+        String uploadFileName = DateUtil.getTime() + "_" + ValueUtil.generateUid(10) + "." + fileExtensionName;
         //文件路径 + "/"
-        String remotePath = DateUtil.getDays() + File.separator;
+        String remotePath = File.separator +  DateUtil.getDays() + File.separator;
+        //文件保存路径
+        String path = propertiesConfig.getFilePath() + remotePath;
 
         log.info("开始上传文件,上传文件的文件名:{},上传的路径:{},新文件名:{}",fileName,path,uploadFileName);
         System.out.println();
