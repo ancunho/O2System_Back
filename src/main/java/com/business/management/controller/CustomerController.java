@@ -1,5 +1,6 @@
 package com.business.management.controller;
 
+import com.business.management.annotation.PassToken;
 import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
@@ -33,7 +34,7 @@ public class CustomerController {
      * 고객리스트반환
      * @return
      */
-    @UserLoginToken
+    @PassToken
     @RequestMapping(value = "/list")
     public ServerResponse list() {
         return customerService.customerList();

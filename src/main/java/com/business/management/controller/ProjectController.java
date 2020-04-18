@@ -111,6 +111,11 @@ public class ProjectController {
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
     }
 
+    /**
+     * 프로젝트 리스트 반환
+     * @param session
+     * @return
+     */
     @PassToken
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public ServerResponse project_list(HttpSession session) {
@@ -130,6 +135,25 @@ public class ProjectController {
         returnMap.put("projectList", projectList);
 
         return ServerResponse.createBySuccess(Const.Message.SELECT_OK, returnMap);
+    }
+
+    @PassToken
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public ServerResponse project_view(HttpSession session, @RequestParam(value = "id") Integer projectId) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        ProjectVO project = projectDetailService.project_view(projectId);
+        if (project == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
+        }
+
+        ProjectVO projectVO = project;
+        projectVO.setCurrentUser(currentUser);
+
+        return ServerResponse.createBySuccess(projectVO);
     }
 
 

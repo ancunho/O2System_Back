@@ -18,4 +18,6 @@ public interface ProjectProductMapper {
     int updateByPrimaryKeySelective(ProjectProduct record);
 
     int updateByPrimaryKey(ProjectProduct record);
+
+    ProjectProduct selectByProjectId(Integer projectId);
 }

@@ -2,10 +2,8 @@ package com.business.management.service.impl;
 
 import com.business.management.common.Const;
 import com.business.management.common.ServerResponse;
-import com.business.management.dao.ProjectPriceMapper;
-import com.business.management.dao.ProjectProductMapper;
-import com.business.management.dao.ProjectRecordMapper;
-import com.business.management.dao.ProjectTimelineMapper;
+import com.business.management.dao.*;
+import com.business.management.pojo.*;
 import com.business.management.service.ProjectDetailService;
 import com.business.management.vo.ProjectVO;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class ProjectDetailServiceImpl implements ProjectDetailService {
+
+    @Autowired
+    private ProjectBaseinfoMapper projectBaseinfoMapper;
 
     @Autowired
     private ProjectProductMapper projectProductMapper;
@@ -28,6 +31,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     @Autowired
     private ProjectTimelineMapper projectTimelineMapper;
+
+    @Autowired
+    private CustomerMapper customerMapper;
 
     @Override
     @Transactional
@@ -61,5 +67,41 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         }
 
         return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+    }
+
+    @Override
+    @Transactional
+    public ProjectVO project_view(Integer projectId) {
+        ProjectVO project = new ProjectVO();
+
+        // 1. Baseinfo
+        ProjectBaseinfo baseinfo = projectBaseinfoMapper.selectByPrimaryKey(projectId);
+        if (baseinfo == null) {
+            project.setResponseMsg(Const.Message.SAVE_ERROR);
+            return project;
+        }
+        project.setProjectBaseinfo(baseinfo);
+
+        // 2. Customer
+        Customer customer = customerMapper.selectByPrimaryKey(Integer.valueOf(baseinfo.getProjectCustomer()));
+        project.setCustomer(customer);
+
+        // 3. Product
+        ProjectProduct projectProduct = projectProductMapper.selectByProjectId(projectId);
+        project.setProjectProduct(projectProduct);
+
+        // 4. Price
+        ProjectPrice projectPrice = projectPriceMapper.selectByProjectId(projectId);
+        project.setProjectPrice(projectPrice);
+
+        // 5. Record List
+        List<ProjectRecord> projectRecordList = projectRecordMapper.selectByProjectId(projectId);
+        project.setProjectRecordList(projectRecordList);
+
+        // 6. Timeline List
+        List<ProjectTimeline> timelineList = projectTimelineMapper.selectByProjectId(projectId);
+        project.setProjectTimelineList(timelineList);
+
+        return project;
     }
 }

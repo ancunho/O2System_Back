@@ -351,4 +351,10 @@
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+	<select id="selectByProjectId" resultType="com.business.management.pojo.ProjectPrice">
+		SELECT 	<include refid="Base_Column_List" />
+		FROM 	TB_PROJECT_PRICE
+		WHERE 	PROJECT_ID = #{projectId}
+	</select>
 </mapper>

@@ -12,4 +12,11 @@ public interface ProjectDetailService {
      */
     ServerResponse save(ProjectVO projectVO);
 
+    /**
+     * view
+     * @param projectId
+     * @return
+     */
+    ProjectVO project_view(Integer projectId);
+
 }

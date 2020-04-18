@@ -45,5 +45,9 @@ public class ProjectVO {
     // PJ -> 파일정보
     private List<ProjectFileinfo> projectFileinfoList;
 
+    private String responseMsg;
+    private String responseStatus;
+
+
 
 }

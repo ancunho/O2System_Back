@@ -174,4 +174,10 @@
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+	<select id="selectByProjectId" resultType="com.business.management.pojo.ProjectTimeline">
+		SELECT <include refid="Base_Column_List" />
+		FROM 	TB_PROJECT_TIMELINE
+		WHERE PROJECT_ID = #{projectId}
+	</select>
 </mapper>
