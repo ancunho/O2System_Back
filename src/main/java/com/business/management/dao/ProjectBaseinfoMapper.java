@@ -22,5 +22,9 @@ public interface ProjectBaseinfoMapper {
 
     int updateByPrimaryKey(ProjectBaseinfo record);
 
-    List<ProjectListVO> getList();
+    List<ProjectBaseinfo> getProjectBaseinfoList();
+
+    List<ProjectListVO> getProjetList();
+
+
 }

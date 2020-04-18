@@ -67,6 +67,8 @@ public class Const {
         String SAVE_ERROR       = "数据保存失败";
         String UPDATE_OK        = "更新成功";
         String UPDATE_ERROR     = "更新失败";
+        String SELECT_OK        = "查询成功";
+        String SELECT_ERROR     = "查询失败";
         String PARAMETER_ERROR  = "参数错误";
     }
 

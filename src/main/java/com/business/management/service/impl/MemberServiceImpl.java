@@ -40,6 +40,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public ServerResponse getUserListOnlyIDAndRealname() {
+        List<User> userList = userMapper.getUserListOnlyIDAndRealname();
+        return ServerResponse.createBySuccess(userList);
+    }
+
+    @Override
     public ServerResponse<User> getUserById(Integer userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         if (user == null) {

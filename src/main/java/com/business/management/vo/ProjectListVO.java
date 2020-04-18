@@ -16,16 +16,20 @@ public class ProjectListVO implements Serializable {
 
     private String projectName;
 
-    private Customer customer;
+    private String projectCustomer;
+
+    private String productName;
 
     private String projectStatus;
+
+    private String projectSalesMan;
+
+    private String projectPriceTotal;
 
     private String projectStarttime;
 
     private String projectEndtime;
 
-    private ProjectTimeline projectTimeline;
-
-    private User currentUser;
+    private String createtime;
 
 }

@@ -67,13 +67,17 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
             return ServerResponse.createByErrorMessage("数据保存失败");
         }
 
+        // -- 프로젝트아이디 매핑시킨다
+        projectBaseinfoVO.setId(projectBaseinfo.getId());
+
         /***** 2. ProjectCustomer Object Save *****/
         if (projectBaseinfoVO.getCustomer().getId() == null || "".equals(projectBaseinfoVO.getCustomer().getId())) {
             // 如果没有id，则新增
             Customer customer = new Customer();
             customer.setId(projectBaseinfoVO.getCustomer().getId());
-            customer.setProjectId(projectBaseinfo.getId().toString());
+            customer.setProjectId(projectBaseinfoVO.getCustomer().getProjectId());
             customer.setCustomerName(projectBaseinfoVO.getCustomer().getCustomerName());
+            customer.setCustomerNameKr(projectBaseinfoVO.getCustomer().getCustomerNameKr());
             customer.setCustomerCd(projectBaseinfoVO.getCustomer().getCustomerCd());
             customer.setAuthor(projectBaseinfoVO.getCurrentUser().getRealname());
             customer.setDirector(projectBaseinfoVO.getCustomer().getDirector());
@@ -92,27 +96,33 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
             customer.setAddress(projectBaseinfoVO.getCustomer().getAddress());
             customer.setSalesMan(projectBaseinfoVO.getCustomer().getSalesMan());
             customer.setCustomerImage(projectBaseinfoVO.getCustomer().getCustomerImage());
+
+
             resultCount = customerMapper.insert(customer);
 
             if (resultCount == 0) {
                 return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
             }
-            return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+            return ServerResponse.createBySuccess(Const.Message.SAVE_OK, projectBaseinfoVO);
         } else {
             // 有id，则更新
-            projectBaseinfoVO.getCustomer().setProjectId("['1','2']");
+            projectBaseinfoVO.getCustomer().setProjectId("[1,2]");
             resultCount = customerMapper.updateByPrimaryKeySelective(projectBaseinfoVO.getCustomer());
 
             if (resultCount == 0) {
                 return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
             }
-            return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+            return ServerResponse.createBySuccess(Const.Message.SAVE_OK, projectBaseinfoVO);
         }
     }
 
     @Override
-    public ServerResponse list() {
-        List<ProjectListVO> projectList = projectBaseinfoMapper.getList();
+    public List<ProjectListVO> getProjectlist() {
+        List<ProjectListVO> projectList = projectBaseinfoMapper.getProjetList();
+
+        if (projectList != null && projectList.size() > 0) {
+            return projectList;
+        }
         return null;
     }
 

@@ -22,4 +22,6 @@ public interface CustomerMapper {
     int updateByPrimaryKey(Customer record);
 
     List<Customer> selectCustomerList();
+
+    List<Customer> getCustomerListOnlyIDAndName();
 }

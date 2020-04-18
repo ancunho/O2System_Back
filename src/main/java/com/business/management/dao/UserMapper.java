@@ -98,6 +98,8 @@ public interface UserMapper {
 
     List<User> selectAllUser();
 
+    List<User> getUserListOnlyIDAndRealname();
+
 
 
 }

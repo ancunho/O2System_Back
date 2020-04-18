@@ -4,6 +4,8 @@ import com.business.management.common.ServerResponse;
 import com.business.management.vo.ProjectBaseinfoVO;
 import com.business.management.vo.ProjectListVO;
 
+import java.util.List;
+
 /**
  * @author : Cunho
  * @date : 2020/4/15
@@ -17,7 +19,11 @@ public interface ProjectBaseinfoService {
      */
     ServerResponse save(ProjectBaseinfoVO projectBaseinfoVO);
 
-    ServerResponse list();
+    /**
+     * PJ 리스트 반환
+     * @return
+     */
+    List<ProjectListVO> getProjectlist();
 
 
 

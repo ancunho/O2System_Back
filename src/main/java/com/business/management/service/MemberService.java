@@ -17,6 +17,12 @@ public interface MemberService {
     ServerResponse getUserList();
 
     /**
+     * 只返回ID和名字
+     * @return
+     */
+    ServerResponse getUserListOnlyIDAndRealname();
+
+    /**
      * userId로 회원 상세정보 가져온다.
      * @param userId
      * @return

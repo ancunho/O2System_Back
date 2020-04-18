@@ -223,8 +223,38 @@
     where ID = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getList" resultType="com.business.management.vo.ProjectListVO">
-    SELECT * FROM TB_PROJECT_BASEINFO
+  <select id="getProjectBaseinfoList" resultType="com.business.management.pojo.ProjectBaseinfo">
+    SELECT  <include refid="Base_Column_List" />
+    FROM    TB_PROJECT_BASEINFO
+    ORDER BY ID DESC
+  </select>
+
+  <select id="getProjetList" resultType="com.business.management.vo.ProjectListVO">
+    SELECT BASEINFO.ID
+            ,BASEINFO.PROJECT_CD
+            ,BASEINFO.PROJECT_NAME
+            ,BASEINFO.PROJECT_CUSTOMER
+            ,PRODUCT.PRODUCT_NAME
+            ,BASEINFO.PROJECT_SALES_MAN
+            ,BASEINFO.PROJECT_PRICE_TOTAL
+            ,BASEINFO.PROJECT_STATUS
+            ,BASEINFO.PROJECT_STARTTIME
+            ,BASEINFO.PROJECT_ENDTIME
+            ,BASEINFO.CREATETIME
+    FROM TB_PROJECT_BASEINFO BASEINFO LEFT JOIN TB_PROJECT_PRODUCT PRODUCT ON BASEINFO.ID = PRODUCT.PROJECT_ID
+    WHERE 	1 = 1
+    GROUP BY BASEINFO.ID
+            ,BASEINFO.PROJECT_CD
+            ,BASEINFO.PROJECT_NAME
+            ,BASEINFO.PROJECT_CUSTOMER
+            ,BASEINFO.PROJECT_SALES_MAN
+            ,BASEINFO.PROJECT_PRICE_TOTAL
+            ,BASEINFO.PROJECT_STATUS
+            ,BASEINFO.PROJECT_STARTTIME
+            ,BASEINFO.PROJECT_ENDTIME
+            ,BASEINFO.CREATETIME
+            ,PRODUCT.PRODUCT_NAME
+    ORDER BY ID DESC
   </select>
 
 

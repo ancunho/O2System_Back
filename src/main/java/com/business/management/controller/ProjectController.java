@@ -19,13 +19,16 @@ import com.business.management.vo.ProjectVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Cunho
@@ -108,6 +111,7 @@ public class ProjectController {
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
     }
 
+    @PassToken
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public ServerResponse project_list(HttpSession session) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -115,14 +119,24 @@ public class ProjectController {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
 
-//        ServerResponse response = project
+        List<ProjectListVO> projectList = projectBaseinfoService.getProjectlist();
+        if (projectList == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
+        }
 
-        return null;
+        Map<String, Object> returnMap = new HashMap<>();
+        currentUser.setPassword(org.apache.commons.lang3.StringUtils.EMPTY);
+        returnMap.put("currentUser", currentUser);
+        returnMap.put("projectList", projectList);
+
+        return ServerResponse.createBySuccess(Const.Message.SELECT_OK, returnMap);
     }
+
+
 
     @PassToken
     @RequestMapping(value = "/record/save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse save_record(HttpSession session, @RequestBody JSONObject projectRecordList, HttpServletRequest request) {
+    public ServerResponse save_record(HttpSession session, @RequestBody JSONObject projectRecordList) {
 
         System.out.println(JSON.toJSONString(new ProjectVO()));
 

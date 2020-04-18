@@ -40,6 +40,12 @@ public class MemberController {
         return memberService.getUserList();
     }
 
+    @UserLoginToken
+    @RequestMapping(value = "/list/name")
+    public ServerResponse get_all_member_list_only_id_and_realname() {
+        return memberService.getUserListOnlyIDAndRealname();
+    }
+
     /**
      * 根据ID获取用户信息
      * @param userId

@@ -1,0 +1,32 @@
+{
+  "customer": {
+    "address": "阿斯顿看风使舵 XXXX号",
+    "area": "开发区",
+    "author": "cunho",
+    "city": "大连市",
+    "customerCd": "customer002",
+    "customerImage": "http://114.55.169.130:8000/images/xxxxx.jpg",
+    "customerName": "customer name2222",
+    "customerNameKr": "customer kr name2222",
+    "description": "text text texttext text texttext text texttext text text",
+    "developmentSkill": "developementskill",
+    "director": "direcotr",
+    "distribution": "distribution",
+    "phone": "18521095572",
+    "productList": "['牛奶','水果','冰淇淋','可乐']",
+    "projectId": "[2,23]",
+    "province": "辽宁省",
+    "salesMan": "[2,4,9]",
+    "salesVolumn": "1,000,000",
+    "status": "1",
+    "target": "target",
+    "wechat": "cunho910"
+  },
+  "projectCd": "2020041800002",
+  "projectEndtime": "2022-09-01",
+  "projectName": "project name2222",
+  "projectPriceTotal": "90000元",
+  "projectSalesMan": "[3,12,24]",
+  "projectStarttime": "2020-03-01",
+  "projectStatus": "1"
+}

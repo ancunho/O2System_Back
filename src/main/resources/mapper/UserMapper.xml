@@ -441,5 +441,11 @@
 		ORDER BY ID DESC
 	</select>
 
+	<select id="getUserListOnlyIDAndRealname" resultType="com.business.management.pojo.User">
+		SELECT 	ID, REALNAME
+		FROM 	TB_USER
+		ORDER BY ID DESC
+	</select>
+
 
 </mapper>

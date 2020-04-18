@@ -40,6 +40,16 @@ public class CustomerController {
     }
 
     /**
+     * 아이디와 이름만 포함된 고객리스트 반환
+     * @return
+     */
+    @UserLoginToken
+    @RequestMapping(value = "/list/name")
+    public ServerResponse get_list_only_id_and_name() {
+        return customerService.getCustomerListOnlyIDAndName();
+    }
+
+    /**
      * 고객상세정보 보기
      * @param customerId
      * @return

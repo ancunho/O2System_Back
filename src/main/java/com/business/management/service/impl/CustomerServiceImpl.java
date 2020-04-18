@@ -35,6 +35,12 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
+    public ServerResponse getCustomerListOnlyIDAndName() {
+        List<Customer> customerList = customerMapper.getCustomerListOnlyIDAndName();
+        return ServerResponse.createBySuccess(customerList);
+    }
+
+    @Override
     public ServerResponse detail(Integer id) {
         if (id == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
