@@ -1,21 +1,31 @@
 package com.business.management.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.business.management.annotation.PassToken;
 import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
+import com.business.management.pojo.ProjectRecord;
 import com.business.management.pojo.User;
 import com.business.management.service.*;
+import com.business.management.util.Box;
+import com.business.management.util.HttpUtility;
 import com.business.management.util.ValueUtil;
 import com.business.management.vo.ProjectBaseinfoVO;
 import com.business.management.vo.ProjectListVO;
 import com.business.management.vo.ProjectVO;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author : Cunho
@@ -80,7 +90,7 @@ public class ProjectController {
 //    @UserLoginToken
     @PassToken
     @RequestMapping(value = "/detail/save", method = RequestMethod.POST)
-    public ServerResponse detail_save(HttpSession session, @RequestBody ProjectVO projectVO) {
+    public ServerResponse detail_save(HttpSession session, @RequestBody ProjectVO projectVO, HttpServletRequest request) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -110,13 +120,15 @@ public class ProjectController {
         return null;
     }
 
-    private ServerResponse session_judge(HttpSession session) {
-        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
-        if (currentUser == null) {
-            return  ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
-        } else {
-            return ServerResponse.createBySuccess();
-        }
+    @PassToken
+    @RequestMapping(value = "/record/save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse save_record(HttpSession session, @RequestBody JSONObject projectRecordList, HttpServletRequest request) {
+
+        System.out.println(JSON.toJSONString(new ProjectVO()));
+
+
+
+        return null;
     }
 
 
