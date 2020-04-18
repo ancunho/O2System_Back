@@ -117,6 +117,19 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
     }
 
     @Override
+    public ServerResponse update(ProjectBaseinfo projectBaseinfo) {
+        if (projectBaseinfo == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        int updateCount = projectBaseinfoMapper.updateByPrimaryKeySelective(projectBaseinfo);
+        if (updateCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+        return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
+    }
+
+    @Override
     public List<ProjectListVO> getProjectlist() {
         List<ProjectListVO> projectList = projectBaseinfoMapper.getProjetList();
 

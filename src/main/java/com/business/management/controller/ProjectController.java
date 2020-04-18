@@ -7,6 +7,7 @@ import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
+import com.business.management.pojo.ProjectBaseinfo;
 import com.business.management.pojo.ProjectRecord;
 import com.business.management.pojo.User;
 import com.business.management.service.*;
@@ -38,15 +39,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/project")
 public class ProjectController {
-
-    @Autowired
-    private MemberService memberService;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private CustomerService customerService;
 
     @Autowired
     private ProjectBaseinfoService projectBaseinfoService;
@@ -81,6 +73,23 @@ public class ProjectController {
         }
 
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+    }
+
+    /**
+     * 프로젝트기본정보 수정
+     * @param session
+     * @param projectBaseinfo
+     * @return
+     */
+    @PassToken
+    @RequestMapping(value = "/baseinfo/update", method = RequestMethod.POST)
+    public ServerResponse bseinfo_update(HttpSession session, @RequestBody ProjectBaseinfo projectBaseinfo) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return projectBaseinfoService.update(projectBaseinfo);
     }
 
     /**
