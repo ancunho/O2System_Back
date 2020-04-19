@@ -31,7 +31,6 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
     @Autowired
     private CustomerMapper customerMapper;
 
-
     /**
      * 프로젝트 기본정보 저장
      * 기본정보 + 고객정보 + 영업담당
@@ -97,12 +96,12 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
             customer.setSalesMan(projectBaseinfoVO.getCustomer().getSalesMan());
             customer.setCustomerImage(projectBaseinfoVO.getCustomer().getCustomerImage());
 
-
             resultCount = customerMapper.insert(customer);
 
             if (resultCount == 0) {
                 return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
             }
+
             return ServerResponse.createBySuccess(Const.Message.SAVE_OK, projectBaseinfoVO);
         } else {
             // 有id，则更新
@@ -117,6 +116,7 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
     }
 
     @Override
+    @Transactional
     public ServerResponse update(ProjectBaseinfo projectBaseinfo) {
         if (projectBaseinfo == null) {
             return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
@@ -130,6 +130,7 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
     }
 
     @Override
+    @Transactional
     public List<ProjectListVO> getProjectlist() {
         List<ProjectListVO> projectList = projectBaseinfoMapper.getProjetList();
 

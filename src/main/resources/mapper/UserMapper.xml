@@ -66,7 +66,7 @@
       #{roleNo,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{empno,jdbcType=VARCHAR},
       #{realname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{department,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
-      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},, #{city,jdbcType=VARCHAR},, #{area,jdbcType=VARCHAR},, #{address,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
       #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{imagePhoto,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
       #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 

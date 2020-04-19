@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ServerResponse checkAdminRole(User user) {
-        if (user != null && user.getRole() == Const.Role.ROLE_ADMIN) {
+        if (user != null && user.getRole().equals(Const.Role.ROLE_ADMIN)) {
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
@@ -94,6 +94,9 @@ public class UserServiceImpl implements UserService {
         updateUser.setBirthday(user.getBirthday());
         updateUser.setWechat(user.getWechat());
         updateUser.setQq(user.getQq());
+        updateUser.setProvince(user.getProvince());
+        updateUser.setCity(user.getCity());
+        updateUser.setArea(user.getArea());
         updateUser.setAddress(user.getAddress());
         updateUser.setQuestion(user.getQuestion());
         updateUser.setAnswer(user.getAnswer());

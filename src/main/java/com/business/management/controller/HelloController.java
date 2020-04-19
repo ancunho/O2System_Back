@@ -40,6 +40,12 @@ public class HelloController {
 
 //        System.out.println(projectList.size());
 
+        if ("R" == "R") {
+            System.out.println("OK");
+        } else {
+            System.out.println("NO");
+        }
+
     }
 
     /*

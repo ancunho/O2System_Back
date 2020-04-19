@@ -2,6 +2,7 @@ package com.business.management.service;
 
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.User;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author : Cunho
@@ -48,7 +49,7 @@ public interface MemberService {
      * @param user
      * @return
      */
-    ServerResponse<String> delete_member(User user);
+    ServerResponse<String> delete_member(@RequestParam(value = "id") Integer userId);
 
     /**
      * 初始化密码
