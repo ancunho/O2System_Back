@@ -538,3 +538,183 @@ java.lang.RuntimeException: 无token
 2020/04/19-16:47 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
 2020/04/19-16:47 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
 2020/04/19-16:47 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/04/19-17:56 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 1547 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/04/19-17:56 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/04/19-17:56 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e730fb07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/04/19-17:56 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/04/19-17:56 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/19-17:56 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/04/19-17:56 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/19-17:56 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2085 ms
+2020/04/19-17:56 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/19-17:56 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/04/19-17:56 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/04/19-17:56 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/04/19-17:56 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.745 seconds (JVM running for 5.791)
+2020/04/19-17:56 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/19-17:56 [RMI TCP Connection(1)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/19-17:56 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/19-17:56 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 13 ms
+2020/04/19-17:56 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/19-17:58 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-04-18)
+2020/04/19-17:58 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:58 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:58 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:58 [http-nio-9000-exec-8] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver- Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020/04/19-17:58 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:58 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:58 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:58 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [http-nio-9000-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver- Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020/04/19-17:59 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [Thread-12] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/19-17:59 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/04/19-17:59 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/04/19-17:59 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 1558 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/04/19-17:59 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/04/19-17:59 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fbc97e96] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/04/19-17:59 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/04/19-17:59 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/19-17:59 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/04/19-17:59 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/19-17:59 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1998 ms
+2020/04/19-17:59 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/19-17:59 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/04/19-17:59 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/04/19-17:59 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/04/19-17:59 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 4.487 seconds (JVM running for 5.561)
+2020/04/19-17:59 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/19-17:59 [RMI TCP Connection(1)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/19-17:59 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/19-17:59 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 11 ms
+2020/04/19-17:59 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/19-17:59 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzODkzfQ.NuRd3RHSXnQLeYG5LyAcWQKaVg8a6xD2df7mC3CaGi4
+2020/04/19-17:59 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-04-18)
+2020/04/19-17:59 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzOTc1fQ.PZJcqG3bxqEKYCXDq9kY-G0EhwI_fVpaGVUQjNGb8fg
+2020/04/19-17:59 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzOTc1fQ.PZJcqG3bxqEKYCXDq9kY-G0EhwI_fVpaGVUQjNGb8fg
+2020/04/19-17:59 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-17:59 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzOTc1fQ.PZJcqG3bxqEKYCXDq9kY-G0EhwI_fVpaGVUQjNGb8fg
+2020/04/19-17:59 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzOTc1fQ.PZJcqG3bxqEKYCXDq9kY-G0EhwI_fVpaGVUQjNGb8fg
+2020/04/19-18:00 [Thread-12] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/19-18:00 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/04/19-18:00 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/04/19-18:00 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 1565 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/04/19-18:00 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/04/19-18:00 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b0251e8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/04/19-18:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/04/19-18:00 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/19-18:00 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/04/19-18:00 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/19-18:00 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1037 ms
+2020/04/19-18:00 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/19-18:00 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/04/19-18:00 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/04/19-18:00 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/04/19-18:00 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.293 seconds (JVM running for 2.693)
+2020/04/19-18:00 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/19-18:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/19-18:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/19-18:00 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/04/19-18:00 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/19-18:00 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:00 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3MjkzOTc1fQ.PZJcqG3bxqEKYCXDq9kY-G0EhwI_fVpaGVUQjNGb8fg
+2020/04/19-18:00 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-04-18)
+2020/04/19-18:00 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:00 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:00 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:00 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:00 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:00 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:00 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:01 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:01 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:01 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 19
+2020/04/19-18:01 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/04/19-18:02 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:02 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:02 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:02 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:02 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:02 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:02 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:02 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:03 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:03 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:03 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:03 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:03 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:03 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:04 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:04 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:05 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/19-18:05 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/04/19-18:05 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/04/19-18:05 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 1584 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/04/19-18:05 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/04/19-18:05 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bbc8f22d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/04/19-18:05 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/04/19-18:05 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/19-18:05 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/04/19-18:05 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/19-18:05 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 910 ms
+2020/04/19-18:05 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/19-18:05 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/04/19-18:05 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/04/19-18:05 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/04/19-18:05 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.069 seconds (JVM running for 2.574)
+2020/04/19-18:05 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/19-18:05 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/19-18:05 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/19-18:05 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 4 ms
+2020/04/19-18:05 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/19-18:05 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MDQxfQ.QrHuxLM0mWqCbgvXdCONMMZ0yqHDOg4GZbtt6v1YO_I
+2020/04/19-18:05 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-04-18)
+2020/04/19-18:05 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:05 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:05 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:05 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:05 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:05 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2020/04/19-18:05 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTg3Mjk0MzMyfQ.2K6ZDQ4oD7kXzRE-RIhxYxBbfzTDqChiUUoHV7Pug5Q
+2020/04/19-18:06 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 20
+2020/04/19-18:06 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/04/19-18:07 [Thread-6] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/19-18:07 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/04/19-18:07 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.

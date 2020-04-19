@@ -146,7 +146,7 @@ public class ProjectController {
      * @return
      */
     @PassToken
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ServerResponse project_list(HttpSession session) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
@@ -154,16 +154,8 @@ public class ProjectController {
         }
 
         List<ProjectListVO> projectList = projectBaseinfoService.getProjectlist();
-        if (projectList == null) {
-            return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
-        }
 
-        Map<String, Object> returnMap = new HashMap<>();
-        currentUser.setPassword(org.apache.commons.lang3.StringUtils.EMPTY);
-        returnMap.put("currentUser", currentUser);
-        returnMap.put("projectList", projectList);
-
-        return ServerResponse.createBySuccess(Const.Message.SELECT_OK, returnMap);
+        return ServerResponse.createBySuccess(Const.Message.SELECT_OK, projectList);
     }
 
     @PassToken
@@ -191,6 +183,11 @@ public class ProjectController {
 
         return projectDetailService.timeline_list(projectId);
     }
+
+
+
+
+
 
     /**
      * project name check repeat
