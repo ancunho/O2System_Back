@@ -44,9 +44,9 @@ public class ProjectProduct {
 
     private String param5;
 
-    private Date createtime;
+    private String createtime;
 
-    private Date updatetime;
+    private String updatetime;
 
 
 }
