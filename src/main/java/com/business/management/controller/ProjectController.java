@@ -55,7 +55,7 @@ public class ProjectController {
      */
 //    @UserLoginToken
     @PassToken
-    @RequestMapping(value = "/baseinfo/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/baseinfo/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse baseinfo_save(HttpSession session, @RequestBody ProjectBaseinfoVO projectBaseinfoVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
@@ -82,7 +82,7 @@ public class ProjectController {
      * @return
      */
     @PassToken
-    @RequestMapping(value = "/baseinfo/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/baseinfo/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse bseinfo_update(HttpSession session, @RequestBody ProjectBaseinfo projectBaseinfo) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
@@ -101,8 +101,8 @@ public class ProjectController {
      */
 //    @UserLoginToken
     @PassToken
-    @RequestMapping(value = "/detail/save", method = RequestMethod.POST)
-    public ServerResponse detail_save(HttpSession session, @RequestBody ProjectVO projectVO, HttpServletRequest request) {
+    @RequestMapping(value = "/detail/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse detail_create(HttpSession session, @RequestBody ProjectVO projectVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -113,6 +113,26 @@ public class ProjectController {
         }
 
         ServerResponse response = projectDetailService.save(projectVO);
+        if (response.isSuccess()) {
+            return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+        }
+
+        return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+    }
+
+    @PassToken
+    @RequestMapping(value = "/detail/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse detail_update(HttpSession session, @RequestBody ProjectVO projectVO) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        if (projectVO == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        ServerResponse response = projectDetailService.update(projectVO);
         if (response.isSuccess()) {
             return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
         }
@@ -147,8 +167,8 @@ public class ProjectController {
     }
 
     @PassToken
-    @RequestMapping(value = "/view", method = RequestMethod.POST)
-    public ServerResponse project_view(HttpSession session, @RequestParam(value = "id") Integer projectId) {
+    @RequestMapping(value = "/view", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ServerResponse project_view(HttpSession session, @RequestParam(value = "id") String projectId) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -159,24 +179,37 @@ public class ProjectController {
             return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
         }
 
-        ProjectVO projectVO = project;
-        projectVO.setCurrentUser(currentUser);
-
-        return ServerResponse.createBySuccess(projectVO);
+        return ServerResponse.createBySuccess(project);
     }
 
+    @RequestMapping(value = "/timeline/list", method = RequestMethod.POST)
+    public ServerResponse timeline_list(HttpSession session, @RequestParam(value = "projectId") String projectId) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
 
+        return projectDetailService.timeline_list(projectId);
+    }
 
+    /**
+     * project name check repeat
+     * @param session
+     * @param projectName
+     * @return
+     */
     @PassToken
-    @RequestMapping(value = "/record/save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse save_record(HttpSession session, @RequestBody JSONObject projectRecordList) {
+    @RequestMapping(value = "/check/name", method = RequestMethod.POST)
+    public ServerResponse check_project_name_repeat(HttpSession session, @RequestParam(value = "projectName") String projectName) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
 
-        System.out.println(JSON.toJSONString(new ProjectVO()));
-
-
-
-        return null;
+        return projectBaseinfoService.getProjectCountByName(projectName);
     }
+
+
 
 
 }

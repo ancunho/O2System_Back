@@ -22,5 +22,5 @@ public interface ProjectTimelineMapper {
 
     int updateByPrimaryKey(ProjectTimeline record);
 
-    List<ProjectTimeline> selectByProjectId(@RequestParam(value = "projectId") Integer projectId);
+    List<ProjectTimeline> selectByProjectId(@RequestParam(value = "projectId") String projectId);
 }

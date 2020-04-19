@@ -33,6 +33,13 @@ public interface ProjectBaseinfoService {
      */
     List<ProjectListVO> getProjectlist();
 
+    /**
+     * PJ 이름 체크
+     * @param projectName
+     * @return
+     */
+    ServerResponse getProjectCountByName(String projectName);
+
 
 
 

@@ -60,7 +60,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
                 String token = tokenHeaer.replace(TokenUtil.TOKEN_PREFIX, "");
                 // 执行认证
-                if (token == null) {
+                if (token == null || "".equals(token)) {
                     throw new RuntimeException("无token，请重新登录");
                 }
 

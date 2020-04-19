@@ -236,7 +236,7 @@
             ,BASEINFO.PROJECT_STATUS
             ,BASEINFO.PROJECT_STARTTIME
             ,BASEINFO.PROJECT_ENDTIME
-            ,BASEINFO.CREATETIME
+            ,date_format(BASEINFO.CREATETIME, '%Y-%m-%d') AS CREATETIME
     FROM TB_PROJECT_BASEINFO BASEINFO LEFT JOIN TB_PROJECT_PRODUCT PRODUCT ON BASEINFO.ID = PRODUCT.PROJECT_ID
     WHERE 	1 = 1
     GROUP BY BASEINFO.ID
@@ -251,6 +251,10 @@
             ,BASEINFO.CREATETIME
             ,PRODUCT.PRODUCT_NAME
     ORDER BY ID DESC
+  </select>
+
+  <select id="getProjectCountByName" resultType="java.lang.Integer">
+    select count(1) from tb_project_baseinfo where PROJECT_NAME = #{projectName}
   </select>
 
 

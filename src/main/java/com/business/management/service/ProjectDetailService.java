@@ -13,10 +13,24 @@ public interface ProjectDetailService {
     ServerResponse save(ProjectVO projectVO);
 
     /**
+     * detail update
+     * @param projectVO
+     * @return
+     */
+    ServerResponse update(ProjectVO projectVO);
+
+    /**
      * view
      * @param projectId
      * @return
      */
-    ProjectVO project_view(Integer projectId);
+    ProjectVO project_view(String projectId);
+
+    /**
+     * timeline list
+     * @param projectId
+     * @return
+     */
+    ServerResponse timeline_list(String projectId);
 
 }

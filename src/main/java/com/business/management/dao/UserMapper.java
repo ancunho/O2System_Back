@@ -61,7 +61,7 @@ public interface UserMapper {
      * @param userId
      * @return
      */
-    int checkEmailByUserId(@Param(value="email")String email,@Param(value="userId")Integer userId);
+    int checkEmailByUserId(@Param(value="email") String email, @Param(value="userId") Integer userId);
 
     /**
      * username을 통해 물음 가져오기
@@ -77,7 +77,7 @@ public interface UserMapper {
      * @param answer
      * @return
      */
-    int checkAnswer(@Param("username")String username,@Param("question")String question,@Param("answer")String answer);
+    int checkAnswer(@Param("username") String username, @Param("question") String question,@Param("answer") String answer);
 
     /**
      * 비밀번호 변경
@@ -85,7 +85,7 @@ public interface UserMapper {
      * @param passwordNew
      * @return
      */
-    int updatePasswordByUsername(@Param("username")String username,@Param("passwordNew")String passwordNew);
+    int updatePasswordByUsername(@Param("username") String username, @Param("passwordNew") String passwordNew);
 
     /**
      * 비밀번호 정확여부 체크
@@ -93,7 +93,7 @@ public interface UserMapper {
      * @param userId
      * @return
      */
-    int checkPassword(@Param(value="password")String password,@Param("userId")Integer userId);
+    int checkPassword(@Param(value="password") String password, @Param("userId") Integer userId);
 
 
     List<User> selectAllUser();

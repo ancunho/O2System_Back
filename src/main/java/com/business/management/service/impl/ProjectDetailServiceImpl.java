@@ -71,11 +71,46 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     @Override
     @Transactional
-    public ProjectVO project_view(Integer projectId) {
+    public ServerResponse update(ProjectVO projectVO) {
+        /***** 1. 제품정보 Object Update *****/
+        int resultCount = projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        /***** 2. 가격정보 Object Update *****/
+        resultCount = projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        /***** 3. 이력정보 List Object Update *****/
+        for (int i = 0; projectVO.getProjectRecordList() != null && i < projectVO.getProjectRecordList().size(); i++) {
+            resultCount = projectRecordMapper.updateByPrimaryKeySelective(projectVO.getProjectRecordList().get(i));
+        }
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        /***** 4. 타임라인 List Object Update *****/
+        for (int i = 0; projectVO.getProjectTimelineList() != null && i < projectVO.getProjectTimelineList().size(); i++) {
+            resultCount = projectTimelineMapper.updateByPrimaryKeySelective(projectVO.getProjectTimelineList().get(i));
+        }
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
+
+    }
+
+    @Override
+    @Transactional
+    public ProjectVO project_view(String projectId) {
         ProjectVO project = new ProjectVO();
 
         // 1. Baseinfo
-        ProjectBaseinfo baseinfo = projectBaseinfoMapper.selectByPrimaryKey(projectId);
+        ProjectBaseinfo baseinfo = projectBaseinfoMapper.selectByPrimaryKey(Integer.valueOf(projectId));
         if (baseinfo == null) {
             project.setResponseMsg(Const.Message.SAVE_ERROR);
             return project;
@@ -105,10 +140,19 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         return project;
     }
 
-//    public ServerResponse timeline_create(ProjectTimeline projectTimeline) {
-//
-//    }
+    @Override
+    @Transactional
+    public ServerResponse timeline_list(String projectId) {
+        if (projectId == null || "".equals(projectId) || "0".equals(projectId)) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
 
+        List<ProjectTimeline> timelineList = projectTimelineMapper.selectByProjectId(projectId);
+        if (timelineList == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
+        }
+        return ServerResponse.createBySuccess(Const.Message.SELECT_OK, timelineList);
+    }
 
 
 }

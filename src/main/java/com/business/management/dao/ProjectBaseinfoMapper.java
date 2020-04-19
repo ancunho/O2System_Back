@@ -3,6 +3,7 @@ package com.business.management.dao;
 import com.business.management.pojo.ProjectBaseinfo;
 import com.business.management.vo.ProjectListVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public interface ProjectBaseinfoMapper {
     List<ProjectBaseinfo> getProjectBaseinfoList();
 
     List<ProjectListVO> getProjetList();
+
+    int getProjectCountByName(@Param(value="projectName") String projectName);
 
 
 }

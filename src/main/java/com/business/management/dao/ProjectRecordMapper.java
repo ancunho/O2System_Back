@@ -22,5 +22,5 @@ public interface ProjectRecordMapper {
 
     int updateByPrimaryKey(ProjectRecord record);
 
-    List<ProjectRecord> selectByProjectId(@RequestParam(value = "projectId") Integer projectId);
+    List<ProjectRecord> selectByProjectId(@RequestParam(value = "projectId") String projectId);
 }

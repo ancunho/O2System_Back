@@ -140,5 +140,18 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
         return null;
     }
 
+    @Override
+    public ServerResponse getProjectCountByName(String projectName) {
+        if (projectName == null || "".equals(projectName)) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        int resultCount = projectBaseinfoMapper.getProjectCountByName(projectName);
+        if (resultCount == 0) {
+            return ServerResponse.createBySuccessMessage("OK");
+        }
+        return ServerResponse.createByErrorMessage("有重复名称， 请使用其他项目名");
+    }
+
 
 }

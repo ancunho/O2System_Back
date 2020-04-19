@@ -20,5 +20,5 @@ public interface ProjectPriceMapper {
 
     int updateByPrimaryKey(ProjectPrice record);
 
-    ProjectPrice selectByProjectId(@RequestParam(value = "projectId") Integer projectId);
+    ProjectPrice selectByProjectId(@RequestParam(value = "projectId") String projectId);
 }

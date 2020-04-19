@@ -2,6 +2,7 @@ package com.business.management.dao;
 
 import com.business.management.pojo.ProjectProduct;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 @Mapper
@@ -19,5 +20,5 @@ public interface ProjectProductMapper {
 
     int updateByPrimaryKey(ProjectProduct record);
 
-    ProjectProduct selectByProjectId(Integer projectId);
+    ProjectProduct selectByProjectId(@Param("projectId") String projectId);
 }
