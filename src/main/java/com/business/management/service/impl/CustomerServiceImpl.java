@@ -1,5 +1,6 @@
 package com.business.management.service.impl;
 
+import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.dao.CustomerMapper;
@@ -49,7 +50,7 @@ public class CustomerServiceImpl implements CustomerService{
         Customer customer = customerMapper.selectByPrimaryKey(id);
 
         if (customer == null) {
-            return ServerResponse.createByErrorMessage("未找到客户信息");
+            return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
         }
 
         return ServerResponse.createBySuccess(customer);
@@ -62,15 +63,15 @@ public class CustomerServiceImpl implements CustomerService{
             if (customer.getCustomerName() != null || !"".equals(customer.getCustomerName())) {
                 int resultCount = customerMapper.insert(customer);
                 if (resultCount > 0) {
-                    return ServerResponse.createBySuccessMessage("新增客户成功");
+                    return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
                 } else {
-                    return ServerResponse.createByErrorMessage("新增客户失败");
+                    return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
                 }
             } else {
-                return ServerResponse.createByErrorMessage("客户名不能为空！");
+                return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
             }
         } else {
-            return ServerResponse.createByErrorMessage("客户数据不能为空");
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
         }
     }
 
@@ -81,14 +82,14 @@ public class CustomerServiceImpl implements CustomerService{
                 // Modify
                 int resultCount = customerMapper.updateByPrimaryKeySelective(customer);
                 if (resultCount > 0) {
-                    return ServerResponse.createBySuccess("更新客户成功");
+                    return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
                 }
-                return ServerResponse.createByErrorMessage("更新客户失败");
+                return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
             } else {
                 return ServerResponse.createByErrorMessage("客户数据已存在，请返回列表仔细查看");
             }
         } else {
-            return ServerResponse.createByErrorMessage("客户数据不能为空");
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
         }
     }
 

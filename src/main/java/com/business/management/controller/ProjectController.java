@@ -69,7 +69,7 @@ public class ProjectController {
         // 1. 기본정보 저장
         ServerResponse response = projectBaseinfoService.save(projectBaseinfoVO);
         if (response.isSuccess()) {
-            return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+            return ServerResponse.createBySuccess(Const.Message.SAVE_OK,response.getData());
         }
 
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
