@@ -1,6 +1,7 @@
 package com.business.management.service;
 
 import com.business.management.common.ServerResponse;
+import com.business.management.pojo.ProjectTimeline;
 import com.business.management.vo.ProjectVO;
 
 public interface ProjectDetailService {
@@ -31,6 +32,20 @@ public interface ProjectDetailService {
      * @param projectId
      * @return
      */
-    ServerResponse timeline_list(String projectId);
+    ServerResponse timeline_list(Integer projectId);
+
+    /**
+     * timeline update
+     * @param projectTimeline
+     * @return
+     */
+    ServerResponse timeline_update(ProjectTimeline projectTimeline);
+
+    /**
+     * timeline create
+     * @param projectTimeline
+     * @return
+     */
+    ServerResponse timeline_create(ProjectTimeline projectTimeline);
 
 }

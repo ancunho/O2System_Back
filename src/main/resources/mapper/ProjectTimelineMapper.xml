@@ -41,7 +41,7 @@
       #{meetingDate,jdbcType=VARCHAR}, #{timelineContent,jdbcType=VARCHAR}, #{timelineAuthor,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, 
       #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR})
+      now(), now())
   </insert>
   <insert id="insertSelective" parameterType="com.business.management.pojo.ProjectTimeline">
     insert into tb_project_timeline
@@ -173,9 +173,7 @@
       <if test="createtime != null">
         CREATETIME = #{createtime,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=VARCHAR},
-      </if>
+      UPDATETIME = now()
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -193,7 +191,7 @@
       PARAM4 = #{param4,jdbcType=VARCHAR},
       PARAM5 = #{param5,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=VARCHAR},
-      UPDATETIME = #{updatetime,jdbcType=VARCHAR}
+      UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
 

@@ -9,6 +9,7 @@ import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.ProjectBaseinfo;
 import com.business.management.pojo.ProjectRecord;
+import com.business.management.pojo.ProjectTimeline;
 import com.business.management.pojo.User;
 import com.business.management.service.*;
 import com.business.management.util.Box;
@@ -175,7 +176,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/timeline/list", method = RequestMethod.GET)
-    public ServerResponse timeline_list(HttpSession session, @RequestParam(value = "projectId") String projectId) {
+    public ServerResponse timeline_list(HttpSession session, @RequestParam(value = "projectId") Integer projectId) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -184,10 +185,37 @@ public class ProjectController {
         return projectDetailService.timeline_list(projectId);
     }
 
+    /**
+     * 타임라인 업데이트
+     * @param session
+     * @param projectTimeline
+     * @return
+     */
+    @RequestMapping(value = "/timeline/update", method = RequestMethod.POST)
+    public ServerResponse timeline_update(HttpSession session, @RequestBody ProjectTimeline projectTimeline) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
 
+        return projectDetailService.timeline_update(projectTimeline);
+    }
 
+    /**
+     * 타임라인 새로 생성
+     * @param session
+     * @param projectTimeline
+     * @return
+     */
+    @RequestMapping(value = "/timeline/create", method = RequestMethod.POST)
+    public ServerResponse timeline_create(HttpSession session, @RequestBody ProjectTimeline projectTimeline) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
 
-
+        return projectDetailService.timeline_create(projectTimeline);
+    }
 
 
     /**

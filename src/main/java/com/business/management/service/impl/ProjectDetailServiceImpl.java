@@ -134,15 +134,15 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         project.setProjectRecordList(projectRecordList);
 
         // 6. Timeline List
-        List<ProjectTimeline> timelineList = projectTimelineMapper.selectByProjectId(projectId);
-        project.setProjectTimelineList(timelineList);
+//        List<ProjectTimeline> timelineList = projectTimelineMapper.selectByProjectId(Integer.valueOf(projectId));
+//        project.setProjectTimelineList(timelineList);
 
         return project;
     }
 
     @Override
     @Transactional
-    public ServerResponse timeline_list(String projectId) {
+    public ServerResponse timeline_list(Integer projectId) {
         if (projectId == null || "".equals(projectId) || "0".equals(projectId)) {
             return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
         }
@@ -152,6 +152,34 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
             return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
         }
         return ServerResponse.createBySuccess(Const.Message.SELECT_OK, timelineList);
+    }
+
+    @Override
+    @Transactional
+    public ServerResponse timeline_update(ProjectTimeline projectTimeline) {
+        if (projectTimeline == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        int updateCount = projectTimelineMapper.updateByPrimaryKeySelective(projectTimeline);
+        if (updateCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+        return ServerResponse.createByErrorMessage(Const.Message.UPDATE_OK);
+    }
+
+    @Override
+    @Transactional
+    public ServerResponse timeline_create(ProjectTimeline projectTimeline) {
+        if (projectTimeline == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        int resultCount = projectTimelineMapper.insert(projectTimeline);
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        }
+        return ServerResponse.createByErrorMessage(Const.Message.SAVE_OK);
     }
 
 
