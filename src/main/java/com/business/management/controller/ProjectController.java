@@ -174,7 +174,7 @@ public class ProjectController {
         return ServerResponse.createBySuccess(project);
     }
 
-    @RequestMapping(value = "/timeline/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/timeline/list", method = RequestMethod.GET)
     public ServerResponse timeline_list(HttpSession session, @RequestParam(value = "projectId") String projectId) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
@@ -183,6 +183,7 @@ public class ProjectController {
 
         return projectDetailService.timeline_list(projectId);
     }
+
 
 
 

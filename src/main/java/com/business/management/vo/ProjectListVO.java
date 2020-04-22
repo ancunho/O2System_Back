@@ -1,8 +1,5 @@
 package com.business.management.vo;
 
-import com.business.management.pojo.Customer;
-import com.business.management.pojo.ProjectTimeline;
-import com.business.management.pojo.User;
 import lombok.Data;
 
 import java.io.Serializable;

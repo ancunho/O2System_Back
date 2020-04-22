@@ -50,7 +50,7 @@
 <!--		<table tableName="tb_project_product" domainObjectName="ProjectProduct" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />-->
 		<!--<table tableName="tb_project_price" domainObjectName="ProjectPrice" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />-->
 		<!--<table tableName="tb_project_record" domainObjectName="ProjectRecord" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />-->
-		<!--<table tableName="tb_project_timeline" domainObjectName="ProjectTimeline" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />-->
+		<table tableName="tb_project_timeline" domainObjectName="ProjectTimeline" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />
 		<!--<table tableName="tb_project_fileinfo" domainObjectName="ProjectFileinfo" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" />-->
 
 	</context>
