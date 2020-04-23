@@ -1,0 +1,75 @@
+{
+  "projectPrice": {
+    "actualInput": "11111",
+    "actualProduction": "9999",
+    "dealPlace": "text",
+    "descriptionList": "json",
+    "orderQuantity": "111",
+    "packageSpec": "22222",
+    "personInCharge": "text",
+    "priceList": "json",
+    "productName": "제품명",
+    "projectId": 1,
+    "projectProductId": 2,
+    "releaseDate": "2020-04-20",
+    "remark": "text text text",
+    "specialComment": "text",
+    "theoryQuantity": "88888",
+    "unitWeight": "99",
+    "valueNoVat": "text",
+    "weight": "999",
+    "yieldPercent": "8"
+  },
+  "projectProduct": {
+    "productCategory": "2",
+    "productConcept": "text text text",
+    "productDetail": "text text text text",
+    "productImage": "http://114.xxxxxxxx/xxxx.jpg",
+    "productMainMaterial": "['text1','222','333','444']",
+    "productName": "제품명",
+    "productPackage": "4",
+    "productQuantity": "234",
+    "productSubMaterial": "['aaa','bbb','cccc','dddd']",
+    "productTargetContent": "text text text",
+    "productTargetPrice": "3999",
+    "productType": "33",
+    "projectId": 1
+  },
+  "projectRecordList": [{
+    "projectId": 1,
+    "recordContent": "{\"projectId\":1,\"timelineAuthor\":\"XXXXX\",\"timelineContent\":\"json\",\"timelineId\":\"1\"}",
+    "recordId": "1"
+  }, {
+    "projectId": 1,
+    "recordContent": "{\"projectId\":1,\"timelineAuthor\":\"XXXXX\",\"timelineContent\":\"json\",\"timelineId\":\"1\"}",
+    "recordId": "2"
+  }, {
+    "projectId": 1,
+    "recordContent": "{\"projectId\":1,\"timelineAuthor\":\"XXXXX\",\"timelineContent\":\"json\",\"timelineId\":\"1\"}",
+    "recordId": "3"
+  }, {
+    "projectId": 1,
+    "recordContent": "{\"projectId\":1,\"timelineAuthor\":\"XXXXX\",\"timelineContent\":\"json\",\"timelineId\":\"1\"}",
+    "recordId": "4"
+  }, {
+    "projectId": 1,
+    "recordContent": "{\"projectId\":1,\"timelineAuthor\":\"XXXXX\",\"timelineContent\":\"json\",\"timelineId\":\"1\"}",
+    "recordId": "5"
+  }],
+  "projectTimelineList": [{
+    "projectId": 1,
+    "timelineAuthor": "XXXXX",
+    "timelineContent": "json",
+    "timelineId": "1"
+  }, {
+    "projectId": 1,
+    "timelineAuthor": "XXXXX",
+    "timelineContent": "json",
+    "timelineId": "2"
+  }, {
+    "projectId": 1,
+    "timelineAuthor": "XXXXX",
+    "timelineContent": "json",
+    "timelineId": "3"
+  }]
+}

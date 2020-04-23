@@ -17,6 +17,13 @@ public interface CustomerService {
      */
     ServerResponse<PageInfo> customerList();
 
+    /**
+     * id와 고객이름만 반환
+     * 리스트로 반환
+     * @return
+     */
+    ServerResponse getCustomerListOnlyIDAndName();
+
 
     /**
      * customerId로 고객상세 정보 조회

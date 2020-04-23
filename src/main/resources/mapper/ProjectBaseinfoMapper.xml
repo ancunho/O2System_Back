@@ -16,13 +16,13 @@
     <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
     <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
     <result column="PARAM5" jdbcType="VARCHAR" property="param5" />
-    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createtime" />
+    <result column="UPDATETIME" jdbcType="VARCHAR" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
     ID, PROJECT_CD, PROJECT_NAME, PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL, 
     PROJECT_STATUS, PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, PARAM2, PARAM3, PARAM4, 
-    PARAM5, CREATETIME, UPDATETIME
+    PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -35,14 +35,17 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.business.management.pojo.ProjectBaseinfo">
-    insert into tb_project_baseinfo (ID, PROJECT_CD, PROJECT_NAME, 
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_project_baseinfo (PROJECT_CD, PROJECT_NAME,
       PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL, 
       PROJECT_STATUS, PROJECT_STARTTIME, PROJECT_ENDTIME, 
       PARAM1, PARAM2, PARAM3, 
       PARAM4, PARAM5, CREATETIME, 
       UPDATETIME)
-    values (#{id,jdbcType=INTEGER}, #{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, 
-      #{projectCustomer,jdbcType=VARCHAR}, #{projectSalesMan,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR}, 
+    values (#{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR},
+      #{projectCustomer,jdbcType=VARCHAR}, #{projectSalesMan,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR},
       #{projectStatus,jdbcType=VARCHAR}, #{projectStarttime,jdbcType=VARCHAR}, #{projectEndtime,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
       #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
@@ -96,9 +99,7 @@
       <if test="createtime != null">
         CREATETIME,
       </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
+      UPDATETIME
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -144,7 +145,7 @@
         #{param5,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
+        #{createtime,jdbcType=VARCHAR},
       </if>
       now()
     </trim>
@@ -192,11 +193,9 @@
         PARAM5 = #{param5,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+        CREATETIME = #{createtime,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
+      UPDATETIME = now()
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -215,8 +214,49 @@
       PARAM3 = #{param3,jdbcType=VARCHAR},
       PARAM4 = #{param4,jdbcType=VARCHAR},
       PARAM5 = #{param5,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      CREATETIME = #{createtime,jdbcType=VARCHAR},
+      UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getProjectBaseinfoList" resultType="com.business.management.pojo.ProjectBaseinfo">
+    SELECT  <include refid="Base_Column_List" />
+    FROM    TB_PROJECT_BASEINFO
+    ORDER BY ID DESC
+  </select>
+
+  <select id="getProjetList" resultType="com.business.management.vo.ProjectListVO">
+    SELECT BASEINFO.ID
+            ,BASEINFO.PROJECT_CD
+            ,BASEINFO.PROJECT_NAME
+            ,BASEINFO.PROJECT_CUSTOMER
+            ,PRODUCT.PRODUCT_NAME
+            ,BASEINFO.PROJECT_SALES_MAN
+            ,BASEINFO.PROJECT_PRICE_TOTAL
+            ,BASEINFO.PROJECT_STATUS
+            ,BASEINFO.PROJECT_STARTTIME
+            ,BASEINFO.PROJECT_ENDTIME
+            ,date_format(BASEINFO.CREATETIME, '%Y-%m-%d') AS CREATETIME
+    FROM TB_PROJECT_BASEINFO BASEINFO LEFT JOIN TB_PROJECT_PRODUCT PRODUCT ON BASEINFO.ID = PRODUCT.PROJECT_ID
+    WHERE 	1 = 1
+    GROUP BY BASEINFO.ID
+            ,BASEINFO.PROJECT_CD
+            ,BASEINFO.PROJECT_NAME
+            ,BASEINFO.PROJECT_CUSTOMER
+            ,BASEINFO.PROJECT_SALES_MAN
+            ,BASEINFO.PROJECT_PRICE_TOTAL
+            ,BASEINFO.PROJECT_STATUS
+            ,BASEINFO.PROJECT_STARTTIME
+            ,BASEINFO.PROJECT_ENDTIME
+            ,BASEINFO.CREATETIME
+            ,PRODUCT.PRODUCT_NAME
+    ORDER BY ID DESC
+  </select>
+
+  <select id="getProjectCountByName" resultType="java.lang.Integer">
+    select count(1) from tb_project_baseinfo where PROJECT_NAME = #{projectName}
+  </select>
+
+
+
 </mapper>

@@ -40,6 +40,12 @@ public class MemberController {
         return memberService.getUserList();
     }
 
+    @UserLoginToken
+    @RequestMapping(value = "/list/name")
+    public ServerResponse get_all_member_list_only_id_and_realname() {
+        return memberService.getUserListOnlyIDAndRealname();
+    }
+
     /**
      * 根据ID获取用户信息
      * @param userId
@@ -65,19 +71,19 @@ public class MemberController {
      * @param updateUser
      * @return
      */
-    @UserLoginToken
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public ServerResponse delete_member(HttpSession session, @RequestBody User updateUser) {
-        // 1. 로그인 세션 체크
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
-
-        // 2. 관리자 체크
-        if (userService.checkAdminRole(user).isSuccess()) {
-            return memberService.delete_member(updateUser);
-        } else {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
-        }
-    }
+//    @UserLoginToken
+//    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+//    public ServerResponse delete_member(HttpSession session, @RequestParam(value = "id") Integer userId) {
+//        // 1. 로그인 세션 체크
+//        User user = (User) session.getAttribute(Const.CURRENT_USER);
+//
+//        // 2. 관리자 체크
+//        if (userService.checkAdminRole(user).isSuccess()) {
+//            return memberService.delete_member(id);
+//        } else {
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
+//        }
+//    }
 
     /**
      * 회원정보 수정하기

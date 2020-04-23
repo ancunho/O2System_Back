@@ -3,7 +3,7 @@
 <mapper namespace="com.business.management.dao.CustomerMapper">
   <resultMap id="BaseResultMap" type="com.business.management.pojo.Customer">
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="PROJECT_ID" jdbcType="VARCHAR" property="projectId" />
+    <result column="PROJECT_ID" jdbcType="VARCHAR" property="projectId"  />
     <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
     <result column="CUSTOMER_NAME_KR" jdbcType="VARCHAR" property="customerNameKr" />
     <result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd" />
@@ -29,14 +29,14 @@
     <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
     <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
     <result column="PARAM5" jdbcType="VARCHAR" property="param5" />
-    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="CREATETIME" jdbcType="VARCHAR" property="createtime" />
+    <result column="UPDATETIME" jdbcType="VARCHAR" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
     ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, AUTHOR, DIRECTOR, STATUS, 
     PHONE, WECHAT, DESCRIPTION, SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, 
     DISTRIBUTION, PROVINCE, CITY, AREA, ADDRESS, SALES_MAN, CUSTOMER_IMAGE, PARAM1, PARAM2, 
-    PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+    PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -59,7 +59,7 @@
       CUSTOMER_IMAGE, PARAM1, PARAM2, 
       PARAM3, PARAM4, PARAM5, 
       CREATETIME, UPDATETIME)
-    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR},
       #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
       #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{salesVolumn,jdbcType=VARCHAR}, 
@@ -68,7 +68,7 @@
       #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{salesMan,jdbcType=VARCHAR}, 
       #{customerImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, 
       #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+      now(), now())
   </insert>
   <insert id="insertSelective" parameterType="com.business.management.pojo.Customer">
     insert into tb_customer
@@ -157,16 +157,14 @@
       <if test="createtime != null">
         CREATETIME,
       </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
+      UPDATETIME
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
       <if test="projectId != null">
-        #{projectId,jdbcType=VARCHAR},
+        #{projectId,jdbcType=ARRAY},
       </if>
       <if test="customerName != null">
         #{customerName,jdbcType=VARCHAR},
@@ -244,11 +242,9 @@
         #{param5,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
+        #{createtime,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
+      now()
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.business.management.pojo.Customer">
@@ -333,11 +329,9 @@
         PARAM5 = #{param5,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+        CREATETIME = #{createtime,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
+      UPDATETIME = now()
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -369,8 +363,8 @@
       PARAM3 = #{param3,jdbcType=VARCHAR},
       PARAM4 = #{param4,jdbcType=VARCHAR},
       PARAM5 = #{param5,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      CREATETIME = #{createtime,jdbcType=VARCHAR},
+      UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectCustomerList" resultType="com.business.management.pojo.Customer">
@@ -378,5 +372,11 @@
     <include refid="Base_Column_List"/>
     FROM  	TB_CUSTOMER
     ORDER BY CREATETIME DESC
+  </select>
+
+  <select id="getCustomerListOnlyIDAndName" resultType="com.business.management.pojo.Customer">
+    SELECT  ID,CUSTOMER_NAME
+    FROM    TB_CUSTOMER
+    ORDER BY ID DESC
   </select>
 </mapper>

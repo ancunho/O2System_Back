@@ -19,7 +19,7 @@ public class ProjectVO {
     private ProjectBaseinfo projectBaseinfo;
 
     // PJ -> 영업담당자정보
-    private List<ProjectSalesman> projectSalesmanList;
+//    private List<ProjectSalesman> projectSalesmanList;
 
     // PJ -> 고객정보
     private Customer customer;
@@ -44,6 +44,10 @@ public class ProjectVO {
 
     // PJ -> 파일정보
     private List<ProjectFileinfo> projectFileinfoList;
+
+    private String responseMsg;
+    private String responseStatus;
+
 
 
 }

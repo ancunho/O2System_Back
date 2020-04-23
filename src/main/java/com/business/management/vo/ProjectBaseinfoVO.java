@@ -29,7 +29,7 @@ public class ProjectBaseinfoVO implements Serializable {
 
     private String projectEndtime;
 
-    private Customer projectCustomer;
+    private Customer customer;
 
     private String projectSalesMan;
 

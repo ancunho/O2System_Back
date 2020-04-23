@@ -13,12 +13,12 @@
 		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
 		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
 		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
-		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
-		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+		<result column="CREATETIME" jdbcType="VARCHAR" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="VARCHAR" property="updatetime"/>
 	</resultMap>
 	<sql id="Base_Column_List">
     ID, PROJECT_ID, FILE_NAME, FILE_EXTENSION, FILE_COMMENT, FILE_PATH, PARAM1, PARAM2, 
-    PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+    PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		select
@@ -39,8 +39,8 @@
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, 
       #{fileExtension,jdbcType=VARCHAR}, #{fileComment,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
-      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP})
+      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
+     now())
   </insert>
 	<insert id="insertSelective" parameterType="com.business.management.pojo.ProjectFileinfo">
 		insert into tb_project_fileinfo
@@ -120,10 +120,10 @@
 				#{param5,jdbcType=VARCHAR},
 			</if>
 			<if test="createtime != null">
-				#{createtime,jdbcType=TIMESTAMP},
+				#{createtime,jdbcType=VARCHAR},
 			</if>
 			<if test="updatetime != null">
-				#{updatetime,jdbcType=TIMESTAMP},
+				#{updatetime,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -161,11 +161,9 @@
 				PARAM5 = #{param5,jdbcType=VARCHAR},
 			</if>
 			<if test="createtime != null">
-				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+				CREATETIME = #{createtime,jdbcType=VARCHAR},
 			</if>
-			<if test="updatetime != null">
-				UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-			</if>
+			UPDATETIME = now()
 		</set>
 		where ID = #{id,jdbcType=INTEGER}
 	</update>
@@ -182,7 +180,7 @@
       PARAM4 = #{param4,jdbcType=VARCHAR},
       PARAM5 = #{param5,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

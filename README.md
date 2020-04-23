@@ -91,20 +91,20 @@ step1 = {
 
 
 step2 = {
-  projectProduct: {
-    projectId: 1, // id
-    productName: 'qwe', // 产品名
-    productMainMaterial: '["qwe","qwe"]', // 核心原料
-    productSubMaterial: '["qwe","qwe"]', // 副原料
-    productCategory: '11', // 分类
-    productPackage: '11', // 包装类型
-    productConcept: '11', // 产品概念
-    productType: '11', // 饰品类型
-    productQuantity: '11', // 数量
-    productTargetPrice: '11', // 目标价格
-    productDetail: 'qwe', // 详细说明
-    productTargetContent: 'qwe', // 内容
-    productImage: 'url', // 图片
+  "projectProduct": {
+    "projectId": 1, // id
+    "productName": 'qwe', // 产品名
+    "productMainMaterial": '["qwe","qwe"]', // 核心原料
+    "productSubMaterial": '["qwe","qwe"]', // 副原料
+    "productCategory": '11', // 分类
+    "productPackage": '11', // 包装类型
+    "productConcept": '11', // 产品概念
+    "productType": '11', // 饰品类型
+    "productQuantity": '11', // 数量
+    "productTargetPrice": '11', // 目标价格
+    "productDetail": 'qwe', // 详细说明
+    "productTargetContent": 'qwe', // 内容
+    "productImage": 'url', // 图片
   },
   projectPrice: {
     projectId: 1, // id
@@ -129,9 +129,9 @@ step2 = {
   },
   projectRecordList: [
     {
-      projectId: 1, // id
-      recordId: 1, // id
-      recordContent: [json], // 内容list
+      "projectId": 1, // id
+      "recordId": 1, // id
+      "recordContent": [json], // 内容list
     },
     {
       projectId: 1, // id

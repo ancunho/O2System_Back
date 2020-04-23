@@ -3,6 +3,7 @@ package com.business.management.dao;
 import com.business.management.pojo.ProjectPrice;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Mapper
 @Component("projectPriceMapper")
@@ -18,4 +19,6 @@ public interface ProjectPriceMapper {
     int updateByPrimaryKeySelective(ProjectPrice record);
 
     int updateByPrimaryKey(ProjectPrice record);
+
+    ProjectPrice selectByProjectId(@RequestParam(value = "projectId") String projectId);
 }

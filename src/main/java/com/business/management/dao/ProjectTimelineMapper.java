@@ -3,6 +3,9 @@ package com.business.management.dao;
 import com.business.management.pojo.ProjectTimeline;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Mapper
 @Component("projectTimelineMapper")
@@ -18,4 +21,8 @@ public interface ProjectTimelineMapper {
     int updateByPrimaryKeySelective(ProjectTimeline record);
 
     int updateByPrimaryKey(ProjectTimeline record);
+
+    List<ProjectTimeline> selectByProjectId(@RequestParam(value = "projectId") Integer projectId);
+
+
 }

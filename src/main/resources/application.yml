@@ -29,18 +29,18 @@ spring:
     cache: false
   resources:
     static-locations: file:${web.upload-image}
-#  servlet:
-#    multipart:
-#      location: /Users/cunho/Desktop/cunho/O2system_Infra/img
-#      max-file-size: 50MB
-#      max-request-size: 100MB
-
-###production  #C:\\IMAGE
   servlet:
     multipart:
-      location: D:\Cunho\1.Kolmar\Project\Image
+#      location: /Users/cunho/Desktop/cunho/O2system_Infra/img
       max-file-size: 50MB
       max-request-size: 100MB
+
+###production  #C:\\IMAGE
+#  servlet:
+#    multipart:
+#      location: D:\Cunho\1.Kolmar\Project\Image
+#      max-file-size: 50MB
+#      max-request-size: 100MB
 
 
 #Mybatis Configuration
@@ -64,7 +64,7 @@ logging:
   path: "logs"
 
 #文件上传
-web:upload-image: "/Users/cunho/Desktop/cunho/O2system_Infra/img"
+#web:upload-image: "/Users/cunho/Desktop/cunho/O2system_Infra/img"
 #PageHelper
 
 #Qiniu

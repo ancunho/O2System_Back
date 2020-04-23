@@ -29,18 +29,18 @@
 		<result column="PARAM3" jdbcType="VARCHAR" property="param3"/>
 		<result column="PARAM4" jdbcType="VARCHAR" property="param4"/>
 		<result column="PARAM5" jdbcType="VARCHAR" property="param5"/>
-		<result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime"/>
-		<result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime"/>
+		<result column="CREATETIME" jdbcType="VARCHAR" property="createtime"/>
+		<result column="UPDATETIME" jdbcType="VARCHAR" property="updatetime"/>
 	</resultMap>
 	<sql id="Base_Column_List">
 		ID, USERNAME, PASSWORD, ROLE_NO, ROLE, STATUS, EMPNO, REALNAME, PHONE, EMAIL, DEPARTMENT,
 		SEX, BIRTHDAY, WECHAT, QQ, PROVINCE, CITY, AREA, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
-		PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+		PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
 	</sql>
 	<sql id="Base_Column_List_Without_Password">
 		ID, USERNAME, ROLE_NO, ROLE, STATUS, EMPNO, REALNAME, PHONE, EMAIL, DEPARTMENT,
 		SEX, BIRTHDAY, WECHAT, QQ, PROVINCE, CITY, AREA, ADDRESS, QUESTION, ANSWER, IMAGE_PHOTO, PARAM1, PARAM2,
-		PARAM3, PARAM4, PARAM5, CREATETIME, UPDATETIME
+		PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		select
@@ -66,11 +66,11 @@
       #{roleNo,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{empno,jdbcType=VARCHAR},
       #{realname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{department,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
-      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},, #{city,jdbcType=VARCHAR},, #{area,jdbcType=VARCHAR},, #{address,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
       #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{imagePhoto,jdbcType=VARCHAR}, 
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
-      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP})
+      #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
+      now())
   </insert>
 	<insert id="insertSelective" parameterType="com.business.management.pojo.User">
 		insert into tb_user
@@ -246,10 +246,10 @@
 				#{param5,jdbcType=VARCHAR},
 			</if>
 			<if test="createtime != null">
-				#{createtime,jdbcType=TIMESTAMP},
+				#{createtime,jdbcType=VARCHAR},
 			</if>
 			<if test="updatetime != null">
-				#{updatetime,jdbcType=TIMESTAMP},
+				#{updatetime,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -335,7 +335,7 @@
 				PARAM5 = #{param5,jdbcType=VARCHAR},
 			</if>
 			<if test="createtime != null">
-				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+				CREATETIME = #{createtime,jdbcType=VARCHAR},
 			</if>
 			UPDATETIME = now()
 		</set>
@@ -369,8 +369,8 @@
       PARAM3 = #{param3,jdbcType=VARCHAR},
       PARAM4 = #{param4,jdbcType=VARCHAR},
       PARAM5 = #{param5,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      CREATETIME = #{createtime,jdbcType=VARCHAR},
+      UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
 
@@ -438,6 +438,12 @@
 		SELECT
 		<include refid="Base_Column_List_Without_Password" />
 		FROM  	TB_USER
+		ORDER BY ID DESC
+	</select>
+
+	<select id="getUserListOnlyIDAndRealname" resultType="com.business.management.pojo.User">
+		SELECT 	ID, REALNAME
+		FROM 	TB_USER
 		ORDER BY ID DESC
 	</select>
 

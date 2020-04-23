@@ -40,6 +40,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public ServerResponse getUserListOnlyIDAndRealname() {
+        List<User> userList = userMapper.getUserListOnlyIDAndRealname();
+        return ServerResponse.createBySuccess(userList);
+    }
+
+    @Override
     public ServerResponse<User> getUserById(Integer userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         if (user == null) {
@@ -80,13 +86,15 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public ServerResponse<String> delete_member(User user) {
-        int resultCount = userMapper.updateByPrimaryKeySelective(user);
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage("删除失败");
-        }
+    // TODO
+    public ServerResponse<String> delete_member(Integer userId) {
+//        int resultCount = userMapper.(userId);
+//        if (resultCount == 0) {
+//            return ServerResponse.createByErrorMessage("删除失败");
+//        }
 
-        return ServerResponse.createBySuccessMessage("删除成功");
+//        return ServerResponse.createBySuccessMessage("删除成功");
+        return null;
     }
 
     @Override
