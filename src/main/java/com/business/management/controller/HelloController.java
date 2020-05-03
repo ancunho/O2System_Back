@@ -34,19 +34,19 @@ public class HelloController {
         model.addAttribute("asdf", "asdfasdfsadf");
         return "file_upload";
     }
-
-    public static void main(String[] args) throws Exception {
-//        List<ProjectListVO> projectList = this.projectBaseinfoMapper.getProjetList();
-
-//        System.out.println(projectList.size());
-
-        if ("R" == "R") {
-            System.out.println("OK");
-        } else {
-            System.out.println("NO");
-        }
-
-    }
+//
+//    public static void main(String[] args) throws Exception {
+////        List<ProjectListVO> projectList = this.projectBaseinfoMapper.getProjetList();
+//
+////        System.out.println(projectList.size());
+//
+//        if ("R" == "R") {
+//            System.out.println("OK");
+//        } else {
+//            System.out.println("NO");
+//        }
+//
+//    }
 
     /*
     public ProjectBaseinfoVO baseinfoObj() {
@@ -95,108 +95,108 @@ public class HelloController {
 
      */
 
-    public ProjectVO projectVO() {
-        ProjectVO projectVO = new ProjectVO();
-
-        ProjectProduct product = new ProjectProduct();
-        product.setProjectId(1);
-        product.setProductName("제품명");
-        product.setProductMainMaterial("['text1','222','333','444']");
-        product.setProductSubMaterial("['aaa','bbb','cccc','dddd']");
-        product.setProductCategory("2");
-        product.setProductPackage("4");
-        product.setProductConcept("text text text");
-        product.setProductType("33");
-        product.setProductQuantity("234");
-        product.setProductTargetPrice("3999");
-        product.setProductDetail("text text text text");
-        product.setProductTargetContent("text text text");
-        product.setProductImage("http://114.xxxxxxxx/xxxx.jpg");
-        projectVO.setProjectProduct(product);
-
-        ProjectPrice price = new ProjectPrice();
-        price.setProjectId(1);
-        price.setProjectProductId(2);
-        price.setProductName("제품명");
-        price.setOrderQuantity("111");
-        price.setActualInput("11111");
-        price.setUnitWeight("99");
-        price.setWeight("999");
-        price.setPackageSpec("22222");
-        price.setTheoryQuantity("88888");
-        price.setYieldPercent("8");
-        price.setActualProduction("9999");
-        price.setPriceList("json");
-        price.setDescriptionList("json");
-        price.setRemark("text text text");
-        price.setValueNoVat("text");
-        price.setSpecialComment("text");
-        price.setPersonInCharge("text");
-        price.setReleaseDate("2020-04-20");
-        price.setDealPlace("text");
-        projectVO.setProjectPrice(price);
-
-        List<ProjectRecord> recordList = new ArrayList<ProjectRecord>();
-        ProjectRecord record1 = new ProjectRecord();
-        record1.setProjectId(1);
-        record1.setRecordId("1");
-        record1.setRecordContent("json json json json json");
-        recordList.add(record1);
-
-        ProjectRecord record2 = new ProjectRecord();
-        record2.setProjectId(1);
-        record2.setRecordId("2");
-        record2.setRecordContent("json json json json json");
-        recordList.add(record2);
-
-        ProjectRecord record3 = new ProjectRecord();
-        record3.setProjectId(1);
-        record3.setRecordId("3");
-        record3.setRecordContent("json2 json json json json");
-        recordList.add(record3);
-
-        ProjectRecord record4 = new ProjectRecord();
-        record4.setProjectId(1);
-        record4.setRecordId("4");
-        record4.setRecordContent("json4 json json json json");
-        recordList.add(record4);
-
-        ProjectRecord record5 = new ProjectRecord();
-        record5.setProjectId(1);
-        record5.setRecordId("5");
-        record5.setRecordContent("json5 json json json json");
-        recordList.add(record5);
-
-        projectVO.setProjectRecordList(recordList);
-
-        List<ProjectTimeline> timelineList = new ArrayList<>();
-        ProjectTimeline timeline1 = new ProjectTimeline();
-        timeline1.setProjectId(1);
-        timeline1.setTimelineId("1");
-        timeline1.setTimelineContent("json");
-        timeline1.setTimelineAuthor("XXXXX");
-        timelineList.add(timeline1);
-
-        ProjectTimeline timeline2 = new ProjectTimeline();
-        timeline2.setProjectId(1);
-        timeline2.setTimelineId("2");
-        timeline2.setTimelineContent("json");
-        timeline2.setTimelineAuthor("XXXXX");
-        timelineList.add(timeline2);
-
-        ProjectTimeline timeline3 = new ProjectTimeline();
-        timeline3.setProjectId(1);
-        timeline3.setTimelineId("3");
-        timeline3.setTimelineContent("json");
-        timeline3.setTimelineAuthor("XXXXX");
-        timelineList.add(timeline3);
-
-        projectVO.setProjectTimelineList(timelineList);
-
-        System.out.println(JSON.toJSONString(projectVO));
-
-        return projectVO;
-    }
+//    public ProjectVO projectVO() {
+//        ProjectVO projectVO = new ProjectVO();
+//
+//        ProjectProduct product = new ProjectProduct();
+//        product.setProjectId(1);
+//        product.setProductName("제품명");
+//        product.setProductMainMaterial("['text1','222','333','444']");
+//        product.setProductSubMaterial("['aaa','bbb','cccc','dddd']");
+//        product.setProductCategory("2");
+//        product.setProductPackage("4");
+//        product.setProductConcept("text text text");
+//        product.setProductType("33");
+//        product.setProductQuantity("234");
+//        product.setProductTargetPrice("3999");
+//        product.setProductDetail("text text text text");
+//        product.setProductTargetContent("text text text");
+//        product.setProductImage("http://114.xxxxxxxx/xxxx.jpg");
+//        projectVO.setProjectProduct(product);
+//
+//        ProjectPrice price = new ProjectPrice();
+//        price.setProjectId(1);
+//        price.setProjectProductId(2);
+//        price.setProductName("제품명");
+//        price.setOrderQuantity("111");
+//        price.setActualInput("11111");
+//        price.setUnitWeight("99");
+//        price.setWeight("999");
+//        price.setPackageSpec("22222");
+//        price.setTheoryQuantity("88888");
+//        price.setYieldPercent("8");
+//        price.setActualProduction("9999");
+//        price.setPriceList("json");
+//        price.setDescriptionList("json");
+//        price.setRemark("text text text");
+//        price.setValueNoVat("text");
+//        price.setSpecialComment("text");
+//        price.setPersonInCharge("text");
+//        price.setReleaseDate("2020-04-20");
+//        price.setDealPlace("text");
+//        projectVO.setProjectPrice(price);
+//
+//        List<ProjectRecord> recordList = new ArrayList<ProjectRecord>();
+//        ProjectRecord record1 = new ProjectRecord();
+//        record1.setProjectId(1);
+//        record1.setRecordId("1");
+//        record1.setRecordContent("json json json json json");
+//        recordList.add(record1);
+//
+//        ProjectRecord record2 = new ProjectRecord();
+//        record2.setProjectId(1);
+//        record2.setRecordId("2");
+//        record2.setRecordContent("json json json json json");
+//        recordList.add(record2);
+//
+//        ProjectRecord record3 = new ProjectRecord();
+//        record3.setProjectId(1);
+//        record3.setRecordId("3");
+//        record3.setRecordContent("json2 json json json json");
+//        recordList.add(record3);
+//
+//        ProjectRecord record4 = new ProjectRecord();
+//        record4.setProjectId(1);
+//        record4.setRecordId("4");
+//        record4.setRecordContent("json4 json json json json");
+//        recordList.add(record4);
+//
+//        ProjectRecord record5 = new ProjectRecord();
+//        record5.setProjectId(1);
+//        record5.setRecordId("5");
+//        record5.setRecordContent("json5 json json json json");
+//        recordList.add(record5);
+//
+//        projectVO.setProjectRecordList(recordList);
+//
+//        List<ProjectTimeline> timelineList = new ArrayList<>();
+//        ProjectTimeline timeline1 = new ProjectTimeline();
+//        timeline1.setProjectId(1);
+//        timeline1.setTimelineId("1");
+//        timeline1.setTimelineContent("json");
+//        timeline1.setTimelineAuthor("XXXXX");
+//        timelineList.add(timeline1);
+//
+//        ProjectTimeline timeline2 = new ProjectTimeline();
+//        timeline2.setProjectId(1);
+//        timeline2.setTimelineId("2");
+//        timeline2.setTimelineContent("json");
+//        timeline2.setTimelineAuthor("XXXXX");
+//        timelineList.add(timeline2);
+//
+//        ProjectTimeline timeline3 = new ProjectTimeline();
+//        timeline3.setProjectId(1);
+//        timeline3.setTimelineId("3");
+//        timeline3.setTimelineContent("json");
+//        timeline3.setTimelineAuthor("XXXXX");
+//        timelineList.add(timeline3);
+//
+//        projectVO.setProjectTimelineList(timelineList);
+//
+//        System.out.println(JSON.toJSONString(projectVO));
+//
+//        return projectVO;
+//    }
 
 
 
