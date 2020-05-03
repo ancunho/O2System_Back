@@ -11,7 +11,7 @@
 	<groupId>com.business</groupId>
 	<artifactId>management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>management</name>
+	<name>Kolmar-O2System-Backend</name>
 	<description>Business Management System for Kolmar</description>
 
 	<properties>
