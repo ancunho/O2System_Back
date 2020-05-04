@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `o2system_dev` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `o2system_dev`;
+CREATE DATABASE  IF NOT EXISTS `o2system` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `o2system`;
 -- MySQL dump 10.13  Distrib 8.0.19, for macos10.15 (x86_64)
 --
 -- Host: 127.0.0.1    Database: o2system_dev
