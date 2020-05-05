@@ -9,6 +9,7 @@
     <result column="PROJECT_SALES_MAN" jdbcType="VARCHAR" property="projectSalesMan" />
     <result column="PROJECT_PRICE_TOTAL" jdbcType="VARCHAR" property="projectPriceTotal" />
     <result column="PROJECT_STATUS" jdbcType="VARCHAR" property="projectStatus" />
+    <result column="PROJECT_CREATER" jdbcType="VARCHAR" property="projectCreater" />
     <result column="PROJECT_STARTTIME" jdbcType="VARCHAR" property="projectStarttime" />
     <result column="PROJECT_ENDTIME" jdbcType="VARCHAR" property="projectEndtime" />
     <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
@@ -21,7 +22,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     ID, PROJECT_CD, PROJECT_NAME, PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL, 
-    PROJECT_STATUS, PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, PARAM2, PARAM3, PARAM4, 
+    PROJECT_STATUS, PROJECT_CREATER, PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, PARAM2, PARAM3, PARAM4,
     PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -40,13 +41,13 @@
     </selectKey>
     insert into tb_project_baseinfo (PROJECT_CD, PROJECT_NAME,
       PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL, 
-      PROJECT_STATUS, PROJECT_STARTTIME, PROJECT_ENDTIME, 
+      PROJECT_STATUS, PROJECT_CREATER, PROJECT_STARTTIME, PROJECT_ENDTIME,
       PARAM1, PARAM2, PARAM3, 
       PARAM4, PARAM5, CREATETIME, 
       UPDATETIME)
     values (#{projectCd,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR},
       #{projectCustomer,jdbcType=VARCHAR}, #{projectSalesMan,jdbcType=VARCHAR}, #{projectPriceTotal,jdbcType=VARCHAR},
-      #{projectStatus,jdbcType=VARCHAR}, #{projectStarttime,jdbcType=VARCHAR}, #{projectEndtime,jdbcType=VARCHAR}, 
+      #{projectStatus,jdbcType=VARCHAR}, #{projectCreater,jdbcType=VARCHAR}, #{projectStarttime,jdbcType=VARCHAR}, #{projectEndtime,jdbcType=VARCHAR},
       #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, #{param3,jdbcType=VARCHAR}, 
       #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, now(),
       now())
@@ -74,6 +75,9 @@
       </if>
       <if test="projectStatus != null">
         PROJECT_STATUS,
+      </if>
+      <if test="projectCreater != null">
+        PROJECT_CREATER,
       </if>
       <if test="projectStarttime != null">
         PROJECT_STARTTIME,
@@ -123,6 +127,9 @@
       <if test="projectStatus != null">
         #{projectStatus,jdbcType=VARCHAR},
       </if>
+      <if test="projectCreater != null">
+        #{projectCreater,jdbcType=VARCHAR},
+      </if>
       <if test="projectStarttime != null">
         #{projectStarttime,jdbcType=VARCHAR},
       </if>
@@ -171,6 +178,9 @@
       <if test="projectStatus != null">
         PROJECT_STATUS = #{projectStatus,jdbcType=VARCHAR},
       </if>
+      <if test="projectCreater != null">
+        PROJECT_CREATER = #{projectCreater,jdbcType=VARCHAR},
+      </if>
       <if test="projectStarttime != null">
         PROJECT_STARTTIME = #{projectStarttime,jdbcType=VARCHAR},
       </if>
@@ -207,6 +217,7 @@
       PROJECT_SALES_MAN = #{projectSalesMan,jdbcType=VARCHAR},
       PROJECT_PRICE_TOTAL = #{projectPriceTotal,jdbcType=VARCHAR},
       PROJECT_STATUS = #{projectStatus,jdbcType=VARCHAR},
+      PROJECT_CREATER = #{projectCreater,jdbcType=VARCHAR},
       PROJECT_STARTTIME = #{projectStarttime,jdbcType=VARCHAR},
       PROJECT_ENDTIME = #{projectEndtime,jdbcType=VARCHAR},
       PARAM1 = #{param1,jdbcType=VARCHAR},
@@ -257,6 +268,10 @@
     select count(1) from tb_project_baseinfo where PROJECT_NAME = #{projectName}
   </select>
 
-
+  <update id="updateProjectStatusById" parameterType="map">
+    UPDATE  TB_PROJECT_BASEINFO
+    SET     PROJECT_STATUS = #{projectStatus}
+    WHERE   ID = #{projectId}
+  </update>
 
 </mapper>

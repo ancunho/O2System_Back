@@ -29,5 +29,5 @@ public interface ProjectBaseinfoMapper {
 
     int getProjectCountByName(@Param(value="projectName") String projectName);
 
-
+    int updateProjectStatusById(@Param(value = "projectId") Integer projectId, @Param(value = "projectStatus") String projectStatus);
 }

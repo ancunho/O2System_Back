@@ -379,4 +379,10 @@
     FROM    TB_CUSTOMER
     ORDER BY ID DESC
   </select>
+
+  <select id="selectByCustomerName" parameterType="java.lang.String" resultType="com.business.management.pojo.Customer">
+    SELECT  <include refid="Base_Column_List"/>
+    FROM  	TB_CUSTOMER
+    WHERE   CUSTOMER_NAME = #{customerName}
+  </select>
 </mapper>

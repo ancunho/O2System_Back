@@ -20,6 +20,8 @@ public class ProjectBaseinfo {
 
     private String projectStatus;
 
+    private String projectCreater;
+
     private String projectStarttime;
 
     private String projectEndtime;

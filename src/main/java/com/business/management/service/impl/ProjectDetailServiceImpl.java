@@ -66,6 +66,13 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
 
+        /***** 5. 프로젝트 상태값 변견 *****/
+        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        }
+
+
         return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
     }
 
@@ -86,7 +93,11 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
         /***** 3. 이력정보 List Object Update *****/
         for (int i = 0; projectVO.getProjectRecordList() != null && i < projectVO.getProjectRecordList().size(); i++) {
-            resultCount = projectRecordMapper.updateByPrimaryKeySelective(projectVO.getProjectRecordList().get(i));
+            if (projectVO.getProjectRecordList().get(i).getId() != null) {
+                resultCount = projectRecordMapper.updateByPrimaryKeySelective(projectVO.getProjectRecordList().get(i));
+            } else {
+                resultCount = projectRecordMapper.insert(projectVO.getProjectRecordList().get(i));
+            }
         }
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
@@ -98,6 +109,12 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         }
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        }
+
+        /***** 5. 프로젝트 상태값 변견 *****/
+        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
 
         return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
@@ -118,7 +135,8 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         project.setProjectBaseinfo(baseinfo);
 
         // 2. Customer
-        Customer customer = customerMapper.selectByPrimaryKey(Integer.valueOf(baseinfo.getProjectCustomer()));
+//        Customer customer = customerMapper.selectByPrimaryKey(Integer.valueOf(baseinfo.getProjectCustomer()));
+        Customer customer = customerMapper.selectByCustomerName(baseinfo.getProjectCustomer());
         project.setCustomer(customer);
 
         // 3. Product
@@ -165,7 +183,7 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         if (updateCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
         }
-        return ServerResponse.createByErrorMessage(Const.Message.UPDATE_OK);
+        return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
     }
 
     @Override
@@ -179,7 +197,7 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
-        return ServerResponse.createByErrorMessage(Const.Message.SAVE_OK);
+        return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
     }
 
 

@@ -24,4 +24,8 @@ public interface CustomerMapper {
     List<Customer> selectCustomerList();
 
     List<Customer> getCustomerListOnlyIDAndName();
+
+    Customer selectByCustomerName(String customerName);
+
+
 }
