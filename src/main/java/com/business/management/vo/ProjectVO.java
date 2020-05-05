@@ -15,6 +15,10 @@ public class ProjectVO {
 
     private User currentUser;
 
+    private String projectStatus;
+
+    private Integer projectId;
+
     // 프로젝트 기본정보
     private ProjectBaseinfo projectBaseinfo;
 

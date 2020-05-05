@@ -54,8 +54,7 @@ public class ProjectController {
      * @param projectBaseinfoVO
      * @return
      */
-//    @UserLoginToken
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/baseinfo/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse baseinfo_save(HttpSession session, @RequestBody ProjectBaseinfoVO projectBaseinfoVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -82,7 +81,7 @@ public class ProjectController {
      * @param projectBaseinfo
      * @return
      */
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/baseinfo/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse bseinfo_update(HttpSession session, @RequestBody ProjectBaseinfo projectBaseinfo) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -100,8 +99,7 @@ public class ProjectController {
      * @param projectVO
      * @return
      */
-//    @UserLoginToken
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/detail/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse detail_create(HttpSession session, @RequestBody ProjectVO projectVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -121,7 +119,7 @@ public class ProjectController {
         return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
     }
 
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/detail/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ServerResponse detail_update(HttpSession session, @RequestBody ProjectVO projectVO) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -146,7 +144,7 @@ public class ProjectController {
      * @param session
      * @return
      */
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ServerResponse project_list(HttpSession session) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -159,9 +157,9 @@ public class ProjectController {
         return ServerResponse.createBySuccess(Const.Message.SELECT_OK, projectList);
     }
 
-    @PassToken
-    @RequestMapping(value = "/view", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ServerResponse project_view(HttpSession session, @RequestParam(value = "id") String projectId) {
+    @UserLoginToken
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public ServerResponse project_view(HttpSession session, @RequestParam(value = "projectId") String projectId) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -175,7 +173,8 @@ public class ProjectController {
         return ServerResponse.createBySuccess(project);
     }
 
-    @RequestMapping(value = "/timeline/list", method = RequestMethod.GET)
+    @UserLoginToken
+    @RequestMapping(value = "/timeline/list", method = RequestMethod.POST)
     public ServerResponse timeline_list(HttpSession session, @RequestParam(value = "projectId") Integer projectId) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
@@ -191,6 +190,7 @@ public class ProjectController {
      * @param projectTimeline
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/timeline/update", method = RequestMethod.POST)
     public ServerResponse timeline_update(HttpSession session, @RequestBody ProjectTimeline projectTimeline) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -207,6 +207,7 @@ public class ProjectController {
      * @param projectTimeline
      * @return
      */
+    @UserLoginToken
     @RequestMapping(value = "/timeline/create", method = RequestMethod.POST)
     public ServerResponse timeline_create(HttpSession session, @RequestBody ProjectTimeline projectTimeline) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
@@ -224,7 +225,7 @@ public class ProjectController {
      * @param projectName
      * @return
      */
-    @PassToken
+    @UserLoginToken
     @RequestMapping(value = "/check/name", method = RequestMethod.POST)
     public ServerResponse check_project_name_repeat(HttpSession session, @RequestParam(value = "projectName") String projectName) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);

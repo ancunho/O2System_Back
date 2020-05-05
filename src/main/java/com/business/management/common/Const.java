@@ -53,12 +53,12 @@ public class Const {
     }
 
     public interface ProjectStatus {
-        String KICKOFF              = "1";
-        String AGREEMENT            = "2";
-        String EXPORT_PREPARATION   = "3";
-        String CONTRACT_ORDER       = "4";
-        String PRODUCTION_EXPORT    = "5";
-        String EXPORT_AS            = "6";
+        String KICKOFF              = "0";
+        String AGREEMENT            = "1";
+        String EXPORT_PREPARATION   = "2";
+        String CONTRACT_ORDER       = "3";
+        String PRODUCTION_EXPORT    = "4";
+        String EXPORT_AS            = "5";
         String REJECT               = "99";
     }
 

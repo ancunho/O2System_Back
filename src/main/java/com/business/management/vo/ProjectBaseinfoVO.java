@@ -25,6 +25,8 @@ public class ProjectBaseinfoVO implements Serializable {
 
     private String projectStatus;
 
+    private String projectCreater;
+
     private String projectStarttime;
 
     private String projectEndtime;
