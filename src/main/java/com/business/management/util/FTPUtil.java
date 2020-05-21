@@ -48,7 +48,7 @@ public class FTPUtil {
      * @throws Exception
      */
     public static boolean uploadFile(String remotePath, List<File> fileList) throws Exception {
-        FTPUtil ftpUtil = new FTPUtil(FTP_IP, 21, FTP_USER, FTP_PASSWORD);
+        FTPUtil ftpUtil = new FTPUtil(FTP_IP, 20, FTP_USER, FTP_PASSWORD);
         log.info("开始连接ftp服务器");
         boolean result = ftpUtil.FtpUploadFile(remotePath, fileList);
 
@@ -100,7 +100,7 @@ public class FTPUtil {
         ftpClient = new FTPClient();
         try {
             log.info("ip:{},user:{},password:{}" , ip,user,password);
-            ftpClient.connect(ip);
+            ftpClient.connect(ip,port);
             isSuccess = ftpClient.login(user, password);
             System.out.println("connet ftp result:" + isSuccess);
         } catch (IOException e) {

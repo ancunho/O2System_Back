@@ -38,11 +38,18 @@ public class CommonController {
     @Autowired
     private PropertiesConfig propertiesConfig;
 
+//    @PassToken
+//    public ServerResponse file_upload_springboot(@RequestParam(value = "singleImageUpload", required = true) MultipartFile file) {
+//
+//    }
+
+
+
     @PassToken
-    @RequestMapping(value = "/file/single/upload", method = RequestMethod.POST)
-        public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
+    @RequestMapping(value = "/file/single/upload/byftp", method = RequestMethod.POST)
+    public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
         // 1. 파일 경로 생성
-//        System.out.println(">>>>>>>>propertiesConfig file path:" + propertiesConfig.getFilePath());
+        System.out.println(">>>>>>>>propertiesConfig file path:" + propertiesConfig.getFilePath());
 //        System.out.println("文件原始名称：" + file.getOriginalFilename());
 //        System.out.println("文件Name：" + file.getName());
 //        System.out.println("文件ContenType：" + file.getContentType());
@@ -51,6 +58,7 @@ public class CommonController {
 
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {
             // 2. upload후 완정한 파일경로및 이름 반환
+
             String targetFileName = fileService.upload(file);
             return ServerResponse.createBySuccess(targetFileName);
         } else {

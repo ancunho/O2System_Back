@@ -39,7 +39,6 @@ public class FileServiceImpl implements FileService {
         String path = propertiesConfig.getFilePath() + remotePath;
 
         log.info("开始上传文件,上传文件的文件名:{},上传的路径:{},新文件名:{}",fileName,path,uploadFileName);
-        System.out.println();
 
         File fileDir = new File(path);
         if (!fileDir.exists()) {
@@ -50,9 +49,9 @@ public class FileServiceImpl implements FileService {
         File targetFile = new File(path, uploadFileName);
 
         try {
-            file.transferTo(targetFile);
+//            file.transferTo(targetFile);
             //上传到FTP
-//            FTPUtil.uploadFile(remotePath, Lists.newArrayList(targetFile));
+            FTPUtil.uploadFile(remotePath, Lists.newArrayList(targetFile));
             //上传到FTP后删除原来的图片
 //            targetFile.delete();
         } catch (Exception e) {
