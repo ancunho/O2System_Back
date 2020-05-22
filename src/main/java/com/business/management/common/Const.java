@@ -19,7 +19,7 @@ public class Const {
      * 上传图片的最大大小： 500K
      * 1KB = 1024Byte
      */
-    public static final Integer UPLOAD_IMAGE_MAX_SIZE = 500;
+    public static final Integer UPLOAD_IMAGE_MAX_SIZE = 20 * 1024;
 
     public interface RoleNo{
         String ROLE_USER        = "0";     //普通用户

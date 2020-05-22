@@ -10,4 +10,6 @@ public interface FileService {
 
     String upload(MultipartFile file);
 
+    String saveSingleFile(MultipartFile file);
+
 }
