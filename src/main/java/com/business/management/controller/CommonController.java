@@ -40,21 +40,14 @@ public class CommonController {
 
     @PassToken
     @RequestMapping(value = "/file/single/upload", method = RequestMethod.POST)
-        public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
+    public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
         // 1. 파일 경로 생성
-//        System.out.println(">>>>>>>>propertiesConfig file path:" + propertiesConfig.getFilePath());
-//        System.out.println("文件原始名称：" + file.getOriginalFilename());
-//        System.out.println("文件Name：" + file.getName());
-//        System.out.println("文件ContenType：" + file.getContentType());
-//        System.out.println("文件大小：" + file.getSize());
-//        System.out.println("文件getResource：" + file.getResource());
-
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {
-            // 2. upload후 완정한 파일경로및 이름 반환
-            String targetFileName = fileService.upload(file);
+            //String targetFileName = fileService.upload(file);
+            String targetFileName = fileService.saveSingleFile(file);
             return ServerResponse.createBySuccess(targetFileName);
         } else {
-            return ServerResponse.createByErrorMessage("文件大小不能超过500KB");
+            return ServerResponse.createByErrorMessage("文件大小不能超过20MB");
         }
     }
 
