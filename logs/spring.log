@@ -189,3 +189,163 @@ Caused by: java.io.EOFException: Can not read response from server. Expected to 
 	at com.mysql.jdbc.MysqlIO.readPacket(MysqlIO.java:568)
 	... 81 common frames omitted
 2020/05/22-22:56 [Thread-2] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/05/22-23:38 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3201 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/05/22-23:38 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/05/22-23:38 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$619e3ebb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/05/22-23:38 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/05/22-23:38 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/05/22-23:38 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/05/22-23:38 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/05/22-23:38 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1115 ms
+2020/05/22-23:38 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/05/22-23:38 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/05/22-23:38 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/05/22-23:38 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/05/22-23:38 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.64 seconds (JVM running for 3.161)
+2020/05/22-23:38 [RMI TCP Connection(1)-192.168.41.52] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/05/22-23:38 [RMI TCP Connection(2)-192.168.41.52] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/05/22-23:38 [RMI TCP Connection(2)-192.168.41.52] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/05/22-23:38 [RMI TCP Connection(2)-192.168.41.52] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/05/22-23:38 [RMI TCP Connection(1)-192.168.41.52] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/05/22-23:38 [http-nio-9000-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: 无token] with root cause
+java.lang.RuntimeException: 无token
+	at com.business.management.util.AuthenticationInterceptor.preHandle(AuthenticationInterceptor.java:58)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1034)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020/05/22-23:38 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-05-05)
+2020/05/22-23:38 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkwMTY1NTA4fQ.LIALZea3tCKpHYGrhe7ghqcxOpi8bz8nLqW5gkZcu_s
+2020/05/22-23:38 [http-nio-9000-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: 无token] with root cause
+java.lang.RuntimeException: 无token
+	at com.business.management.util.AuthenticationInterceptor.preHandle(AuthenticationInterceptor.java:58)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1034)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020/05/22-23:38 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/05/22-23:38 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/05/22-23:38 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/05/22-23:38 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3212 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/05/22-23:38 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/05/22-23:39 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dc978d4c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/05/22-23:39 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/05/22-23:39 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/05/22-23:39 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/05/22-23:39 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/05/22-23:39 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 892 ms
+2020/05/22-23:39 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/05/22-23:39 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/05/22-23:39 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/05/22-23:39 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/05/22-23:39 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.131 seconds (JVM running for 2.696)
+2020/05/22-23:39 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/05/22-23:39 [RMI TCP Connection(1)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/05/22-23:39 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/05/22-23:39 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/05/22-23:39 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/05/22-23:39 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=null, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=1, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=null, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-05-05)
+2020/05/22-23:39 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkwMTY1NTUyfQ.3rPy0KjssYDxIKTytaY75k_4lRDuSmzVSCif_kkcHNg
+2020/05/22-23:43 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/05/22-23:43 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/05/22-23:43 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
