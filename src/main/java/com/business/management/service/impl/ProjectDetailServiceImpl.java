@@ -200,5 +200,17 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
     }
 
+    @Override
+    @Transactional
+    public ServerResponse getRecordByProjectId(Integer projectId) {
+        if (projectId == null || "".equals(projectId)) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        List<ProjectRecord> projectRecordList = projectRecordMapper.selectByProjectId(String.valueOf(projectId));
+        return ServerResponse.createBySuccess(Const.Message.SELECT_OK, projectRecordList);
+
+    }
+
 
 }

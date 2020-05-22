@@ -11,16 +11,15 @@ server:
 #    password: root
 #    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
-#내 aliyun정보 114.55.169.130:9000
+##########################################Kolmar Production Server##########################################
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: kolmar
     password: kolmar@123
     url: jdbc:mysql://172.19.108.144:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-#    url: jdbc:mysql://rm-uf6pabacho39yv537.mysql.rds.aliyuncs.com:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
-  #thymeleaf
+  ######thymeleaf
   thymeleaf:
     suffix: .html
     mode: HTML5
@@ -64,11 +63,7 @@ logging:
     max-size: 10MB
   path: "logs"
 
-#文件上传
-#web:upload-image: "/Users/cunho/Desktop/cunho/O2system_Infra/img"
-#PageHelper
-
-#Qiniu
+#########################  Qiniu  #########################
 qiniu:
   accessKey: J8vuunG0y2pxF33-Ec8-OJSoAVowGgU5rvAx8zjC
   secretKey: xkKHRD7kmLY8K3Z7cWiw-rn2pKFQTUtReBNEF2PV

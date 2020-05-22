@@ -48,4 +48,11 @@ public interface ProjectDetailService {
      */
     ServerResponse timeline_create(ProjectTimeline projectTimeline);
 
+    /**
+     * Get project record list by project id
+     * @param projectId
+     * @return
+     */
+    ServerResponse getRecordByProjectId(Integer projectId);
+
 }

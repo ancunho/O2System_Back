@@ -218,6 +218,17 @@ public class ProjectController {
         return projectDetailService.timeline_create(projectTimeline);
     }
 
+    @UserLoginToken
+    @RequestMapping(value = "/record/by_id")
+    public ServerResponse get_recordlist_by_project_id(HttpSession session, @RequestParam(value = "projectId") Integer projectId) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return projectDetailService.getRecordByProjectId(projectId);
+    }
+
 
     /**
      * project name check repeat

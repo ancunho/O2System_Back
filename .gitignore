@@ -32,4 +32,8 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 *.log
+=======
+*.log
+>>>>>>> 416e49dd2353ca320eef35f891649a2205bbad1f
