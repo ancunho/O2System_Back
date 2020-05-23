@@ -47,4 +47,11 @@ public interface CustomerService {
      */
     ServerResponse update(Customer customer);
 
+    /**
+     * 아이디로 고객정보 조회
+     * @param customerId
+     * @return
+     */
+    Customer getCustomerById(Integer customerId);
+
 }

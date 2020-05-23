@@ -93,4 +93,9 @@ public class CustomerServiceImpl implements CustomerService{
         }
     }
 
+    @Override
+    public Customer getCustomerById(Integer customerId) {
+        return customerMapper.selectByPrimaryKey(customerId);
+    }
+
 }
