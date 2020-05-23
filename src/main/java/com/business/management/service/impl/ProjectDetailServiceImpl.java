@@ -7,7 +7,6 @@ import com.business.management.pojo.*;
 import com.business.management.service.ProjectDetailService;
 import com.business.management.vo.ProjectVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,12 +77,20 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     public ServerResponse update(ProjectVO projectVO) {
         /***** 1. 제품정보 Object Update *****/
         if (projectVO.getProjectProduct() != null) {
-            projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
+            if (projectVO.getProjectProduct().getId() != null) {
+                projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
+            } else {
+                projectProductMapper.insert(projectVO.getProjectProduct());
+            }
         }
 
         /***** 2. 가격정보 Object Update *****/
         if (projectVO.getProjectPrice() != null) {
-            projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
+            if (projectVO.getProjectPrice().getId() != null) {
+                projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
+            } else {
+                projectPriceMapper.insert(projectVO.getProjectPrice());
+            }
         }
 
         /***** 3. 이력정보 List Object Update *****/
@@ -189,6 +196,20 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         }
 
         int resultCount = projectTimelineMapper.insert(projectTimeline);
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        }
+        return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+    }
+
+    @Override
+    @Transactional
+    public ServerResponse timeline_delete(Integer timelineId) {
+        if (timelineId == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        int resultCount = projectTimelineMapper.deleteByPrimaryKey(timelineId);
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
