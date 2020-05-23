@@ -1,36 +1,24 @@
 package com.business.management.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.business.management.annotation.PassToken;
+
 import com.business.management.annotation.UserLoginToken;
 import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.ProjectBaseinfo;
-import com.business.management.pojo.ProjectRecord;
 import com.business.management.pojo.ProjectTimeline;
 import com.business.management.pojo.User;
 import com.business.management.service.*;
-import com.business.management.util.Box;
-import com.business.management.util.HttpUtility;
-import com.business.management.util.ValueUtil;
 import com.business.management.vo.ProjectBaseinfoVO;
 import com.business.management.vo.ProjectListVO;
 import com.business.management.vo.ProjectVO;
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author : Cunho
@@ -216,6 +204,23 @@ public class ProjectController {
         }
 
         return projectDetailService.timeline_create(projectTimeline);
+    }
+
+    /**
+     * 타임라인 삭제
+     * @param session
+     * @param timelineId
+     * @return
+     */
+    @UserLoginToken
+    @RequestMapping(value = "/timeline/delete", method = RequestMethod.POST)
+    public ServerResponse timeline_create(HttpSession session, @RequestParam(value = "id") Integer timelineId) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if (currentUser == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return projectDetailService.timeline_delete(timelineId);
     }
 
     @UserLoginToken

@@ -49,6 +49,13 @@ public interface ProjectDetailService {
     ServerResponse timeline_create(ProjectTimeline projectTimeline);
 
     /**
+     * timeline delete
+     * @param timelineId
+     * @return
+     */
+    ServerResponse timeline_delete(Integer timelineId);
+
+    /**
      * Get project record list by project id
      * @param projectId
      * @return
