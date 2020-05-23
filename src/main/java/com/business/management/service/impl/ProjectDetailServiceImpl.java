@@ -42,14 +42,13 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     @Override
     @Transactional
     public ServerResponse save(ProjectVO projectVO) {
-        int resultCount = 0;
         /***** 1. 제품정보 Object Save *****/
-        if (ObjectUtils.allNotNull(projectVO.getProjectProduct())) {
+        if (projectVO.getProjectProduct() != null) {
             projectProductMapper.insert(projectVO.getProjectProduct());
         }
 
         /***** 2. 가격정보 Object Save *****/
-        if (ObjectUtils.allNotNull(projectVO.getProjectPrice())) {
+        if (projectVO.getProjectPrice() != null) {
             projectPriceMapper.insert(projectVO.getProjectPrice());
         }
 
@@ -78,12 +77,12 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     @Transactional
     public ServerResponse update(ProjectVO projectVO) {
         /***** 1. 제품정보 Object Update *****/
-        if (ObjectUtils.allNotNull(projectVO.getProjectProduct())) {
+        if (projectVO.getProjectProduct() != null) {
             projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
         }
 
         /***** 2. 가격정보 Object Update *****/
-        if (ObjectUtils.allNotNull(projectVO.getProjectPrice())) {
+        if (projectVO.getProjectPrice() != null) {
             projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
         }
 
