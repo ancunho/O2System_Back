@@ -31,6 +31,9 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
 	<insert id="insert" parameterType="com.business.management.pojo.ProjectFileinfo">
+	<selectKey keyProperty="id" resultType="int" order="AFTER">
+		SELECT LAST_INSERT_ID()
+	</selectKey>
     insert into tb_project_fileinfo (ID, PROJECT_ID, FILE_NAME, 
       FILE_EXTENSION, FILE_COMMENT, FILE_PATH, 
       PARAM1, PARAM2, PARAM3, 
@@ -183,4 +186,10 @@
       UPDATETIME = now()
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+	<select id="selectByProjectId" parameterType="java.lang.Integer" resultType="com.business.management.pojo.ProjectFileinfo">
+		SELECT <include refid="Base_Column_List" />
+		FROM 	TB_PROJECT_FILEINFO
+		WHERE PROJECT_ID = #{projectId}
+	</select>
 </mapper>

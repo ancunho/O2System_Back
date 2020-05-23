@@ -248,6 +248,15 @@ public class UserServiceImpl implements UserService {
         return ServerResponse.createByErrorMessage("密码更新失败");
     }
 
+    @Override
+    public ServerResponse updateUserAvatarImagePath(User user) {
+        int updateCount = userMapper.updateAvatarPath(user);
+        if (updateCount > 0) {
+            return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
+        }
+        return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+    }
+
 
     /*********************************************************************************************************
      * 												관리자 전용

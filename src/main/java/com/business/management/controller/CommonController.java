@@ -6,9 +6,11 @@ import com.business.management.common.PropertiesConfig;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.Config;
+import com.business.management.pojo.ProjectFileinfo;
 import com.business.management.pojo.User;
 import com.business.management.service.CommonService;
 import com.business.management.service.FileService;
+import com.business.management.service.UserService;
 import com.business.management.util.DateUtil;
 import com.business.management.util.PropertiesUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -36,16 +38,49 @@ public class CommonController {
     private FileService fileService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private PropertiesConfig propertiesConfig;
 
     @PassToken
     @RequestMapping(value = "/file/single/upload", method = RequestMethod.POST)
-    public ServerResponse file_upload( @RequestParam(value = "singleImageUpload", required = false) MultipartFile file) {
+    public ServerResponse file_upload(HttpSession session
+                                    , @RequestParam(value = "singleImageUpload", required = false) MultipartFile file
+                                    , @RequestParam(value = "type") String type
+                                    , String projectId) {
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+
         // 1. 파일 경로 생성
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {
             //String targetFileName = fileService.upload(file);
             String targetFileName = fileService.saveSingleFile(file);
-            return ServerResponse.createBySuccess(targetFileName);
+
+            if (type.equals(Const.FileType.AVATAR)) {
+                currentUser.setImagePhoto(targetFileName);
+                ServerResponse response = userService.updateUserAvatarImagePath(currentUser);
+                if (response.isSuccess()) {
+                    return ServerResponse.createBySuccess(targetFileName);
+                } else {
+                    return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+                }
+            } else if(type.equals(Const.FileType.PROJECT_FILE)) {
+                ProjectFileinfo fileinfo = new ProjectFileinfo();
+                fileinfo.setProjectId(Integer.valueOf(projectId));
+                fileinfo.setFileExtension(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1));
+                fileinfo.setFilePath(targetFileName);
+                fileinfo.setFileName(file.getOriginalFilename());
+
+                ServerResponse response = fileService.saveProjectFile(fileinfo);
+                if (response.isSuccess()) {
+                    return ServerResponse.createBySuccess(fileinfo);
+                } else {
+                    return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+                }
+            } else {
+                return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
+            }
+
         } else {
             return ServerResponse.createByErrorMessage("文件大小不能超过20MB");
         }

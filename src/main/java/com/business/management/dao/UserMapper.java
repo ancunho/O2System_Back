@@ -100,6 +100,8 @@ public interface UserMapper {
 
     List<User> getUserListOnlyIDAndRealname();
 
+    int updateAvatarPath(User user);
+
 
 
 }

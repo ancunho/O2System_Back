@@ -90,6 +90,8 @@ public interface UserService {
 
     ServerResponse<String> resetPassword(String passwordOld,String passwordNew,User user);
 
+    ServerResponse updateUserAvatarImagePath(User user);
+
     /*********************************************************************************************************
      * 												관리자 전용
      *********************************************************************************************************/

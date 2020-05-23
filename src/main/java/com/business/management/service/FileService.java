@@ -1,5 +1,7 @@
 package com.business.management.service;
 
+import com.business.management.common.ServerResponse;
+import com.business.management.pojo.ProjectFileinfo;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -11,5 +13,7 @@ public interface FileService {
     String upload(MultipartFile file);
 
     String saveSingleFile(MultipartFile file);
+
+    ServerResponse saveProjectFile(ProjectFileinfo fileinfo);
 
 }
