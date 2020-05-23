@@ -33,6 +33,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     private ProjectTimelineMapper projectTimelineMapper;
 
     @Autowired
+    private ProjectFileinfoMapper projectFileinfoMapper;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @Override
@@ -66,12 +69,19 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
 
-        /***** 5. 프로젝트 상태값 변견 *****/
-        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
+        /***** 5. 파일정보 Save *****/
+        for (int i = 0; projectVO.getProjectFileinfoList() != null && i < projectVO.getProjectFileinfoList().size(); i++) {
+            resultCount = projectFileinfoMapper.insert(projectVO.getProjectFileinfoList().get(i));
+        }
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
         }
 
+        /***** 6. 프로젝트 상태값 변견 *****/
+        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        }
 
         return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
     }
@@ -111,7 +121,16 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
             return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
         }
 
-        /***** 5. 프로젝트 상태값 변견 *****/
+        /***** 5. File Info Updagte *****/
+        for (int i = 0; projectVO.getProjectFileinfoList() != null && i < projectVO.getProjectFileinfoList().size(); i++) {
+
+            resultCount = projectFileinfoMapper.updateByPrimaryKeySelective(projectVO.getProjectFileinfoList().get(i));
+        }
+        if (resultCount == 0) {
+            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        }
+
+        /***** 6. 프로젝트 상태값 변견 *****/
         resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
         if (resultCount == 0) {
             return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
@@ -154,6 +173,10 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         // 6. Timeline List
 //        List<ProjectTimeline> timelineList = projectTimelineMapper.selectByProjectId(Integer.valueOf(projectId));
 //        project.setProjectTimelineList(timelineList);
+
+        // 7. FileInfo List
+        List<ProjectFileinfo> projectFileinfoList = projectFileinfoMapper.selectByProjectId(Integer.valueOf(projectId));
+        project.setProjectFileinfoList(projectFileinfoList);
 
         return project;
     }

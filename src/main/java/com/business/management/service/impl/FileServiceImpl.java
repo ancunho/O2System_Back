@@ -1,6 +1,10 @@
 package com.business.management.service.impl;
 
+import com.business.management.common.Const;
 import com.business.management.common.PropertiesConfig;
+import com.business.management.common.ServerResponse;
+import com.business.management.dao.ProjectFileinfoMapper;
+import com.business.management.pojo.ProjectFileinfo;
 import com.business.management.service.FileService;
 import com.business.management.util.DateUtil;
 import com.business.management.util.FTPUtil;
@@ -24,6 +28,9 @@ public class FileServiceImpl implements FileService {
 
     @Autowired
     private PropertiesConfig propertiesConfig;
+
+    @Autowired
+    private ProjectFileinfoMapper fileinfoMapper;
 
     @Override
     public String upload(MultipartFile file) {
@@ -105,6 +112,16 @@ public class FileServiceImpl implements FileService {
 
         String finalFileName = propertiesConfig.getFileServerHttpPrefix() + remotePath + uploadFileName;
         return finalFileName;
+    }
+
+    @Override
+    public ServerResponse saveProjectFile(ProjectFileinfo fileinfo) {
+        int insertCount = fileinfoMapper.insert(fileinfo);
+
+        if (insertCount > 0) {
+            return ServerResponse.createBySuccess(Const.Message.SAVE_OK, fileinfo);
+        }
+        return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
     }
 
 

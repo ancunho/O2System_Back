@@ -4,6 +4,8 @@ import com.business.management.pojo.ProjectFileinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component("projectFileinfoMapper")
 public interface ProjectFileinfoMapper {
@@ -18,4 +20,7 @@ public interface ProjectFileinfoMapper {
     int updateByPrimaryKeySelective(ProjectFileinfo record);
 
     int updateByPrimaryKey(ProjectFileinfo record);
+
+    List<ProjectFileinfo> selectByProjectId(Integer projectId);
+
 }

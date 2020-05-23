@@ -72,4 +72,9 @@ public class Const {
         String PARAMETER_ERROR  = "参数错误";
     }
 
+    public interface FileType {
+        String AVATAR           = "avatar"; //用户头像
+        String PROJECT_FILE     = "pfile"; //项目模块中用的附件
+    }
+
 }

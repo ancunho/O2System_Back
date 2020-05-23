@@ -447,5 +447,11 @@
 		ORDER BY ID DESC
 	</select>
 
+	<update id="updateAvatarPath" parameterType="com.business.management.pojo.User">
+		UPDATE 	TB_USER
+		SET 	IMAGE_PHOTO = #{imagePhoto}
+		WHERE 	ID = #{id}
+	</update>
+
 
 </mapper>
