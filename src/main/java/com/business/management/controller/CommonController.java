@@ -6,9 +6,11 @@ import com.business.management.common.PropertiesConfig;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.pojo.Config;
+import com.business.management.pojo.Customer;
 import com.business.management.pojo.ProjectFileinfo;
 import com.business.management.pojo.User;
 import com.business.management.service.CommonService;
+import com.business.management.service.CustomerService;
 import com.business.management.service.FileService;
 import com.business.management.service.UserService;
 import com.business.management.util.DateUtil;
@@ -41,6 +43,9 @@ public class CommonController {
     private UserService userService;
 
     @Autowired
+    private CustomerService customerService;
+
+    @Autowired
     private PropertiesConfig propertiesConfig;
 
     @PassToken
@@ -48,14 +53,18 @@ public class CommonController {
     public ServerResponse file_upload(HttpSession session
                                     , @RequestParam(value = "singleImageUpload", required = false) MultipartFile file
                                     , @RequestParam(value = "type") String type
-                                    , String projectId) {
+                                    , @RequestParam(value = "id") String id) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
 
-        // 1. 파일 경로 생성
+        // 0. 파일 사이즈 체크 -->  최대 20MB
         if (file.getSize() > 0 && file.getSize() <= (Const.UPLOAD_IMAGE_MAX_SIZE * 1024)) {
+            // FTP로 저장
             //String targetFileName = fileService.upload(file);
+
+            // 1. 서버에 파일 저장, 외부접근가능한 URL반환
             String targetFileName = fileService.saveSingleFile(file);
 
+            // 2. 회원사진 바꿀때
             if (type.equals(Const.FileType.AVATAR)) {
                 currentUser.setImagePhoto(targetFileName);
                 ServerResponse response = userService.updateUserAvatarImagePath(currentUser);
@@ -64,9 +73,10 @@ public class CommonController {
                 } else {
                     return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
                 }
+                // 3. 프로젝트 첨부파일
             } else if(type.equals(Const.FileType.PROJECT_FILE)) {
                 ProjectFileinfo fileinfo = new ProjectFileinfo();
-                fileinfo.setProjectId(Integer.valueOf(projectId));
+                fileinfo.setProjectId(Integer.valueOf(id));
                 fileinfo.setFileExtension(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1));
                 fileinfo.setFilePath(targetFileName);
                 fileinfo.setFileName(file.getOriginalFilename());
@@ -77,6 +87,12 @@ public class CommonController {
                 } else {
                     return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
                 }
+
+                // 고객사진 바꿀때
+            } else if (type.equals(Const.FileType.CUSTOMER_AVATAR)) {
+                Customer customer = customerService.getCustomerById(Integer.valueOf(id));
+                customer.setCustomerImage(targetFileName);
+                return customerService.update(customer);
             } else {
                 return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
             }

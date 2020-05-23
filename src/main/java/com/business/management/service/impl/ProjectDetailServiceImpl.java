@@ -6,7 +6,10 @@ import com.business.management.dao.*;
 import com.business.management.pojo.*;
 import com.business.management.service.ProjectDetailService;
 import com.business.management.vo.ProjectVO;
+import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,47 +44,34 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     @Override
     @Transactional
     public ServerResponse save(ProjectVO projectVO) {
+        int resultCount = 0;
         /***** 1. 제품정보 Object Save *****/
-        int resultCount = projectProductMapper.insert(projectVO.getProjectProduct());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        if (ObjectUtils.allNotNull(projectVO.getProjectProduct())) {
+            projectProductMapper.insert(projectVO.getProjectProduct());
         }
 
         /***** 2. 가격정보 Object Save *****/
-        resultCount = projectPriceMapper.insert(projectVO.getProjectPrice());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+        if (ObjectUtils.allNotNull(projectVO.getProjectPrice())) {
+            projectPriceMapper.insert(projectVO.getProjectPrice());
         }
 
         /***** 3. 이력정보 List Object Save *****/
         for (int i = 0; projectVO.getProjectRecordList() != null && i < projectVO.getProjectRecordList().size(); i++) {
-            resultCount = projectRecordMapper.insert(projectVO.getProjectRecordList().get(i));
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            projectRecordMapper.insert(projectVO.getProjectRecordList().get(i));
         }
 
         /***** 4. 타임라인 List Object Save *****/
         for (int i = 0; projectVO.getProjectTimelineList() != null && i < projectVO.getProjectTimelineList().size(); i++) {
-            resultCount = projectTimelineMapper.insert(projectVO.getProjectTimelineList().get(i));
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            projectTimelineMapper.insert(projectVO.getProjectTimelineList().get(i));
         }
 
         /***** 5. 파일정보 Save *****/
         for (int i = 0; projectVO.getProjectFileinfoList() != null && i < projectVO.getProjectFileinfoList().size(); i++) {
-            resultCount = projectFileinfoMapper.insert(projectVO.getProjectFileinfoList().get(i));
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            projectFileinfoMapper.insert(projectVO.getProjectFileinfoList().get(i));
         }
 
         /***** 6. 프로젝트 상태값 변견 *****/
-        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
-        }
+        projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
 
         return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
     }
@@ -90,51 +80,36 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     @Transactional
     public ServerResponse update(ProjectVO projectVO) {
         /***** 1. 제품정보 Object Update *****/
-        int resultCount = projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        if (ObjectUtils.allNotNull(projectVO.getProjectProduct())) {
+            projectProductMapper.updateByPrimaryKeySelective(projectVO.getProjectProduct());
         }
 
         /***** 2. 가격정보 Object Update *****/
-        resultCount = projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+        if (ObjectUtils.allNotNull(projectVO.getProjectPrice())) {
+            projectPriceMapper.updateByPrimaryKeySelective(projectVO.getProjectPrice());
         }
 
         /***** 3. 이력정보 List Object Update *****/
         for (int i = 0; projectVO.getProjectRecordList() != null && i < projectVO.getProjectRecordList().size(); i++) {
             if (projectVO.getProjectRecordList().get(i).getId() != null) {
-                resultCount = projectRecordMapper.updateByPrimaryKeySelective(projectVO.getProjectRecordList().get(i));
+                projectRecordMapper.updateByPrimaryKeySelective(projectVO.getProjectRecordList().get(i));
             } else {
-                resultCount = projectRecordMapper.insert(projectVO.getProjectRecordList().get(i));
+                projectRecordMapper.insert(projectVO.getProjectRecordList().get(i));
             }
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
         }
 
         /***** 4. 타임라인 List Object Update *****/
         for (int i = 0; projectVO.getProjectTimelineList() != null && i < projectVO.getProjectTimelineList().size(); i++) {
-            resultCount = projectTimelineMapper.updateByPrimaryKeySelective(projectVO.getProjectTimelineList().get(i));
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.UPDATE_ERROR);
+            projectTimelineMapper.updateByPrimaryKeySelective(projectVO.getProjectTimelineList().get(i));
         }
 
         /***** 5. File Info Updagte *****/
         for (int i = 0; projectVO.getProjectFileinfoList() != null && i < projectVO.getProjectFileinfoList().size(); i++) {
-
-            resultCount = projectFileinfoMapper.updateByPrimaryKeySelective(projectVO.getProjectFileinfoList().get(i));
-        }
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            projectFileinfoMapper.updateByPrimaryKeySelective(projectVO.getProjectFileinfoList().get(i));
         }
 
         /***** 6. 프로젝트 상태값 변견 *****/
-        resultCount = projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
-        if (resultCount == 0) {
-            return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
-        }
+        projectBaseinfoMapper.updateProjectStatusById(projectVO.getProjectId(), projectVO.getProjectStatus());
 
         return ServerResponse.createBySuccessMessage(Const.Message.UPDATE_OK);
 

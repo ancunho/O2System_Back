@@ -74,7 +74,8 @@ public class Const {
 
     public interface FileType {
         String AVATAR           = "avatar"; //用户头像
-        String PROJECT_FILE     = "pfile"; //项目模块中用的附件
+        String PROJECT_FILE     = "pfile"; //项目模块中用的附件지
+        String CUSTOMER_AVATAR  = "customerAvatar"; //고객사 아바자이미
     }
 
 }
