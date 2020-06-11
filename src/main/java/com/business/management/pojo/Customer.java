@@ -17,6 +17,8 @@ public class Customer {
 
     private String customerCd;
 
+    private String customerType;
+
     private String author;
 
     private String director;

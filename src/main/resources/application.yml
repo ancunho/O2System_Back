@@ -4,20 +4,20 @@ server:
 
 ##############################################Spring Database Info##########################################################
 #테스트환경 , 로컬환경
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    username: root
-#    password: root
-#    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-
-##########################################Kolmar Production Server##########################################
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: kolmar
-    password: kolmar@123
-    url: jdbc:mysql://172.19.108.144:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/o2system_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+
+##########################################Kolmar Production Server##########################################
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: kolmar
+#    password: kolmar@123
+#    url: jdbc:mysql://172.19.108.144:3306/o2system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
 
   ######thymeleaf
   thymeleaf:

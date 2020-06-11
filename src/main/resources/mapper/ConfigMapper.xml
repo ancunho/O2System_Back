@@ -153,4 +153,5 @@
 		FROM   	TB_CONFIG
 		WHERE  	CNF_CODE = #{CNF_CODE}
 	</select>
+
 </mapper>

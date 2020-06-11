@@ -7,6 +7,7 @@
     <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
     <result column="CUSTOMER_NAME_KR" jdbcType="VARCHAR" property="customerNameKr" />
     <result column="CUSTOMER_CD" jdbcType="VARCHAR" property="customerCd" />
+    <result column="CUSTOMER_TYPE" jdbcType="VARCHAR" property="customerType" />
     <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
     <result column="DIRECTOR" jdbcType="VARCHAR" property="director" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
@@ -33,7 +34,7 @@
     <result column="UPDATETIME" jdbcType="VARCHAR" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, AUTHOR, DIRECTOR, STATUS, 
+    ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR, DIRECTOR, STATUS,
     PHONE, WECHAT, DESCRIPTION, SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, 
     DISTRIBUTION, PROVINCE, CITY, AREA, ADDRESS, SALES_MAN, CUSTOMER_IMAGE, PARAM1, PARAM2, 
     PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
@@ -50,7 +51,7 @@
   </delete>
   <insert id="insert" parameterType="com.business.management.pojo.Customer">
     insert into tb_customer (ID, PROJECT_ID, CUSTOMER_NAME, 
-      CUSTOMER_NAME_KR, CUSTOMER_CD, AUTHOR, 
+      CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR,
       DIRECTOR, STATUS, PHONE, 
       WECHAT, DESCRIPTION, SALES_VOLUMN, 
       DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, 
@@ -60,7 +61,7 @@
       PARAM3, PARAM4, PARAM5, 
       CREATETIME, UPDATETIME)
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR},
-      #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{customerType,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
       #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{salesVolumn,jdbcType=VARCHAR}, 
       #{developmentSkill,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR}, 
@@ -87,6 +88,9 @@
       </if>
       <if test="customerCd != null">
         CUSTOMER_CD,
+      </if>
+      <if test="customerType != null">
+        CUSTOMER_TYPE,
       </if>
       <if test="author != null">
         AUTHOR,
@@ -175,6 +179,9 @@
       <if test="customerCd != null">
         #{customerCd,jdbcType=VARCHAR},
       </if>
+      <if test="customerType != null">
+        #{customerType,jdbcType=VARCHAR},
+      </if>
       <if test="author != null">
         #{author,jdbcType=VARCHAR},
       </if>
@@ -262,6 +269,9 @@
       <if test="customerCd != null">
         CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
       </if>
+      <if test="customerType != null">
+        CUSTOMER_TYPE = #{customerType,jdbcType=VARCHAR},
+      </if>
       <if test="author != null">
         AUTHOR = #{author,jdbcType=VARCHAR},
       </if>
@@ -341,6 +351,7 @@
       CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
       CUSTOMER_NAME_KR = #{customerNameKr,jdbcType=VARCHAR},
       CUSTOMER_CD = #{customerCd,jdbcType=VARCHAR},
+      CUSTOMER_TYPE = #{customerType,jdbcType=VARCHAR},
       AUTHOR = #{author,jdbcType=VARCHAR},
       DIRECTOR = #{director,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
