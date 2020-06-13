@@ -380,6 +380,7 @@
 		from tb_user
 		where username = #{username}
 		and password = #{password}
+		and status = 1
 	</select>
 
 	<select id="checkUsername" resultType="java.lang.Integer" parameterType="java.lang.String">
