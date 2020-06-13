@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Cunho
@@ -26,6 +27,17 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public ServerResponse configList(String CNF_CODE) {
         List<Config> resultList = configMapper.selectConfigListByCode(CNF_CODE);
+
+        if (resultList == null) {
+            return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+
+        return ServerResponse.createBySuccess(resultList);
+    }
+
+    @Override
+    public ServerResponse configAllList() {
+        List<Config> resultList = configMapper.selectConfigAllList();
 
         if (resultList == null) {
             return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getDesc());

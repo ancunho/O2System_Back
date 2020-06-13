@@ -17,6 +17,12 @@ public interface CommonService {
     ServerResponse configList(String CNF_CODE);
 
     /**
+     * 코드리스트반환 - All
+     * @return
+     */
+    ServerResponse configAllList();
+
+    /**
      * 신규코드추가
      * @param config
      * @return

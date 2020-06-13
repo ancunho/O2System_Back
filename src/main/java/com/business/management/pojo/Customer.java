@@ -17,6 +17,8 @@ public class Customer {
 
     private String customerCd;
 
+    private String customerType;
+
     private String author;
 
     private String director;
@@ -32,6 +34,8 @@ public class Customer {
     private String salesVolumn;
 
     private String developmentSkill;
+
+    private String channel;
 
     private String target;
 

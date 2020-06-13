@@ -125,6 +125,18 @@ public class CommonController {
     }
 
     /**
+     * 코드 입력
+     * @return
+     */
+    @PassToken
+    @RequestMapping(value = "/config/list", method = RequestMethod.POST)
+    public ServerResponse config_all_list() {
+        return commonService.configAllList();
+    }
+
+
+
+    /**
      * 신규코드 추가
      * @param config
      * @return

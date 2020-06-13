@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Component("configMapper")
@@ -23,4 +24,7 @@ public interface ConfigMapper {
     int updateByPrimaryKey(Config record);
 
     List<Config> selectConfigListByCode(@Param("CNF_CODE") String CNF_CODE);
+
+    List<Config> selectConfigAllList();
+
 }
