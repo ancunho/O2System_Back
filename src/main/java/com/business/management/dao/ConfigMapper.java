@@ -25,5 +25,6 @@ public interface ConfigMapper {
 
     List<Config> selectConfigListByCode(@Param("CNF_CODE") String CNF_CODE);
 
-    Map selectConfigList();
+    List<Config> selectConfigAllList();
+
 }

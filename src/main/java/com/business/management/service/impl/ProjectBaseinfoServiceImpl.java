@@ -54,6 +54,10 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
         projectBaseinfo.setProjectPriceTotal(projectBaseinfoVO.getProjectPriceTotal());
         // -- 프로젝트 상태
         projectBaseinfo.setProjectStatus(Const.ProjectStatus.KICKOFF);
+        // -- 프로젝트 생산기지
+        projectBaseinfo.setProjectLocation(projectBaseinfoVO.getProjectLocation());
+        // -- 渠道
+        projectBaseinfo.setDistribution(projectBaseinfoVO.getDistribution());
         // -- 프로젝트 시작일
         projectBaseinfo.setProjectStarttime(projectBaseinfoVO.getProjectStarttime());
         // -- 프로젝트 예상마감일

@@ -78,4 +78,10 @@ public class Const {
         String CUSTOMER_AVATAR  = "customerAvatar"; //고객사 아바자이미
     }
 
+    public interface UserAction {
+        String CREATE_PROJECT = "创建项目";
+        String UPDATE_PROJECT = "修改项目内容";
+        String NEW_USER = "加入会员";
+    }
+
 }

@@ -36,6 +36,17 @@ public class CommonServiceImpl implements CommonService {
     }
 
     @Override
+    public ServerResponse configAllList() {
+        List<Config> resultList = configMapper.selectConfigAllList();
+
+        if (resultList == null) {
+            return ServerResponse.createByErrorMessage(ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+
+        return ServerResponse.createBySuccess(resultList);
+    }
+
+    @Override
     public ServerResponse insert(Config config) {
         if (config == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());

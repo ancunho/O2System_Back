@@ -69,8 +69,8 @@ public class TokenUtil {
 
             DecodedJWT jwt = verifier.verify(token);
 
-            log.info(jwt.getHeader(),jwt.getPayload(), jwt.getSignature());
-            log.info(jwt.getToken());
+//            log.info(jwt.getHeader(),jwt.getPayload(), jwt.getSignature());
+//            log.info(jwt.getToken());
             return true;
         } catch (Exception e) {
             log.info("校验token错误");

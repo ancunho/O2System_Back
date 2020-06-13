@@ -16,6 +16,7 @@
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
     <result column="SALES_VOLUMN" jdbcType="VARCHAR" property="salesVolumn" />
     <result column="DEVELOPMENT_SKILL" jdbcType="VARCHAR" property="developmentSkill" />
+    <result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
     <result column="TARGET" jdbcType="VARCHAR" property="target" />
     <result column="PRODUCT_LIST" jdbcType="VARCHAR" property="productList" />
     <result column="DISTRIBUTION" jdbcType="VARCHAR" property="distribution" />
@@ -35,7 +36,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     ID, PROJECT_ID, CUSTOMER_NAME, CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR, DIRECTOR, STATUS,
-    PHONE, WECHAT, DESCRIPTION, SALES_VOLUMN, DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, 
+    PHONE, WECHAT, DESCRIPTION, SALES_VOLUMN, DEVELOPMENT_SKILL, CHANNEL, TARGET, PRODUCT_LIST,
     DISTRIBUTION, PROVINCE, CITY, AREA, ADDRESS, SALES_MAN, CUSTOMER_IMAGE, PARAM1, PARAM2, 
     PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
@@ -54,7 +55,7 @@
       CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR,
       DIRECTOR, STATUS, PHONE, 
       WECHAT, DESCRIPTION, SALES_VOLUMN, 
-      DEVELOPMENT_SKILL, TARGET, PRODUCT_LIST, 
+      DEVELOPMENT_SKILL, CHANNEL, TARGET, PRODUCT_LIST,
       DISTRIBUTION, PROVINCE, CITY, 
       AREA, ADDRESS, SALES_MAN, 
       CUSTOMER_IMAGE, PARAM1, PARAM2, 
@@ -64,7 +65,7 @@
       #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{customerType,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
       #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{salesVolumn,jdbcType=VARCHAR}, 
-      #{developmentSkill,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR}, 
+      #{developmentSkill,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR},
       #{distribution,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
       #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{salesMan,jdbcType=VARCHAR}, 
       #{customerImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR}, 
@@ -115,6 +116,9 @@
       </if>
       <if test="developmentSkill != null">
         DEVELOPMENT_SKILL,
+      </if>
+      <if test="channel != null">
+        CHANNEL,
       </if>
       <if test="target != null">
         TARGET,
@@ -206,6 +210,9 @@
       <if test="developmentSkill != null">
         #{developmentSkill,jdbcType=VARCHAR},
       </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
       <if test="target != null">
         #{target,jdbcType=VARCHAR},
       </if>
@@ -296,6 +303,9 @@
       <if test="developmentSkill != null">
         DEVELOPMENT_SKILL = #{developmentSkill,jdbcType=VARCHAR},
       </if>
+      <if test="channel != null">
+        CHANNEL = #{channel,jdbcType=VARCHAR},
+      </if>
       <if test="target != null">
         TARGET = #{target,jdbcType=VARCHAR},
       </if>
@@ -360,6 +370,7 @@
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       SALES_VOLUMN = #{salesVolumn,jdbcType=VARCHAR},
       DEVELOPMENT_SKILL = #{developmentSkill,jdbcType=VARCHAR},
+      CHANNEL = #{channel,jdbcType=VARCHAR},
       TARGET = #{target,jdbcType=VARCHAR},
       PRODUCT_LIST = #{productList,jdbcType=VARCHAR},
       DISTRIBUTION = #{distribution,jdbcType=VARCHAR},

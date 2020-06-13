@@ -35,6 +35,8 @@ public class Customer {
 
     private String developmentSkill;
 
+    private String channel;
+
     private String target;
 
     private String productList;

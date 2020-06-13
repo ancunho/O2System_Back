@@ -154,4 +154,9 @@
 		WHERE  	CNF_CODE = #{CNF_CODE}
 	</select>
 
+	<select id="selectConfigAllList" resultType="com.business.management.pojo.Config">
+		SELECT 	<include refid="Base_Column_List" />
+		FROM   	TB_CONFIG
+	</select>
+
 </mapper>
