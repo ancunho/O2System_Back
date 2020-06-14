@@ -134,7 +134,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
         // 2. Customer
 //        Customer customer = customerMapper.selectByPrimaryKey(Integer.valueOf(baseinfo.getProjectCustomer()));
-        Customer customer = customerMapper.selectByCustomerName(baseinfo.getProjectCustomer());
+//        Customer customer = customerMapper.selectByCustomerName(baseinfo.getProjectCustomer());
+        Customer customer = customerMapper.selectByCustomerId(Integer.valueOf(baseinfo.getProjectCustomer()));
+
         project.setCustomer(customer);
 
         // 3. Product
