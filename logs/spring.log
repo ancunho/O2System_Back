@@ -1,2 +1,26 @@
+<<<<<<< HEAD
 2020/06/15-00:10 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- ????Token???>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=Administrator, phone=17712341324, email=admin@admin.com, department=???, sex=?, birthday=2020-04-29, wechat=xxxxxx, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200605/20200605161751_9056317126.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
 2020/06/15-00:10 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil-  ??[3] ??Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMTU0NjUzfQ.P0zoAvk9xGJvCmvKWsc-xxFAhWWyXOcDSXkWTbeYysU
+=======
+2020/06/15-00:01 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-00:01 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMTU0MTA2fQ.ddjDFQwQktJLfND1crLvxVB_srZrXd7l9wJ-kUOB19s
+2020/06/15-00:02 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:02 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:02 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:03 [http-nio-9000-exec-5] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:03 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:04 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:04 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:04 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:04 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:04 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:05 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 37
+2020/06/15-00:05 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:06 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:06 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:06 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:06 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 35
+2020/06/15-00:13 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/15-00:13 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/15-00:13 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+>>>>>>> 19caa9d8c31892b4a455b2250bcb8ad87d0ef738
