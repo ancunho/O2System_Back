@@ -5,6 +5,7 @@ import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.dao.CustomerMapper;
 import com.business.management.pojo.Customer;
+import com.business.management.pojo.ProjectBaseinfo;
 import com.business.management.service.CustomerService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -96,6 +97,38 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer getCustomerById(Integer customerId) {
         return customerMapper.selectByPrimaryKey(customerId);
+    }
+
+    @Override
+    public ServerResponse<String> checkCustomerName(String str, String type) {
+        if (org.apache.commons.lang3.StringUtils.isNotBlank(type)) {
+            //고객명 체크
+            if (Const.CUSTOMER_NAME.equals(type)) {
+                int resultCount = customerMapper.checkCustomerName(str);
+                if (resultCount > 0) {
+                    return ServerResponse.createByErrorMessage("客户名已存在，请先查询是否已录入此客户信息");
+                } else {
+                    return ServerResponse.createBySuccessMessage("客户名不存在，可以使用");
+                }
+            } else {
+                return ServerResponse.createBySuccessMessage(Const.Message.PARAMETER_ERROR);
+            }
+        } else {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+    }
+
+    @Override
+    public ServerResponse selectProjectListByCustomerId(Integer customerId) {
+        if (customerId == null) {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+
+        List<ProjectBaseinfo> projectBaseinfoList = customerMapper.selectProjectListByCustomerId(customerId);
+        if (projectBaseinfoList != null) {
+            return ServerResponse.createBySuccess(Const.Message.SELECT_OK, projectBaseinfoList);
+        }
+        return ServerResponse.createByErrorMessage(Const.Message.SELECT_ERROR);
     }
 
 }

@@ -5,6 +5,7 @@ import com.business.management.common.Const;
 import com.business.management.common.ResponseCode;
 import com.business.management.common.ServerResponse;
 import com.business.management.common.TokenCache;
+import com.business.management.dao.CustomerMapper;
 import com.business.management.dao.UserMapper;
 import com.business.management.pojo.User;
 import com.business.management.service.UserService;

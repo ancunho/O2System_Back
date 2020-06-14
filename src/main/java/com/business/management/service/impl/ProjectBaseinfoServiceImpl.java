@@ -40,6 +40,57 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
     @Override
     @Transactional
     public ServerResponse save(ProjectBaseinfoVO projectBaseinfoVO) {
+        int resultCount = 0;
+        /***** 2. ProjectCustomer Object Save *****/
+        if (projectBaseinfoVO.getCustomer().getId() == null || "".equals(projectBaseinfoVO.getCustomer().getId())) {
+            // 如果没有id，则新增
+            Customer customer = new Customer();
+//            customer.setId(projectBaseinfoVO.getCustomer().getId());
+//            customer.setProjectId(projectBaseinfoVO.getCustomer().getProjectId());
+            customer.setCustomerName(projectBaseinfoVO.getCustomer().getCustomerName());
+            customer.setCustomerNameKr(projectBaseinfoVO.getCustomer().getCustomerNameKr());
+            customer.setCustomerCd(projectBaseinfoVO.getCustomer().getCustomerCd());
+            customer.setAuthor(projectBaseinfoVO.getCurrentUser().getRealname());
+            customer.setDirector(projectBaseinfoVO.getCustomer().getDirector());
+            customer.setStatus(Const.Status.ACTIVE);
+            customer.setCustomerType(projectBaseinfoVO.getCustomer().getCustomerType());
+            customer.setPhone(projectBaseinfoVO.getCustomer().getPhone());
+            customer.setWechat(projectBaseinfoVO.getCustomer().getWechat());
+            customer.setDescription(projectBaseinfoVO.getCustomer().getDescription());
+            customer.setSalesVolumn(projectBaseinfoVO.getCustomer().getSalesVolumn());
+            customer.setDevelopmentSkill(projectBaseinfoVO.getCustomer().getDevelopmentSkill());
+            customer.setTarget(projectBaseinfoVO.getCustomer().getTarget());
+            customer.setProductList(projectBaseinfoVO.getCustomer().getProductList());
+            customer.setDistribution(projectBaseinfoVO.getCustomer().getDistribution());
+            customer.setProvince(projectBaseinfoVO.getCustomer().getProvince());
+            customer.setCity(projectBaseinfoVO.getCustomer().getCity());
+            customer.setArea(projectBaseinfoVO.getCustomer().getArea());
+            customer.setAddress(projectBaseinfoVO.getCustomer().getAddress());
+            customer.setSalesMan(projectBaseinfoVO.getCustomer().getSalesMan());
+            customer.setCustomerImage(projectBaseinfoVO.getCustomer().getCustomerImage());
+            customer.setParam1(projectBaseinfoVO.getCustomer().getParam1());
+            customer.setParam2(projectBaseinfoVO.getCustomer().getParam2());
+            customer.setParam3(projectBaseinfoVO.getCustomer().getParam3());
+            customer.setParam4(projectBaseinfoVO.getCustomer().getParam4());
+            customer.setParam5(projectBaseinfoVO.getCustomer().getParam5());
+
+            resultCount = customerMapper.insertWhenCreateNewProject(customer);
+            projectBaseinfoVO.getCustomer().setId(customer.getId());
+
+            if (resultCount == 0) {
+                return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            }
+
+        } else {
+            // 有id，则更新
+            projectBaseinfoVO.getCustomer().setProjectId("[1,2]");
+            resultCount = customerMapper.updateByPrimaryKeySelective(projectBaseinfoVO.getCustomer());
+
+            if (resultCount == 0) {
+                return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
+            }
+        }
+
         /***** 1. ProjectBaseinfo Object Save *****/
         ProjectBaseinfo projectBaseinfo = new ProjectBaseinfo();
         // -- 프로젝트 코드
@@ -47,7 +98,7 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
         // -- 프로젝트명
         projectBaseinfo.setProjectName(projectBaseinfoVO.getProjectName());
         // -- 프로젝트 고객명
-        projectBaseinfo.setProjectCustomer(projectBaseinfoVO.getCustomer().getCustomerName());
+        projectBaseinfo.setProjectCustomer(String.valueOf(projectBaseinfoVO.getCustomer().getId()));
         // -- 프로젝트 영업담당자
         projectBaseinfo.setProjectSalesMan(projectBaseinfoVO.getProjectSalesMan());
         // -- 프로젝트 예상총매출
@@ -63,7 +114,7 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
         // -- 프로젝트 예상마감일
         projectBaseinfo.setProjectEndtime(projectBaseinfoVO.getProjectEndtime());
         // 저장
-        int resultCount = projectBaseinfoMapper.insert(projectBaseinfo);
+        resultCount = projectBaseinfoMapper.insert(projectBaseinfo);
         log.info("projectBaseinfo insert ok, id : {}",projectBaseinfo.getId());
         log.info("projectBaseinfo resultCount: {}",resultCount);
         if (resultCount == 0) {
@@ -73,50 +124,7 @@ public class ProjectBaseinfoServiceImpl implements ProjectBaseinfoService {
         // -- 프로젝트아이디 매핑시킨다
         projectBaseinfoVO.setId(projectBaseinfo.getId());
 
-        /***** 2. ProjectCustomer Object Save *****/
-        if (projectBaseinfoVO.getCustomer().getId() == null || "".equals(projectBaseinfoVO.getCustomer().getId())) {
-            // 如果没有id，则新增
-            Customer customer = new Customer();
-            customer.setId(projectBaseinfoVO.getCustomer().getId());
-            customer.setProjectId(projectBaseinfoVO.getCustomer().getProjectId());
-            customer.setCustomerName(projectBaseinfoVO.getCustomer().getCustomerName());
-            customer.setCustomerNameKr(projectBaseinfoVO.getCustomer().getCustomerNameKr());
-            customer.setCustomerCd(projectBaseinfoVO.getCustomer().getCustomerCd());
-            customer.setAuthor(projectBaseinfoVO.getCurrentUser().getRealname());
-            customer.setDirector(projectBaseinfoVO.getCustomer().getDirector());
-            customer.setStatus(Const.Status.ACTIVE);
-            customer.setPhone(projectBaseinfoVO.getCustomer().getPhone());
-            customer.setWechat(projectBaseinfoVO.getCustomer().getWechat());
-            customer.setDescription(projectBaseinfoVO.getCustomer().getDescription());
-            customer.setSalesVolumn(projectBaseinfoVO.getCustomer().getSalesVolumn());
-            customer.setDevelopmentSkill(projectBaseinfoVO.getCustomer().getDevelopmentSkill());
-            customer.setTarget(projectBaseinfoVO.getCustomer().getTarget());
-            customer.setProductList(projectBaseinfoVO.getCustomer().getProductList());
-            customer.setDistribution(projectBaseinfoVO.getCustomer().getDistribution());
-            customer.setProvince(projectBaseinfoVO.getCustomer().getProvince());
-            customer.setCity(projectBaseinfoVO.getCustomer().getCity());
-            customer.setArea(projectBaseinfoVO.getCustomer().getArea());
-            customer.setAddress(projectBaseinfoVO.getCustomer().getAddress());
-            customer.setSalesMan(projectBaseinfoVO.getCustomer().getSalesMan());
-            customer.setCustomerImage(projectBaseinfoVO.getCustomer().getCustomerImage());
-
-            resultCount = customerMapper.insert(customer);
-
-            if (resultCount == 0) {
-                return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
-            }
-
-            return ServerResponse.createBySuccess(Const.Message.SAVE_OK, projectBaseinfoVO);
-        } else {
-            // 有id，则更新
-            projectBaseinfoVO.getCustomer().setProjectId("[1,2]");
-            resultCount = customerMapper.updateByPrimaryKeySelective(projectBaseinfoVO.getCustomer());
-
-            if (resultCount == 0) {
-                return ServerResponse.createByErrorMessage(Const.Message.SAVE_ERROR);
-            }
-            return ServerResponse.createBySuccess(Const.Message.SAVE_OK, projectBaseinfoVO);
-        }
+        return ServerResponse.createBySuccess(projectBaseinfoVO);
     }
 
     @Override

@@ -15,6 +15,8 @@ public class ProjectListVO implements Serializable {
 
     private String projectCustomer;
 
+    private String customerName;
+
     private String productName;
 
     private String projectStatus;

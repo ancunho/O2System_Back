@@ -54,4 +54,20 @@ public interface CustomerService {
      */
     Customer getCustomerById(Integer customerId);
 
+    /**
+     * 고객명 중복체
+     * @param str
+     * @param type
+     * @return
+     */
+    ServerResponse<String> checkCustomerName(String str, String type);
+
+    /**
+     * 고객명으로 연관된 프로젝트 리스트 가져오기
+     * projectbaseinfo -> PROJECT_CUSTOMERNAME
+     * @param customerId
+     * @return
+     */
+    ServerResponse selectProjectListByCustomerId(Integer customerId);
+
 }

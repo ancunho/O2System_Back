@@ -40,6 +40,11 @@
     DISTRIBUTION, PROVINCE, CITY, AREA, ADDRESS, SALES_MAN, CUSTOMER_IMAGE, PARAM1, PARAM2, 
     PARAM3, PARAM4, PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
   </sql>
+  <sql id="Base_Project_Baseinfo_List">
+    ID, PROJECT_CD, PROJECT_NAME, PROJECT_CUSTOMER, PROJECT_SALES_MAN, PROJECT_PRICE_TOTAL,
+    PROJECT_STATUS, PROJECT_LOCATION, DISTRIBUTION, PROJECT_CREATER, PROJECT_STARTTIME, PROJECT_ENDTIME, PARAM1, PARAM2, PARAM3, PARAM4,
+    PARAM5, date_format(CREATETIME, '%Y-%m-%d') AS CREATETIME, date_format(UPDATETIME, '%Y-%m-%d') AS UPDATETIME
+  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -72,6 +77,29 @@
       #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR}, 
       now(), now())
   </insert>
+  <insert id="insertWhenCreateNewProject" parameterType="com.business.management.pojo.Customer">
+    insert into tb_customer (ID, PROJECT_ID, CUSTOMER_NAME,
+      CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR,
+      DIRECTOR, STATUS, PHONE,
+      WECHAT, DESCRIPTION, SALES_VOLUMN,
+      DEVELOPMENT_SKILL, CHANNEL, TARGET, PRODUCT_LIST,
+      DISTRIBUTION, PROVINCE, CITY,
+      AREA, ADDRESS, SALES_MAN,
+      CUSTOMER_IMAGE, PARAM1, PARAM2,
+      PARAM3, PARAM4, PARAM5,
+      CREATETIME, UPDATETIME)
+    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR},
+      #{customerNameKr,jdbcType=VARCHAR}, #{customerCd,jdbcType=VARCHAR}, #{customerType,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
+      #{director,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{salesVolumn,jdbcType=VARCHAR},
+      #{developmentSkill,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{target,jdbcType=VARCHAR}, #{productList,jdbcType=VARCHAR},
+      #{distribution,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+      #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{salesMan,jdbcType=VARCHAR},
+      #{customerImage,jdbcType=VARCHAR}, #{param1,jdbcType=VARCHAR}, #{param2,jdbcType=VARCHAR},
+      #{param3,jdbcType=VARCHAR}, #{param4,jdbcType=VARCHAR}, #{param5,jdbcType=VARCHAR},
+      now(), now())
+  </insert>
+
   <insert id="insertSelective" parameterType="com.business.management.pojo.Customer">
     insert into tb_customer
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -406,5 +434,23 @@
     SELECT  <include refid="Base_Column_List"/>
     FROM  	TB_CUSTOMER
     WHERE   CUSTOMER_NAME = #{customerName}
+  </select>
+
+  <select id="selectByCustomerId" parameterType="java.lang.Integer" resultType="com.business.management.pojo.Customer">
+    SELECT  <include refid="Base_Column_List"/>
+    FROM  	TB_CUSTOMER
+    WHERE   ID = #{customerId}
+  </select>
+
+  <select id="checkCustomerName" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT  COUNT(1)
+    FROM    TB_CUSTOMER
+    WHERE   CUSTOMER_NAME = #{customerName}
+  </select>
+
+  <select id="selectProjectListByCustomerId" parameterType="java.lang.Integer" resultType="com.business.management.pojo.ProjectBaseinfo">
+    SELECT  <include refid="Base_Project_Baseinfo_List" />
+    FROM    TB_PROJECT_BASEINFO
+    WHERE   PROJECT_CUSTOMER = #{customerId}
   </select>
 </mapper>

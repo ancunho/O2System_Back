@@ -92,6 +92,27 @@ public class CustomerController {
         return ServerResponse.createByErrorCodeMessage(ResponseCode.NO_PERMISSION.getCode(), ResponseCode.NO_PERMISSION.getDesc());
     }
 
+    @PassToken
+    @RequestMapping(value = "/check_customer_name")
+    public ServerResponse checkCustomerName(HttpSession session, String customerName) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return customerService.checkCustomerName(customerName, Const.CUSTOMER_NAME);
+    }
+
+    @UserLoginToken
+    @RequestMapping(value = "/project_list_by_customer_name", method = RequestMethod.POST)
+    public ServerResponse selectProjectListByCustomerName(HttpSession session, Integer customerId) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return customerService.selectProjectListByCustomerId(customerId);
+    }
 
 
 
