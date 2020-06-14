@@ -25,7 +25,7 @@ public interface ProjectBaseinfoService {
      * @param projectBaseinfo
      * @return
      */
-    ServerResponse update(ProjectBaseinfo projectBaseinfo);
+    ServerResponse update(ProjectBaseinfoVO projectBaseinfo);
 
     /**
      * PJ 리스트 반환
