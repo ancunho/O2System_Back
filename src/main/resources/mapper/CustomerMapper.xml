@@ -78,6 +78,9 @@
       now(), now())
   </insert>
   <insert id="insertWhenCreateNewProject" parameterType="com.business.management.pojo.Customer">
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into tb_customer (ID, PROJECT_ID, CUSTOMER_NAME,
       CUSTOMER_NAME_KR, CUSTOMER_CD, CUSTOMER_TYPE, AUTHOR,
       DIRECTOR, STATUS, PHONE,
