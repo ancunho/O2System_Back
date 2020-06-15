@@ -24,6 +24,7 @@
 2020/06/15-00:13 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
 2020/06/15-00:13 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
 >>>>>>> 19caa9d8c31892b4a455b2250bcb8ad87d0ef738
+<<<<<<< HEAD
 2020/06/15-00:17 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication v0.0.1-SNAPSHOT on iZuf6esl1ob386l0b0in5cZ with PID 21469 (/developer/git-repository/backend/O2System_Back/target/management-0.0.1-SNAPSHOT.jar started by root in /developer/git-repository/backend/O2System_Back)
 2020/06/15-00:17 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
 2020/06/15-00:17 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c2511c03] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
@@ -327,6 +328,33 @@ java.lang.RuntimeException: 无token
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2020/06/15-16:18 [http-nio-9000-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:43 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 644 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/15-21:43 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/15-21:43 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2464cd47] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/15-21:43 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/15-21:43 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/15-21:43 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/15-21:43 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/15-21:43 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1281 ms
+2020/06/15-21:43 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/15-21:43 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/15-21:43 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/15-21:43 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/15-21:43 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.811 seconds (JVM running for 3.473)
+2020/06/15-21:43 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/15-21:43 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/15-21:43 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/15-21:43 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 7 ms
+2020/06/15-21:43 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/15-21:43 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-21:43 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMyMjEyfQ.wOEGCrA2mrcwwCzOeZrdLlNtvcSXJlZzNuge44LUG1E
+2020/06/15-21:44 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-21:44 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMyMjQwfQ.OML8eptUciHr2R7FrnmKzyrt8rPlwOsgEDHGTbTFiCo
+2020/06/15-21:44 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 38
+2020/06/15-21:44 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-21:44 [http-nio-9000-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -340,7 +368,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -405,7 +437,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:18 [http-nio-9000-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:44 [http-nio-9000-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -419,7 +455,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -484,7 +524,15 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:19 [http-nio-9000-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:45 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 39
+2020/06/15-21:45 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-21:45 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 40
+2020/06/15-21:45 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-21:45 [http-nio-9000-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -498,7 +546,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -563,7 +615,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:19 [http-nio-9000-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:45 [http-nio-9000-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -577,7 +633,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -642,7 +702,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:22 [http-nio-9000-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:46 [http-nio-9000-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -656,7 +720,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -721,7 +789,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:26 [http-nio-9000-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:46 [http-nio-9000-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -735,7 +807,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -800,7 +876,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:30 [http-nio-9000-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:47 [http-nio-9000-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -814,7 +894,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -879,7 +963,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-16:33 [http-nio-9000-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:47 [http-nio-9000-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -893,7 +981,11 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$c035cb4c.project_view(<generated>)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -958,9 +1050,49 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-17:12 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=Administrator, phone=17712341324, email=admin@admin.com, department=人资部, sex=男, birthday=2020-04-29, wechat=xxxxxx, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200605/20200605161751_9056317126.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
 2020/06/15-17:12 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjE1OTMwfQ.wyQ0M4xiPitCN0C_PYOU9xdCMiCNDZRFd2uf87HKfQc
 2020/06/15-17:12 [http-nio-9000-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+=======
+2020/06/15-21:57 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-21:57 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMzMDc1fQ.kqXkAX1e-XwgTlIT9UM4MiJiyJ3grey7BYyUCxS7yYg
+2020/06/15-21:58 [http-nio-9000-exec-6] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 41
+2020/06/15-21:58 [http-nio-9000-exec-6] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-22:03 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/15-22:03 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/15-22:03 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/15-22:03 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 904 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/15-22:03 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/15-22:03 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5d22304d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/15-22:03 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/15-22:03 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/15-22:03 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/15-22:03 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/15-22:03 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 864 ms
+2020/06/15-22:03 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/15-22:03 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/15-22:03 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/15-22:03 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/15-22:03 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.134 seconds (JVM running for 2.717)
+2020/06/15-22:03 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/15-22:03 [RMI TCP Connection(4)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/15-22:03 [RMI TCP Connection(4)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/15-22:03 [RMI TCP Connection(4)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 4 ms
+2020/06/15-22:03 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/15-22:03 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-22:03 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMzNDM0fQ.jIKClcEaEzlNdGPnmm0jHhdyQbh8LXYZyZBl17QC1tQ
+2020/06/15-22:04 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 42
+2020/06/15-22:04 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-22:08 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-22:08 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMzNzEwfQ.pdluOHBAFiNwY7VDHsEqh9Ys67fgNNDYFXVd52mZqYE
+2020/06/15-22:11 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/15-22:11 [http-nio-9000-exec-10] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjMzOTEzfQ.ep01A4c5C7n5LCH6ow3i4u5-gbJsGdm7usD1fvCkSsc
+2020/06/15-22:19 [http-nio-9000-exec-8] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo insert ok, id : 43
+2020/06/15-22:19 [http-nio-9000-exec-8] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo resultCount: 1
+2020/06/15-22:19 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 43
+2020/06/15-22:43 [http-nio-9000-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 java.lang.NumberFormatException: For input string: "null"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:580)
@@ -974,10 +1106,16 @@ java.lang.NumberFormatException: For input string: "null"
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<<<<<<< HEAD
 	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$d5878d50.project_view(<generated>)
 	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+=======
+	at com.business.management.service.impl.ProjectDetailServiceImpl$$EnhancerBySpringCGLIB$$87f5f47d.project_view(<generated>)
+	at com.business.management.controller.ProjectController.project_view(ProjectController.java:156)
+	at sun.reflect.GeneratedMethodAccessor272.invoke(Unknown Source)
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
@@ -1039,6 +1177,7 @@ java.lang.NumberFormatException: For input string: "null"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/15-17:17 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=Administrator, phone=17712341324, email=admin@admin.com, department=人资部, sex=男, birthday=2020-04-29, wechat=xxxxxx, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200605/20200605161751_9056317126.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
 2020/06/15-17:17 [http-nio-9000-exec-7] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkyMjE2MjY1fQ.0jsqWse8ECaoVlLjfvFdYwhpeyitQPA4gPgjp-wSDho
 2020/06/15-18:05 [http-nio-9000-exec-8] INFO  org.apache.coyote.http11.Http11Processor- Error parsing HTTP request header
@@ -1307,3 +1446,8 @@ java.lang.RuntimeException: 无token
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+=======
+2020/06/15-22:43 [Thread-6] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/15-22:43 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/15-22:43 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
