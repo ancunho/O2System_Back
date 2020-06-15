@@ -421,7 +421,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM  	TB_CUSTOMER
-    ORDER BY CREATETIME DESC
+    ORDER BY ID DESC
   </select>
 
   <select id="getCustomerListOnlyIDAndName" resultType="com.business.management.pojo.Customer">
