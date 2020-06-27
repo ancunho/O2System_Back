@@ -14,6 +14,8 @@ public class Const {
 
     public static final String CUSTOMER_NAME = "customerName";
 
+    public static final String CUSTOMER_CD = "customerCd";
+
     public static final String RedirectLoginPage = "login";
 
     public static final String DEFAULT_PASSWORD = "123456";

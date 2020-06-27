@@ -90,9 +90,11 @@ public class CommonController {
 
                 // 고객사진 바꿀때
             } else if (type.equals(Const.FileType.CUSTOMER_AVATAR)) {
-                Customer customer = customerService.getCustomerById(Integer.valueOf(id));
-                customer.setCustomerImage(targetFileName);
-                return customerService.update(customer);
+                return ServerResponse.createBySuccess(targetFileName);
+
+//                Customer customer = customerService.getCustomerById(Integer.valueOf(id));
+//                customer.setCustomerImage(targetFileName);
+//                return customerService.update(customer);
             } else {
                 return ServerResponse.createBySuccessMessage(Const.Message.SAVE_OK);
             }

@@ -103,6 +103,17 @@ public class CustomerController {
         return customerService.checkCustomerName(customerName, Const.CUSTOMER_NAME);
     }
 
+    @PassToken
+    @RequestMapping(value = "/check_customer_cd")
+    public ServerResponse checkCustomerCode(HttpSession session, String customerCd) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+
+        return customerService.checkCustomerCode(customerCd, Const.CUSTOMER_CD);
+    }
+
     @UserLoginToken
     @RequestMapping(value = "/project_list_by_customer_name", method = RequestMethod.POST)
     public ServerResponse selectProjectListByCustomerName(HttpSession session, Integer customerId) {

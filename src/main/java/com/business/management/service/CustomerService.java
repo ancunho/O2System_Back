@@ -55,12 +55,20 @@ public interface CustomerService {
     Customer getCustomerById(Integer customerId);
 
     /**
-     * 고객명 중복체
+     * 고객명 중복체크
      * @param str
      * @param type
      * @return
      */
     ServerResponse<String> checkCustomerName(String str, String type);
+
+    /**
+     * 고객코드 중북체크
+     * @param str
+     * @param type
+     * @return
+     */
+    ServerResponse<String> checkCustomerCode(String str, String type);
 
     /**
      * 고객명으로 연관된 프로젝트 리스트 가져오기

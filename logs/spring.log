@@ -648,6 +648,7 @@ java.lang.NumberFormatException: For input string: "????"
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
 2020/06/27-21:09 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- ????Token???>>>>>>>>>>User(id=3, username=admin, password=427338237BD929443EC5D48E24FD2B1A, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=Administrator, phone=17712341324, email=admin@admin.com, department=???, sex=?, birthday=2020-04-29, wechat=xxxxxx, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200605/20200605161751_9056317126.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
 2020/06/27-21:09 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil-  ??[3] ??Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjY2OTU5fQ.jioVw0fbxZ2AbHUBkfmERPPveSwnDY6i3jIbALK93iQ
 2020/06/27-21:17 [http-nio-9000-exec-10] INFO  org.apache.coyote.http11.Http11Processor- Error parsing HTTP request header
@@ -655,6 +656,121 @@ java.lang.NumberFormatException: For input string: "????"
 java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
 	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:415)
 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+=======
+=======
+2020/06/15-22:43 [Thread-6] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/15-22:43 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/15-22:43 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+>>>>>>> f0eee4f7661021012bb7023e4de13b6517d5d7fa
+2020/06/27-15:57 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3397 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-15:57 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-15:57 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9462a61b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-15:57 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-15:57 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-15:57 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-15:57 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-15:57 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1320 ms
+2020/06/27-15:57 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-15:57 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-15:57 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-15:57 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-15:57 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.734 seconds (JVM running for 3.303)
+2020/06/27-15:57 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-15:57 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-15:57 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-15:57 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 6 ms
+2020/06/27-15:57 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-15:58 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/home/file/20200627/,新文件名:20200627155824_5724557107.blob,文件格式：blob
+2020/06/27-15:59 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-15:59 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ4MzUxfQ.RELX3K4q_T9KV5w-kDgINoFytQwMAltFdx6LrSDFVcg
+2020/06/27-15:59 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/home/file/20200627/,新文件名:20200627155919_9701538542.blob,文件格式：blob
+2020/06/27-16:02 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:02 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-16:02 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-16:02 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3451 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-16:02 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-16:02 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4b71926e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-16:02 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-16:02 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-16:02 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-16:02 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-16:02 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 988 ms
+2020/06/27-16:02 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:02 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-16:02 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-16:02 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-16:02 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.193 seconds (JVM running for 2.76)
+2020/06/27-16:02 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-16:02 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-16:02 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-16:02 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/06/27-16:02 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-16:03 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:03 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ4NTgxfQ.RPvLhLHFdmK3g0LEwH5vz1YSY_5kg6cXu4T87kEWGwo
+2020/06/27-16:03 [http-nio-9000-exec-8] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627160309_3210925140.blob,文件格式：blob
+2020/06/27-16:04 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627160456_8781275954.blob,文件格式：blob
+2020/06/27-16:04 [http-nio-9000-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "null"] with root cause
+java.lang.NumberFormatException: For input string: "null"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at com.business.management.controller.CommonController.file_upload(CommonController.java:93)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:88)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:114)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:104)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+>>>>>>> 907d8b04b65768a170729ae18e600f5d918d7682
 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
@@ -663,3 +779,152 @@ java.lang.IllegalArgumentException: Invalid character found in method name. HTTP
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+<<<<<<< HEAD
+=======
+2020/06/27-16:05 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627160532_2711488815.blob,文件格式：blob
+2020/06/27-16:15 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:15 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-16:15 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-16:15 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3471 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-16:15 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-16:15 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fbc97e96] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-16:15 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-16:15 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-16:15 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-16:15 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-16:15 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 922 ms
+2020/06/27-16:15 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:15 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-16:15 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-16:15 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-16:15 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.141 seconds (JVM running for 2.647)
+2020/06/27-16:15 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-16:15 [RMI TCP Connection(1)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-16:15 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-16:15 [RMI TCP Connection(1)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 4 ms
+2020/06/27-16:15 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-16:16 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161600_4119074875.blob,文件格式：blob
+2020/06/27-16:16 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:16 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ5Mzc1fQ.Z7JSV8AxL9S4M-rY7y9PsTzN8i8D4oMAqunbtbBugIk
+2020/06/27-16:16 [http-nio-9000-exec-9] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161622_5253199276.blob,文件格式：blob
+2020/06/27-16:16 [http-nio-9000-exec-10] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161634_3009435649.blob,文件格式：blob
+2020/06/27-16:18 [Thread-6] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:18 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-16:18 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-16:18 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3583 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-16:18 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-16:18 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$667bf823] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-16:18 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-16:18 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-16:18 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-16:18 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-16:18 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1012 ms
+2020/06/27-16:18 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:18 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-16:18 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-16:18 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-16:18 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.233 seconds (JVM running for 2.745)
+2020/06/27-16:18 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-16:18 [RMI TCP Connection(3)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-16:18 [RMI TCP Connection(3)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-16:18 [RMI TCP Connection(3)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/06/27-16:18 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-16:18 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:18 [http-nio-9000-exec-1] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ5NTI3fQ.iG_GyYq1GYCYtKUg1hz9L-ow2vAJ0jT9326iakIygZc
+2020/06/27-16:18 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:18 [http-nio-9000-exec-9] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ5NTM1fQ.tLbjC9Q4Elrj6NR7Yfq-StiB4GG240BjU82-eT40zBU
+2020/06/27-16:19 [http-nio-9000-exec-3] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161902_5437252346.blob,文件格式：blob
+2020/06/27-16:19 [http-nio-9000-exec-4] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161908_5808249601.blob,文件格式：blob
+2020/06/27-16:19 [http-nio-9000-exec-5] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/20200627/,新文件名:20200627161924_3412597961.blob,文件格式：blob
+2020/06/27-16:22 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:22 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-16:22 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-16:22 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3635 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-16:22 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-16:22 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e79cb768] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-16:22 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-16:22 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-16:22 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-16:22 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-16:22 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1089 ms
+2020/06/27-16:22 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:22 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-16:22 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-16:22 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-16:22 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.436 seconds (JVM running for 2.997)
+2020/06/27-16:22 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-16:22 [RMI TCP Connection(4)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-16:22 [RMI TCP Connection(4)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-16:22 [RMI TCP Connection(4)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/06/27-16:22 [RMI TCP Connection(3)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-16:22 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:22 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ5Nzc5fQ.Is0Ku0Z-rGPogORGmrGlBkzpO96gq1Mg0IiFoZDbScE
+2020/06/27-16:23 [http-nio-9000-exec-8] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/file//20200627/,新文件名:20200627162309_8952845576.blob,文件格式：blob
+2020/06/27-16:23 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:23 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-16:23 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-16:23 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3644 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-16:23 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-16:23 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c1c8aaad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-16:23 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-16:23 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-16:23 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-16:23 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-16:23 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1039 ms
+2020/06/27-16:23 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-16:23 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-16:23 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-16:23 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-16:23 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.282 seconds (JVM running for 2.745)
+2020/06/27-16:23 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-16:23 [RMI TCP Connection(2)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-16:23 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-16:23 [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 5 ms
+2020/06/27-16:23 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-16:23 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=http://101.133.219.148:3000/file/20200523/20200523221330_9494129177.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-13)
+2020/06/27-16:23 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjQ5ODI4fQ.bJWW4j52-ZBNolyPQAVZQ-d4H4g7tBxcc-mse_otFiM
+2020/06/27-16:23 [http-nio-9000-exec-8] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/file/20200627/,新文件名:20200627162358_2150266327.blob,文件格式：blob
+2020/06/27-16:24 [http-nio-9000-exec-1] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/file/20200627/,新文件名:20200627162428_9111184944.blob,文件格式：blob
+2020/06/27-16:26 [http-nio-9000-exec-7] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:blob,上传的路径:/Users/cunho/Postman/files/file/20200627/,新文件名:20200627162617_2278580093.blob,文件格式：blob
+2020/06/27-16:26 [http-nio-9000-exec-6] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:avatar.jpg,上传的路径:/Users/cunho/Postman/files/file/20200627/,新文件名:20200627162655_1710747557.jpg,文件格式：jpg
+2020/06/27-16:27 [http-nio-9000-exec-7] INFO  com.business.management.service.impl.FileServiceImpl- 开始上传文件,上传文件的文件名:avatar.jpg,上传的路径:/Users/cunho/Postman/files/file/20200627/,新文件名:20200627162710_2490131489.jpg,文件格式：jpg
+2020/06/27-16:36 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=/file/20200627/20200627162617_2278580093.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-16:36 [http-nio-9000-exec-5] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjUwNTcxfQ.5qZcWAE6tzcBJHWQ3Vi5c2AqZ5pZzyQ_wSU0Ax4HP1Q
+2020/06/27-16:40 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=/file/20200627/20200627162617_2278580093.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-16:40 [http-nio-9000-exec-3] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjUwODUyfQ.49wDMmWOsZ33Vr4rTEJsnDs1_uiDrsIXxjTrDvn-WhU
+2020/06/27-16:49 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=10, username=harace, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=0, role=ROLE_USER, status=1, empno=wqeqwe, realname=ym, phone=17712341234, email=ym@test.com, department=财务部, sex=null, birthday=null, wechat=null, qq=null, province=null, city=null, area=null, address=null, question=2, answer=qweqe, imagePhoto=/avatar.jpg, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-16:49 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil-  用户[10] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9VU0VSIiwiYXVkIjoiMTAiLCJVU0VSTkFNRSI6ImhhcmFjZSIsImV4cCI6MTU5MzI1MTM1OX0.J-ojObVHD0U_boT26W8rbIT2rqppoPcL-R-fygj_FFI
+2020/06/27-16:50 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=/file/20200627/20200627162617_2278580093.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-16:50 [http-nio-9000-exec-2] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjUxNDEzfQ.IQ-uMwGamxcIFxaWLsiNr-_XXLPjDmdy4ur5ryHSeHg
+2020/06/27-16:53 [http-nio-9000-exec-2] INFO  com.business.management.service.impl.ProjectBaseinfoServiceImpl- projectBaseinfo update ok, id : 43
+2020/06/27-16:53 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=10, username=harace, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=0, role=ROLE_USER, status=1, empno=wqeqwe, realname=ym, phone=17712341234, email=ym@test.com, department=财务部, sex=null, birthday=null, wechat=null, qq=null, province=null, city=null, area=null, address=null, question=2, answer=qweqe, imagePhoto=/avatar.jpg, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-16:53 [http-nio-9000-exec-6] INFO  com.business.management.util.TokenUtil-  用户[10] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9VU0VSIiwiYXVkIjoiMTAiLCJVU0VSTkFNRSI6ImhhcmFjZSIsImV4cCI6MTU5MzI1MTYzOH0.otXGYlQWlN-rfrhA1Kp5sSU0HhyKWGOsC06GmYyX3iA
+2020/06/27-17:05 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=/file/20200627/20200627162617_2278580093.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-17:05 [http-nio-9000-exec-8] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjUyMzU1fQ.eNcL5zlB7BKKfYQeSbiOrnkIb9U_8ERvLAtflhnStbE
+2020/06/27-17:08 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-17:08 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-17:08 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+2020/06/27-17:08 [main] INFO  com.business.management.ManagementApplication- Starting ManagementApplication on anchunhoui-MacBookPro.local with PID 3745 (/Users/cunho/Project/O2System/Backend/O2System_Back/target/classes started by cunho in /Users/cunho/Project/O2System/Backend/O2System_Back)
+2020/06/27-17:08 [main] INFO  com.business.management.ManagementApplication- No active profile set, falling back to default profiles: default
+2020/06/27-17:08 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f257fa21] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020/06/27-17:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 9000 (http)
+2020/06/27-17:08 [main] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/06/27-17:08 [main] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020/06/27-17:08 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/06/27-17:08 [main] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1015 ms
+2020/06/27-17:08 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/06/27-17:08 [main] WARN  org.thymeleaf.templatemode.TemplateMode- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020/06/27-17:08 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver- Exposing 2 endpoint(s) beneath base path '/actuator'
+2020/06/27-17:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 9000 (http) with context path ''
+2020/06/27-17:08 [main] INFO  com.business.management.ManagementApplication- Started ManagementApplication in 2.382 seconds (JVM running for 2.977)
+2020/06/27-17:08 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/06/27-17:08 [RMI TCP Connection(3)-127.0.0.1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/06/27-17:08 [RMI TCP Connection(3)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/06/27-17:08 [RMI TCP Connection(3)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 12 ms
+2020/06/27-17:08 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/06/27-17:08 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil- 正在创建Token的用户>>>>>>>>>>User(id=3, username=admin, password=D8F80B67499E434EA61ADAF6E6219BF2, roleNo=1, role=ROLE_ADMIN, status=1, empno=1111111, realname=ancunho, phone=17712341324, email=test@test.com, department=人资部, sex=男, birthday=2020-04-29, wechat=cunho910, qq=222222, province=11, city=1101, area=110101, address=qqqqqqqq, question=wenti, answer=daan, imagePhoto=/file/20200627/20200627162617_2278580093.blob, param1=null, param2=null, param3=null, param4=null, param5=null, createtime=null, updatetime=2020-06-27)
+2020/06/27-17:08 [http-nio-9000-exec-4] INFO  com.business.management.util.TokenUtil-  用户[3] 创建Token>>>>>>>>>>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJST0xFIjoiUk9MRV9BRE1JTiIsImF1ZCI6IjMiLCJVU0VSTkFNRSI6ImFkbWluIiwiZXhwIjoxNTkzMjUyNTE0fQ.5WPPtn2hJLUJSeObWZfYBziEo94rdkmY6Axy971S7q8
+2020/06/27-17:23 [Thread-7] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/06/27-17:23 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown initiated...
+2020/06/27-17:23 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Shutdown completed.
+>>>>>>> 907d8b04b65768a170729ae18e600f5d918d7682

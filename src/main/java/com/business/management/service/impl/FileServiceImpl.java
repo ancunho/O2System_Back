@@ -79,7 +79,7 @@ public class FileServiceImpl implements FileService {
         //새로운 파일명  UUID.randomUUID().toString()
         String uploadFileName = DateUtil.getTime() + "_" + ValueUtil.generateUid(10) + "." + fileExtensionName;
         //文件路径 + "/"
-        String remotePath = File.separator +  DateUtil.getDays() + File.separator;
+        String remotePath = "/file" + File.separator +  DateUtil.getDays() + File.separator;
         //文件保存路径   /home
         String path = propertiesConfig.getFilePath() + remotePath;
 
@@ -110,7 +110,8 @@ public class FileServiceImpl implements FileService {
             e.printStackTrace();
         }
 
-        String finalFileName = propertiesConfig.getFileServerHttpPrefix() + remotePath + uploadFileName;
+//        String finalFileName = propertiesConfig.getFileServerHttpPrefix() + remotePath + uploadFileName;
+        String finalFileName = remotePath + uploadFileName;
         return finalFileName;
     }
 

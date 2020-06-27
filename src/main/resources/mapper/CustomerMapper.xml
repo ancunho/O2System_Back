@@ -451,6 +451,12 @@
     WHERE   CUSTOMER_NAME = #{customerName}
   </select>
 
+  <select id="checkCustomerCd" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT  COUNT(1)
+    FROM    TB_CUSTOMER
+    WHERE   CUSTOMER_CD = #{customerCd}
+  </select>
+
   <select id="selectProjectListByCustomerId" parameterType="java.lang.Integer" resultType="com.business.management.pojo.ProjectBaseinfo">
     SELECT  <include refid="Base_Project_Baseinfo_List" />
     FROM    TB_PROJECT_BASEINFO

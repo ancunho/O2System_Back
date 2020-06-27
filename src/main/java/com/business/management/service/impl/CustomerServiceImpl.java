@@ -119,6 +119,25 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
+    public ServerResponse<String> checkCustomerCode(String str, String type) {
+        if (org.apache.commons.lang3.StringUtils.isNotBlank(type)) {
+            //고객명 체크
+            if (Const.CUSTOMER_CD.equals(type)) {
+                int resultCount = customerMapper.checkCustomerCd(str);
+                if (resultCount > 0) {
+                    return ServerResponse.createByErrorMessage("客户编号已存在，请先查询是否已录入此客户信息");
+                } else {
+                    return ServerResponse.createBySuccessMessage("客户编号不存在，可以使用");
+                }
+            } else {
+                return ServerResponse.createBySuccessMessage(Const.Message.PARAMETER_ERROR);
+            }
+        } else {
+            return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
+        }
+    }
+
+    @Override
     public ServerResponse selectProjectListByCustomerId(Integer customerId) {
         if (customerId == null) {
             return ServerResponse.createByErrorMessage(Const.Message.PARAMETER_ERROR);
