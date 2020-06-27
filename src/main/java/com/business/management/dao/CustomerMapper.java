@@ -35,6 +35,8 @@ public interface CustomerMapper {
 
     int checkCustomerName(@Param(value = "customerName") String customerName);
 
+    int checkCustomerCd(@Param(value = "customerCd") String customerCd);
+
     List<ProjectBaseinfo> selectProjectListByCustomerId(@Param(value = "customerId") Integer customerId);
 
 

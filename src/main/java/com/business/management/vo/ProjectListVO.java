@@ -31,4 +31,6 @@ public class ProjectListVO implements Serializable {
 
     private String createtime;
 
+    private String updatetime;
+
 }

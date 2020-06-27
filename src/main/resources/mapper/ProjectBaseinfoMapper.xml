@@ -271,6 +271,7 @@
             ,BASEINFO.PROJECT_STARTTIME
             ,BASEINFO.PROJECT_ENDTIME
             ,date_format(BASEINFO.CREATETIME, '%Y-%m-%d') AS CREATETIME
+            ,date_format(BASEINFO.UPDATETIME, '%Y-%m-%d') AS UPDATETIME
     FROM TB_PROJECT_BASEINFO BASEINFO LEFT JOIN TB_PROJECT_PRODUCT PRODUCT ON BASEINFO.ID = PRODUCT.PROJECT_ID
             LEFT JOIN TB_CUSTOMER CUSTOMER ON BASEINFO.PROJECT_CUSTOMER = CUSTOMER.ID
     WHERE 	1 = 1
@@ -285,6 +286,7 @@
             ,BASEINFO.PROJECT_STARTTIME
             ,BASEINFO.PROJECT_ENDTIME
             ,BASEINFO.CREATETIME
+            ,BASEINFO.UPDATETIME
             ,PRODUCT.PRODUCT_NAME
     ORDER BY ID DESC
   </select>
@@ -296,6 +298,7 @@
   <update id="updateProjectStatusById" parameterType="map">
     UPDATE  TB_PROJECT_BASEINFO
     SET     PROJECT_STATUS = #{projectStatus}
+            ,UPDATETIME = now()
     WHERE   ID = #{projectId}
   </update>
 
